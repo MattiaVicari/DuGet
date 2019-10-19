@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-10-18 23:47\n"
-"PO-Revision-Date: 2019-10-18 23:47\n"
+"POT-Creation-Date: 2019-10-19 23:02\n"
+"PO-Revision-Date: 2019-10-19 23:02\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,71 +27,88 @@ msgstr ""
 
 #. frmMain..AppCaptionBar..Caption
 #: DuGet.MainFrm.dfm:27
-msgid "Lista dei package"
+#. frmPackagesList..txtTitle..Caption
+#: DuGet.PackagesListFrm.dfm:18
+msgid "Packages list"
 msgstr ""
 
 #. frmMain..AppCaptionBar..Font.Name
 #: DuGet.MainFrm.dfm:32
 #. frmMain..boxHamburgerMenu..Font.Name
-#: DuGet.MainFrm.dfm:143
+#: DuGet.MainFrm.dfm:142
 #. frmMain..boxHamburgerMenu..btnMenu..TextFont.Name
-#: DuGet.MainFrm.dfm:163
+#: DuGet.MainFrm.dfm:162
 #. frmMain..boxHamburgerMenu..btnMenu..DetailFont.Name
-#: DuGet.MainFrm.dfm:168
+#: DuGet.MainFrm.dfm:167
 #. frmMain..boxHamburgerMenu..btnSettings..TextFont.Name
-#: DuGet.MainFrm.dfm:198
+#: DuGet.MainFrm.dfm:194
 #. frmMain..boxHamburgerMenu..btnSettings..DetailFont.Name
-#: DuGet.MainFrm.dfm:203
+#: DuGet.MainFrm.dfm:199
 #. frmMain..boxHamburgerMenu..btnAbout..TextFont.Name
-#: DuGet.MainFrm.dfm:230
+#: DuGet.MainFrm.dfm:225
 #. frmMain..boxHamburgerMenu..btnAbout..DetailFont.Name
-#: DuGet.MainFrm.dfm:235
+#: DuGet.MainFrm.dfm:230
+#. frmMain..boxPageContent..Font.Name
+#: DuGet.MainFrm.dfm:254
+#. frmPackagesList..txtTitle..Font.Name
+#: DuGet.PackagesListFrm.dfm:22
+#. frmPackagesList..boxContent..Font.Name
+#: DuGet.PackagesListFrm.dfm:44
+#. frmPackagesList..boxContent..boxPackageInfo..Font.Name
+#: DuGet.PackagesListFrm.dfm:94
+#. frmPackagesList..boxContent..boxPackageInfo..txtPackageInfo..Font.Name
+#: DuGet.PackagesListFrm.dfm:114
 msgid "Segoe UI"
 msgstr ""
 
 #. frmMain..AppCaptionBar..btnSwitchTheme..Hint
-#: DuGet.MainFrm.dfm:43
-msgid "Cambia tema"
+#: DuGet.MainFrm.dfm:42
+msgid "Change theme"
 msgstr ""
 
 #. frmMain..AppCaptionBar..btnSwitchTheme..Font.Name
-#: DuGet.MainFrm.dfm:55
+#: DuGet.MainFrm.dfm:54
 #. frmMain..AppCaptionBar..btnMinimize..Font.Name
-#: DuGet.MainFrm.dfm:78
+#: DuGet.MainFrm.dfm:77
 #. frmMain..AppCaptionBar..btnMaximize..Font.Name
-#: DuGet.MainFrm.dfm:100
+#: DuGet.MainFrm.dfm:99
 #. frmMain..AppCaptionBar..btnQuit..Font.Name
-#: DuGet.MainFrm.dfm:122
+#: DuGet.MainFrm.dfm:121
 #. frmMain..boxHamburgerMenu..btnMenu..SymbolFont.Name
-#: DuGet.MainFrm.dfm:158
+#: DuGet.MainFrm.dfm:157
 #. frmMain..boxHamburgerMenu..btnSettings..SymbolFont.Name
-#: DuGet.MainFrm.dfm:193
+#: DuGet.MainFrm.dfm:189
 #. frmMain..boxHamburgerMenu..btnAbout..SymbolFont.Name
-#: DuGet.MainFrm.dfm:225
+#: DuGet.MainFrm.dfm:220
 msgid "Segoe MDL2 Assets"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnMenu..Text
-#: DuGet.MainFrm.dfm:171
+#: DuGet.MainFrm.dfm:170
 msgid "Menu"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnMenu..Detail
-#: DuGet.MainFrm.dfm:173
+#: DuGet.MainFrm.dfm:172
 #. frmMain..boxHamburgerMenu..btnSettings..Detail
-#: DuGet.MainFrm.dfm:208
+#: DuGet.MainFrm.dfm:204
 #. frmMain..boxHamburgerMenu..btnAbout..Detail
-#: DuGet.MainFrm.dfm:240
+#: DuGet.MainFrm.dfm:235
 msgid "Detail"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnSettings..Text
-#: DuGet.MainFrm.dfm:206
-msgid "Impostazioni"
+#: DuGet.MainFrm.dfm:202
+msgid "Settings"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnAbout..Text
-#: DuGet.MainFrm.dfm:238
-msgid "Informazioni"
+#: DuGet.MainFrm.dfm:233
+msgid "About"
+msgstr ""
+
+#. frmPackagesList..boxContent..boxPackageInfo..txtPackageInfo..Caption
+#: DuGet.PackagesListFrm.dfm:110
+msgid "Package info"
 msgstr ""
 

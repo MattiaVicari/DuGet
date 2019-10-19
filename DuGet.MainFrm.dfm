@@ -24,7 +24,7 @@ object frmMain: TfrmMain
     Align = alTop
     Alignment = taLeftJustify
     BevelOuter = bvNone
-    Caption = 'Lista dei package'
+    Caption = 'Packages list'
     Color = 15921906
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -39,7 +39,7 @@ object frmMain: TfrmMain
       Top = 0
       Width = 45
       Height = 32
-      Hint = 'Cambia tema'
+      Hint = 'Change theme'
       ThemeManager = AppThemeManager
       ButtonStyle = qbsSysButton
       LightColor = 13619151
@@ -199,7 +199,7 @@ object frmMain: TfrmMain
       DetailFont.Name = 'Segoe UI'
       DetailFont.Style = []
       SymbolChar = #59155
-      Text = 'Impostazioni'
+      Text = 'Settings'
       TextOffset = 45
       Detail = 'Detail'
       ShowDetail = False
@@ -230,7 +230,7 @@ object frmMain: TfrmMain
       DetailFont.Name = 'Segoe UI'
       DetailFont.Style = []
       SymbolChar = #59267
-      Text = 'Informazioni'
+      Text = 'About'
       TextOffset = 45
       Detail = 'Detail'
       ShowDetail = False
@@ -257,10 +257,6 @@ object frmMain: TfrmMain
     ParentFont = False
     ShowCaption = False
     TabOrder = 2
-    ExplicitLeft = 160
-    ExplicitTop = 208
-    ExplicitWidth = 185
-    ExplicitHeight = 41
   end
   object AppThemeManager: TUThemeManager
     Left = 456

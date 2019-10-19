@@ -15,8 +15,10 @@ type
     FCurrentPage: TFrame;
     FListOfPages: TObjectList<TFrame>;
   public
-    procedure Push(PageType: TPageType);
+    procedure Push(PageType: TPageType); overload;
+    procedure Push(const PageName: string); overload;
     procedure Pop;
+
     destructor Destroy; override;
     constructor Create(APageContainer: TWinControl);
 
@@ -62,6 +64,17 @@ begin
     FListOfPages.RemoveItem(FCurrentPage, FromEnd);
     FreeAndNil(FCurrentPage);
   end;
+end;
+
+procedure TNavigationManager.Push(const PageName: string);
+var
+  PageClass: TPageType;
+begin
+  PageClass := TPageType(FindClass(PageName));
+
+  FCurrentPage := PageClass.Create(PageContainer);
+  FCurrentPage.Parent := PageContainer;
+  FListOfPages.Add(FCurrentPage);
 end;
 
 procedure TNavigationManager.Push(PageType: TPageType);

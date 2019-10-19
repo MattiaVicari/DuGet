@@ -39,7 +39,6 @@ implementation
 
 uses
   DuGet.Utils,
-  DuGet.PackagesListFrm,
   DuGet.NavigationManager;
 
 procedure TfrmMain.btnMenuClick(Sender: TObject);
@@ -58,6 +57,7 @@ end;
 procedure TfrmMain.btnSettingsClick(Sender: TObject);
 begin
   NavigationManager.Pop;
+  // TODO
 end;
 
 procedure TfrmMain.btnSwitchThemeClick(Sender: TObject);
@@ -89,7 +89,7 @@ begin
   StartSplashScreen;
 
   // My start page is the list of packages
-  NavigationManager.Push(TfrmPackagesList);
+  NavigationManager.Push('PackagesListPage');
 end;
 
 end.
