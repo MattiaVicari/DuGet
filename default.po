@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-10-18 23:47\n"
+"PO-Revision-Date: 2019-10-18 23:47\n"
+"Last-Translator: Somebody <your.email@address.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: dxgettext 2.6.1\n"
+
+#. frmMain..Caption
+#: DuGet.MainFrm.dfm:4
+msgid "DuGet - Delphi package manager"
+msgstr ""
+
+#. frmMain..Font.Name
+#: DuGet.MainFrm.dfm:11
+msgid "Tahoma"
+msgstr ""
+
+#. frmMain..AppCaptionBar..Caption
+#: DuGet.MainFrm.dfm:27
+msgid "Lista dei package"
+msgstr ""
+
+#. frmMain..AppCaptionBar..Font.Name
+#: DuGet.MainFrm.dfm:32
+#. frmMain..boxHamburgerMenu..Font.Name
+#: DuGet.MainFrm.dfm:143
+#. frmMain..boxHamburgerMenu..btnMenu..TextFont.Name
+#: DuGet.MainFrm.dfm:163
+#. frmMain..boxHamburgerMenu..btnMenu..DetailFont.Name
+#: DuGet.MainFrm.dfm:168
+#. frmMain..boxHamburgerMenu..btnSettings..TextFont.Name
+#: DuGet.MainFrm.dfm:198
+#. frmMain..boxHamburgerMenu..btnSettings..DetailFont.Name
+#: DuGet.MainFrm.dfm:203
+#. frmMain..boxHamburgerMenu..btnAbout..TextFont.Name
+#: DuGet.MainFrm.dfm:230
+#. frmMain..boxHamburgerMenu..btnAbout..DetailFont.Name
+#: DuGet.MainFrm.dfm:235
+msgid "Segoe UI"
+msgstr ""
+
+#. frmMain..AppCaptionBar..btnSwitchTheme..Hint
+#: DuGet.MainFrm.dfm:43
+msgid "Cambia tema"
+msgstr ""
+
+#. frmMain..AppCaptionBar..btnSwitchTheme..Font.Name
+#: DuGet.MainFrm.dfm:55
+#. frmMain..AppCaptionBar..btnMinimize..Font.Name
+#: DuGet.MainFrm.dfm:78
+#. frmMain..AppCaptionBar..btnMaximize..Font.Name
+#: DuGet.MainFrm.dfm:100
+#. frmMain..AppCaptionBar..btnQuit..Font.Name
+#: DuGet.MainFrm.dfm:122
+#. frmMain..boxHamburgerMenu..btnMenu..SymbolFont.Name
+#: DuGet.MainFrm.dfm:158
+#. frmMain..boxHamburgerMenu..btnSettings..SymbolFont.Name
+#: DuGet.MainFrm.dfm:193
+#. frmMain..boxHamburgerMenu..btnAbout..SymbolFont.Name
+#: DuGet.MainFrm.dfm:225
+msgid "Segoe MDL2 Assets"
+msgstr ""
+
+#. frmMain..boxHamburgerMenu..btnMenu..Text
+#: DuGet.MainFrm.dfm:171
+msgid "Menu"
+msgstr ""
+
+#. frmMain..boxHamburgerMenu..btnMenu..Detail
+#: DuGet.MainFrm.dfm:173
+#. frmMain..boxHamburgerMenu..btnSettings..Detail
+#: DuGet.MainFrm.dfm:208
+#. frmMain..boxHamburgerMenu..btnAbout..Detail
+#: DuGet.MainFrm.dfm:240
+msgid "Detail"
+msgstr ""
+
+#. frmMain..boxHamburgerMenu..btnSettings..Text
+#: DuGet.MainFrm.dfm:206
+msgid "Impostazioni"
+msgstr ""
+
+#. frmMain..boxHamburgerMenu..btnAbout..Text
+#: DuGet.MainFrm.dfm:238
+msgid "Informazioni"
+msgstr ""
+

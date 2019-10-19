@@ -1,0 +1,5 @@
+*.identcache
+*.dcu
+/__history
+/dxgettext.ini
+*.exe
