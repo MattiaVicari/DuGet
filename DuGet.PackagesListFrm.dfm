@@ -31,28 +31,36 @@ object frmPackagesList: TfrmPackagesList
   object scrollPackagesList: TUScrollBox
     Left = 0
     Top = 38
-    Width = 398
+    Width = 413
     Height = 394
     Align = alClient
     BorderStyle = bsNone
     DoubleBuffered = True
     Color = 15132390
+    Padding.Left = 15
+    Padding.Top = 5
+    Padding.Right = 15
+    Padding.Bottom = 15
     ParentBackground = True
     ParentColor = False
     ParentDoubleBuffered = False
     TabOrder = 0
     ThemeManager = AppThemeManager
-    MaxScrollCount = 6
+    WaitEventTime = 70
+    MaxScrollCount = 10
+    LengthPerStep = 70
+    ExplicitLeft = -1
     ExplicitTop = 44
   end
   object splitter: TUSeparator
-    Left = 398
+    Left = 413
     Top = 38
-    Width = 20
+    Width = 5
     Height = 394
     ThemeManager = AppThemeManager
     CustomColor = clWhite
     Align = alRight
+    ExplicitLeft = 414
     ExplicitTop = 44
   end
   object boxPackageInfo: TUPanel
@@ -70,14 +78,20 @@ object frmPackagesList: TfrmPackagesList
     Font.Height = -12
     Font.Name = 'Segoe UI'
     Font.Style = []
+    Padding.Left = 15
+    Padding.Top = 5
+    Padding.Right = 15
+    Padding.Bottom = 15
+    ParentBackground = False
     ParentFont = False
     ShowCaption = False
     TabOrder = 2
-    ExplicitLeft = 424
+    ExplicitLeft = 419
+    ExplicitTop = 44
     object txtPackageInfo: TUText
-      Left = 0
-      Top = 0
-      Width = 185
+      Left = 15
+      Top = 5
+      Width = 155
       Height = 28
       Align = alTop
       Alignment = taCenter
@@ -91,6 +105,8 @@ object frmPackagesList: TfrmPackagesList
       WordWrap = True
       ThemeManager = AppThemeManager
       TextKind = tkHeading
+      ExplicitLeft = 0
+      ExplicitTop = 0
       ExplicitWidth = 110
     end
   end

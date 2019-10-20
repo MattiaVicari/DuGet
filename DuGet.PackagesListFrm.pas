@@ -17,7 +17,7 @@ type
     boxPackageInfo: TUPanel;
     txtPackageInfo: TUText;
   private
-    { Private declarations }
+    procedure LoadList;
   public
     constructor Create(AOwner: TComponent); override;
   end;
@@ -36,6 +36,23 @@ begin
   inherited;
   TUtils.DoTranslation(Self);
   TUtils.SetupThemeManager(AppThemeManager);
+
+  LoadList;
+end;
+
+procedure TfrmPackagesList.LoadList;
+var
+  ItemPanel: TUPanel;
+  I: Integer;
+begin
+  for I := 1 to 10 do
+  begin
+    ItemPanel := TUPanel.Create(scrollPackagesList);
+    ItemPanel.Align := alTop;
+    ItemPanel.Height := 50;
+    ItemPanel.Caption := 'Item ' + IntToStr(I);
+    ItemPanel.Parent := scrollPackagesList;
+  end;
 end;
 
 initialization
