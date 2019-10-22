@@ -28,30 +28,6 @@ object frmPackagesList: TfrmPackagesList
     TextKind = tkTitle
     ExplicitWidth = 156
   end
-  object scrollPackagesList: TUScrollBox
-    Left = 0
-    Top = 38
-    Width = 413
-    Height = 394
-    Align = alClient
-    BorderStyle = bsNone
-    DoubleBuffered = True
-    Color = 15132390
-    Padding.Left = 15
-    Padding.Top = 5
-    Padding.Right = 15
-    Padding.Bottom = 15
-    ParentBackground = True
-    ParentColor = False
-    ParentDoubleBuffered = False
-    TabOrder = 0
-    ThemeManager = AppThemeManager
-    WaitEventTime = 70
-    MaxScrollCount = 10
-    LengthPerStep = 70
-    ExplicitLeft = -1
-    ExplicitTop = 44
-  end
   object splitter: TUSeparator
     Left = 413
     Top = 38
@@ -60,8 +36,6 @@ object frmPackagesList: TfrmPackagesList
     ThemeManager = AppThemeManager
     CustomColor = clWhite
     Align = alRight
-    ExplicitLeft = 414
-    ExplicitTop = 44
   end
   object boxPackageInfo: TUPanel
     Left = 418
@@ -85,9 +59,7 @@ object frmPackagesList: TfrmPackagesList
     ParentBackground = False
     ParentFont = False
     ShowCaption = False
-    TabOrder = 2
-    ExplicitLeft = 419
-    ExplicitTop = 44
+    TabOrder = 1
     object txtPackageInfo: TUText
       Left = 15
       Top = 5
@@ -105,10 +77,41 @@ object frmPackagesList: TfrmPackagesList
       WordWrap = True
       ThemeManager = AppThemeManager
       TextKind = tkHeading
-      ExplicitLeft = 0
-      ExplicitTop = 0
       ExplicitWidth = 110
     end
+  end
+  object listPackages: TListView
+    Left = 0
+    Top = 38
+    Width = 413
+    Height = 394
+    Align = alClient
+    BevelInner = bvNone
+    BevelOuter = bvNone
+    BorderStyle = bsNone
+    Columns = <
+      item
+        AutoSize = True
+      end>
+    ColumnClick = False
+    DoubleBuffered = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    FlatScrollBars = True
+    HideSelection = False
+    ReadOnly = True
+    RowSelect = True
+    ParentColor = True
+    ParentDoubleBuffered = False
+    ParentFont = False
+    ShowColumnHeaders = False
+    TabOrder = 2
+    ViewStyle = vsReport
+    OnCustomDrawItem = listPackagesCustomDrawItem
+    OnSelectItem = listPackagesSelectItem
   end
   object AppThemeManager: TUThemeManager
     Left = 280

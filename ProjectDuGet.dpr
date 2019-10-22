@@ -5,7 +5,9 @@ uses
   DuGet.MainFrm in 'DuGet.MainFrm.pas' {frmMain},
   DuGet.Utils in 'DuGet.Utils.pas',
   DuGet.PackagesListFrm in 'DuGet.PackagesListFrm.pas' {frmPackagesList: TFrame},
-  DuGet.NavigationManager in 'DuGet.NavigationManager.pas';
+  DuGet.NavigationManager in 'DuGet.NavigationManager.pas',
+  DuGet.Proxy.GitHub in 'DuGet.Proxy.GitHub.pas',
+  DuGet.Proxy in 'DuGet.Proxy.pas';
 
 {$R *.res}
 

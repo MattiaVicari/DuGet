@@ -24,7 +24,6 @@ object frmMain: TfrmMain
     Align = alTop
     Alignment = taLeftJustify
     BevelOuter = bvNone
-    Caption = 'Packages list'
     Color = 15921906
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -33,7 +32,28 @@ object frmMain: TfrmMain
     Font.Style = []
     ParentBackground = False
     ParentFont = False
+    ShowCaption = False
     TabOrder = 0
+    DesignSize = (
+      634
+      32)
+    object txtPageTitle: TUText
+      Left = 15
+      Top = 0
+      Width = 74
+      Height = 32
+      Anchors = [akLeft, akTop, akBottom]
+      AutoSize = False
+      Caption = 'Packages list'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      Layout = tlCenter
+      ThemeManager = AppThemeManager
+    end
     object btnSwitchTheme: TUQuickButton
       Left = 454
       Top = 0

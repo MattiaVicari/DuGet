@@ -8,7 +8,7 @@ uses
 
   UCL.TUForm, UCL.TUThemeManager, UCL.TUCaptionBar, UCL.Classes,
   UCL.TUQuickButton, UCL.TUPanel, UCL.TUSymbolButton, UCL.TUScrollBox,
-  UCL.IntAnimation, UCL.IntAnimation.Helpers;
+  UCL.IntAnimation, UCL.IntAnimation.Helpers, Vcl.StdCtrls, UCL.TUText;
 
 type
   TfrmMain = class(TUForm)
@@ -23,6 +23,7 @@ type
     btnSettings: TUSymbolButton;
     btnAbout: TUSymbolButton;
     boxPageContent: TUPanel;
+    txtPageTitle: TUText;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnSwitchThemeClick(Sender: TObject);

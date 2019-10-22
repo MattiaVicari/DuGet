@@ -112,6 +112,8 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="DuGet.NavigationManager.pas"/>
+        <DCCReference Include="DuGet.Proxy.GitHub.pas"/>
+        <DCCReference Include="DuGet.Proxy.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
