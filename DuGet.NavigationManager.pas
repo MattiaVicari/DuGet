@@ -13,6 +13,7 @@ type
   private
     FPageContainer: TWinControl;
     FCurrentPage: TFrame;
+    FCurrentPageName: string;
     FListOfPages: TObjectList<TFrame>;
   public
     procedure Push(PageType: TPageType); overload;
@@ -23,6 +24,7 @@ type
     constructor Create(APageContainer: TWinControl);
 
     property AppPageContainer: TWinControl read FPageContainer;
+    property CurrentPage: string read FCurrentPageName;
   end;
 
 var
@@ -47,6 +49,7 @@ begin
   if not Assigned(APageContainer) then
     raise Exception.Create('Set a valid page container pointer before invoke the NavigationManager');
 
+  FCurrentPageName := '';
   FPageContainer := APageContainer;
   FListOfPages := TObjectList<TFrame>.Create(False);
 end;
@@ -63,6 +66,7 @@ begin
   begin
     FListOfPages.RemoveItem(FCurrentPage, FromEnd);
     FreeAndNil(FCurrentPage);
+    FCurrentPageName := '';
   end;
 end;
 
@@ -75,6 +79,7 @@ begin
   FCurrentPage := PageClass.Create(PageContainer);
   FCurrentPage.Parent := PageContainer;
   FListOfPages.Add(FCurrentPage);
+  FCurrentPageName := PageName;
 end;
 
 procedure TNavigationManager.Push(PageType: TPageType);
@@ -82,6 +87,7 @@ begin
   FCurrentPage := PageType.Create(PageContainer);
   FCurrentPage.Parent := PageContainer;
   FListOfPages.Add(FCurrentPage);
+  FCurrentPageName := PageType.ClassName;
 end;
 
 initialization

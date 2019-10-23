@@ -24,11 +24,13 @@ type
     btnAbout: TUSymbolButton;
     boxPageContent: TUPanel;
     txtPageTitle: TUText;
+    btnPackagesList: TUSymbolButton;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnSwitchThemeClick(Sender: TObject);
     procedure btnMenuClick(Sender: TObject);
     procedure btnSettingsClick(Sender: TObject);
+    procedure btnPackagesListClick(Sender: TObject);
   end;
 
 var
@@ -53,6 +55,12 @@ begin
     MenuOffsetWidth := -1 * MenuOffsetWidth;
 
   boxHamburgerMenu.AnimationFromCurrent(apWidth, MenuOffsetWidth, 20, 200, akOut, afkQuartic, nil);
+end;
+
+procedure TfrmMain.btnPackagesListClick(Sender: TObject);
+begin
+  if NavigationManager.CurrentPage <> 'PackagesListPage' then
+    NavigationManager.Push('PackagesListPage');
 end;
 
 procedure TfrmMain.btnSettingsClick(Sender: TObject);

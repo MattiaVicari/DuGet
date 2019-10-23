@@ -61,10 +61,37 @@ type
     destructor Destroy; override;
   end;
 
+  TProxyType = class of TDuGetProxyBase;
+
   { Interface of the proxy for get the packages info }
   IDuGetProxy = interface(IInterface)
   ['{696D11D8-861B-4433-839D-E9D5B8AC1CA2}']
     procedure LoadPackagesList;
+    function GetPackagesList: TObjectList<TPackageInfo>;
+    function GetAccessToken: string;
+    procedure SetAccessToken(const Token: string);
+  end;
+
+  TDuGetProxyBase = class(TInterfacedObject, IDuGetProxy)
+  protected
+    FAccessToken: string;
+  public
+    function GetPackagesList: TObjectList<TPackageInfo>; virtual; abstract;
+    procedure LoadPackagesList; virtual; abstract;
+    function GetAccessToken: string;
+    procedure SetAccessToken(const Token: string);
+    constructor Create; virtual;
+  end;
+
+  { Factory for proxies object }
+  TProxyFactory = class
+  class var
+    FProxiesList: TDictionary<string, TProxyType>;
+  public
+    class constructor Create;
+    class destructor Destroy;
+    class procedure RegistryForProxy(ProxyClass: TProxyType; const Alias: string);
+    class function GetProxy(const Alias: string): IDuGetProxy;
   end;
 
 implementation
@@ -113,6 +140,55 @@ begin
   FLogin := JsonData.GetValue('login').Value;
   FNodeId := JsonData.GetValue('node_id').Value;
   FAvatarUrl := JsonData.GetValue('avatar_url').Value;
+end;
+
+{ TProxyFactory }
+
+class constructor TProxyFactory.Create;
+begin
+  FProxiesList := TDictionary<string, TProxyType>.Create;
+end;
+
+class destructor TProxyFactory.Destroy;
+begin
+  FProxiesList.Free;
+end;
+
+class function TProxyFactory.GetProxy(const Alias: string): IDuGetProxy;
+var
+  ProxyClass: TProxyType;
+begin
+  if not FProxiesList.ContainsKey(Alias) then
+    raise Exception.CreateFmt('No class found for alias %s', [Alias]);
+
+  ProxyClass := FProxiesList.Items[Alias];
+  if not Supports(ProxyClass, IDuGetProxy) then
+    raise Exception.CreateFmt('Class %s does not support the interface %s', [ProxyClass.ClassName, 'IDuGetProxy']);
+
+  Result := ProxyClass.Create as IDuGetProxy;
+end;
+
+class procedure TProxyFactory.RegistryForProxy(ProxyClass: TProxyType;
+  const Alias: string);
+begin
+  FProxiesList.Add(Alias, ProxyClass);
+end;
+
+{ TDuGetProxyBase }
+
+constructor TDuGetProxyBase.Create;
+begin
+  FAccessToken := '';
+end;
+
+function TDuGetProxyBase.GetAccessToken: string;
+begin
+  Result := FAccessToken;
+end;
+
+procedure TDuGetProxyBase.SetAccessToken(const Token: string);
+begin
+  FAccessToken := Token;
 end;
 
 end.

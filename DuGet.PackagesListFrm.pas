@@ -8,7 +8,7 @@ uses
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   UCL.TUForm, UCL.TUThemeManager, Vcl.StdCtrls, UCL.TUText, UCL.TUSeparator,
   UCL.TUScrollBox, Vcl.ExtCtrls, UCL.TUPanel, Vcl.ComCtrls,
-  DuGet.Proxy, DuGet.Proxy.GitHub;
+  DuGet.Proxy;
 
 type
   TfrmPackagesList = class(TFrame)
@@ -24,11 +24,10 @@ type
       Selected: Boolean);
   private
     FItemSelected: Integer;
-    FProxy: TDuGetProxyGitHub;
+    FProxy: IDuGetProxy;
     procedure LoadList;
   public
     constructor Create(AOwner: TComponent); override;
-    destructor Destroy; override;
   end;
 
 implementation
@@ -45,18 +44,12 @@ begin
   inherited;
 
   FItemSelected := -1;
-  FProxy := TDuGetProxyGitHub.Create;
+  FProxy := TProxyFactory.GetProxy('GitHubProxy');
 
   TUtils.DoTranslation(Self);
   TUtils.SetupThemeManager(AppThemeManager);
 
   LoadList;
-end;
-
-destructor TfrmPackagesList.Destroy;
-begin
-  FProxy.Free;
-  inherited;
 end;
 
 procedure TfrmPackagesList.listPackagesCustomDrawItem(Sender: TCustomListView;
@@ -89,9 +82,9 @@ var
 begin
   listPackages.Items.BeginUpdate;
   try
-    FProxy.AccessToken := 'TO BE DEFINED';
+    FProxy.SetAccessToken('TO BE DEFINED');
 
-    for Info in FProxy.Packages do
+    for Info in FProxy.GetPackagesList do
     begin
       with listPackages.Items.Add do
       begin

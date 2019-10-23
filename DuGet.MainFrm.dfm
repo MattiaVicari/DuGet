@@ -24,6 +24,7 @@ object frmMain: TfrmMain
     Align = alTop
     Alignment = taLeftJustify
     BevelOuter = bvNone
+    Caption = '   TUCaptionBar'
     Color = 15921906
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -199,7 +200,7 @@ object frmMain: TfrmMain
     end
     object btnSettings: TUSymbolButton
       Left = 0
-      Top = 40
+      Top = 80
       Width = 45
       Height = 40
       ThemeManager = AppThemeManager
@@ -227,6 +228,7 @@ object frmMain: TfrmMain
       TabOrder = 1
       TabStop = True
       OnClick = btnSettingsClick
+      ExplicitTop = 40
     end
     object btnAbout: TUSymbolButton
       Left = 0
@@ -257,6 +259,37 @@ object frmMain: TfrmMain
       Align = alBottom
       TabOrder = 2
       TabStop = True
+    end
+    object btnPackagesList: TUSymbolButton
+      Left = 0
+      Top = 40
+      Width = 45
+      Height = 40
+      ThemeManager = AppThemeManager
+      SymbolFont.Charset = DEFAULT_CHARSET
+      SymbolFont.Color = clWindowText
+      SymbolFont.Height = -16
+      SymbolFont.Name = 'Segoe MDL2 Assets'
+      SymbolFont.Style = []
+      TextFont.Charset = DEFAULT_CHARSET
+      TextFont.Color = clWindowText
+      TextFont.Height = -13
+      TextFont.Name = 'Segoe UI'
+      TextFont.Style = []
+      DetailFont.Charset = DEFAULT_CHARSET
+      DetailFont.Color = clWindowText
+      DetailFont.Height = -13
+      DetailFont.Name = 'Segoe UI'
+      DetailFont.Style = []
+      SymbolChar = #59219
+      Text = 'Settings'
+      TextOffset = 45
+      Detail = 'Detail'
+      ShowDetail = False
+      Align = alTop
+      TabOrder = 3
+      TabStop = True
+      OnClick = btnPackagesListClick
     end
   end
   object boxPageContent: TUPanel

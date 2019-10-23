@@ -10,18 +10,15 @@ uses
 
 type
   { Proxy implementation for GitHub }
-  TDuGetProxyGitHub = class(TInterfacedObject, IDuGetProxy)
+  TDuGetProxyGitHub = class(TDuGetProxyBase)
   private
-    FAccessToken: string;
     FPackagesList: TObjectList<TPackageInfo>;
-    function GetPackagesList: TObjectList<TPackageInfo>;
   public
-    property AccessToken: string read FAccessToken write FAccessToken;
-    property Packages: TObjectList<TPackageInfo> read GetPackagesList;
-    procedure LoadPackagesList;
+    procedure LoadPackagesList; override;
+    function GetPackagesList: TObjectList<TPackageInfo>; override;
 
     destructor Destroy; override;
-    constructor Create;
+    constructor Create; override;
   end;
 
 implementation
@@ -41,6 +38,7 @@ const
 
 constructor TDuGetProxyGitHub.Create;
 begin
+  inherited;
   FPackagesList := TObjectList<TPackageInfo>.Create(True);
 end;
 
@@ -105,5 +103,8 @@ begin
       raise Exception.Create(Format(_('Unable to get the list of packages.' + sLineBreak + 'Error: %s'), [E.Message]));
   end;
 end;
+
+initialization
+  TProxyFactory.RegistryForProxy(TDuGetProxyGitHub, 'GitHubProxy');
 
 end.
