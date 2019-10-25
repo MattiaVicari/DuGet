@@ -10,7 +10,8 @@ uses
   DuGet.Proxy in 'DuGet.Proxy.pas',
   DuGet.SettingsFrm in 'DuGet.SettingsFrm.pas' {frmSettings: TFrame},
   DuGet.BaseFrm in 'DuGet.BaseFrm.pas' {frmBase: TFrame},
-  DuGet.App.Settings in 'DuGet.App.Settings.pas';
+  DuGet.App.Settings in 'DuGet.App.Settings.pas',
+  DuGet.Constants in 'DuGet.Constants.pas';
 
 {$R *.res}
 

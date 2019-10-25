@@ -5,10 +5,13 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
+  Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.WinXPanels,
 
   UCL.TUForm, UCL.TUThemeManager, UCL.TUCaptionBar, UCL.Classes,
   UCL.TUQuickButton, UCL.TUPanel, UCL.TUSymbolButton, UCL.TUScrollBox,
-  UCL.IntAnimation, UCL.IntAnimation.Helpers, Vcl.StdCtrls, UCL.TUText;
+  UCL.IntAnimation, UCL.IntAnimation.Helpers, UCL.TUText,
+
+  DuGet.Constants;
 
 type
   TfrmMain = class(TUForm)
@@ -22,10 +25,12 @@ type
     btnMenu: TUSymbolButton;
     btnSettings: TUSymbolButton;
     btnAbout: TUSymbolButton;
-    boxPageContent: TUPanel;
     txtPageTitle: TUText;
     btnPackagesList: TUSymbolButton;
     btnBack: TUQuickButton;
+    cardContentPage: TCardPanel;
+    cardWelcome: TCard;
+    imgDuGetLogo: TImage;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnSwitchThemeClick(Sender: TObject);
@@ -33,6 +38,8 @@ type
     procedure btnSettingsClick(Sender: TObject);
     procedure btnPackagesListClick(Sender: TObject);
     procedure btnBackClick(Sender: TObject);
+  private
+    procedure MessageHandlerEnableBackButton(var Msg: TMessage); message WM_OWN_ENABLE_BACKBUTTON;
   end;
 
 var
@@ -91,7 +98,7 @@ begin
   TUtils.SetupThemeManager(AppThemeManager);
 
   // Where to show the pages
-  PageContainer := boxPageContent;
+  PageContainer := cardContentPage;
 end;
 
 procedure TfrmMain.FormShow(Sender: TObject);
@@ -105,16 +112,16 @@ begin
   SplashScreenDelay := 1000;
   StartSplashScreen;
 
-  if TAppSettings.Instance.Init then
-  begin
-    // My start page is the list of packages
-    //NavigationManager.Push('PackagesListPage');
-  end
-  else
+  if not TAppSettings.Instance.Init then
   begin
     // You have to insert your personal token for GitHub API
     NavigationManager.Push('SettingsPage');
   end;
+end;
+
+procedure TfrmMain.MessageHandlerEnableBackButton(var Msg: TMessage);
+begin
+  btnBack.Visible := (Msg.WParam = 1);
 end;
 
 end.
