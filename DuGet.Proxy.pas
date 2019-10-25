@@ -72,6 +72,7 @@ type
     procedure SetAccessToken(const Token: string);
   end;
 
+  { Base class for proxy }
   TDuGetProxyBase = class(TInterfacedObject, IDuGetProxy)
   protected
     FAccessToken: string;
@@ -83,7 +84,7 @@ type
     constructor Create; virtual;
   end;
 
-  { Factory for proxies object }
+  { Factory for proxy object }
   TProxyFactory = class
   class var
     FProxiesList: TDictionary<string, TProxyType>;

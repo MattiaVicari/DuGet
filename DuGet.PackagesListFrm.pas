@@ -8,12 +8,10 @@ uses
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   UCL.TUForm, UCL.TUThemeManager, Vcl.StdCtrls, UCL.TUText, UCL.TUSeparator,
   UCL.TUScrollBox, Vcl.ExtCtrls, UCL.TUPanel, Vcl.ComCtrls,
-  DuGet.Proxy;
+  DuGet.BaseFrm, DuGet.Proxy;
 
 type
-  TfrmPackagesList = class(TFrame)
-    AppThemeManager: TUThemeManager;
-    txtTitle: TUText;
+  TfrmPackagesList = class(TfrmBase)
     splitter: TUSeparator;
     boxPackageInfo: TUPanel;
     txtPackageInfo: TUText;
@@ -35,7 +33,7 @@ implementation
 {$R *.dfm}
 
 uses
-  DuGet.Utils;
+  DuGet.App.Settings;
 
 { TfrmPackagesList }
 
@@ -45,9 +43,6 @@ begin
 
   FItemSelected := -1;
   FProxy := TProxyFactory.GetProxy('GitHubProxy');
-
-  TUtils.DoTranslation(Self);
-  TUtils.SetupThemeManager(AppThemeManager);
 
   LoadList;
 end;
@@ -82,7 +77,7 @@ var
 begin
   listPackages.Items.BeginUpdate;
   try
-    FProxy.SetAccessToken('TO BE DEFINED');
+    FProxy.SetAccessToken(TAppSettings.Instance.Token);
 
     for Info in FProxy.GetPackagesList do
     begin

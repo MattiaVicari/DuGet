@@ -25,12 +25,14 @@ type
     boxPageContent: TUPanel;
     txtPageTitle: TUText;
     btnPackagesList: TUSymbolButton;
+    btnBack: TUQuickButton;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnSwitchThemeClick(Sender: TObject);
     procedure btnMenuClick(Sender: TObject);
     procedure btnSettingsClick(Sender: TObject);
     procedure btnPackagesListClick(Sender: TObject);
+    procedure btnBackClick(Sender: TObject);
   end;
 
 var
@@ -42,7 +44,13 @@ implementation
 
 uses
   DuGet.Utils,
+  DuGet.App.Settings,
   DuGet.NavigationManager;
+
+procedure TfrmMain.btnBackClick(Sender: TObject);
+begin
+  NavigationManager.Pop;
+end;
 
 procedure TfrmMain.btnMenuClick(Sender: TObject);
 var
@@ -66,7 +74,7 @@ end;
 procedure TfrmMain.btnSettingsClick(Sender: TObject);
 begin
   NavigationManager.Pop;
-  // TODO
+  NavigationManager.Push('SettingsPage');
 end;
 
 procedure TfrmMain.btnSwitchThemeClick(Sender: TObject);
@@ -97,8 +105,16 @@ begin
   SplashScreenDelay := 1000;
   StartSplashScreen;
 
-  // My start page is the list of packages
-  NavigationManager.Push('PackagesListPage');
+  if TAppSettings.Instance.Init then
+  begin
+    // My start page is the list of packages
+    //NavigationManager.Push('PackagesListPage');
+  end
+  else
+  begin
+    // You have to insert your personal token for GitHub API
+    NavigationManager.Push('SettingsPage');
+  end;
 end;
 
 end.

@@ -35,15 +35,12 @@ object frmMain: TfrmMain
     ParentFont = False
     ShowCaption = False
     TabOrder = 0
-    DesignSize = (
-      634
-      32)
     object txtPageTitle: TUText
-      Left = 15
+      Left = 45
       Top = 0
       Width = 74
       Height = 32
-      Anchors = [akLeft, akTop, akBottom]
+      Align = alLeft
       AutoSize = False
       Caption = 'Packages list'
       Font.Charset = DEFAULT_CHARSET
@@ -54,6 +51,8 @@ object frmMain: TfrmMain
       ParentFont = False
       Layout = tlCenter
       ThemeManager = AppThemeManager
+      ExplicitLeft = 15
+      ExplicitTop = -6
     end
     object btnSwitchTheme: TUQuickButton
       Left = 454
@@ -145,6 +144,29 @@ object frmMain: TfrmMain
       ParentFont = False
       TabOrder = 3
     end
+    object btnBack: TUQuickButton
+      Left = 0
+      Top = 0
+      Width = 45
+      Height = 32
+      ThemeManager = AppThemeManager
+      ButtonStyle = qbsHighlight
+      LightColor = 4552068
+      DarkColor = 4552068
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = #57510
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Segoe MDL2 Assets'
+      Font.Style = []
+      ParentColor = True
+      ParentFont = False
+      TabOrder = 4
+      Visible = False
+      OnClick = btnBackClick
+    end
   end
   object boxHamburgerMenu: TUPanel
     Left = 0
@@ -228,7 +250,6 @@ object frmMain: TfrmMain
       TabOrder = 1
       TabStop = True
       OnClick = btnSettingsClick
-      ExplicitTop = 40
     end
     object btnAbout: TUSymbolButton
       Left = 0
@@ -310,6 +331,8 @@ object frmMain: TfrmMain
     ParentFont = False
     ShowCaption = False
     TabOrder = 2
+    ExplicitLeft = 51
+    ExplicitTop = 38
   end
   object AppThemeManager: TUThemeManager
     Left = 456

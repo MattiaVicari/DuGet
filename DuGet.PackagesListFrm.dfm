@@ -1,34 +1,14 @@
-object frmPackagesList: TfrmPackagesList
-  Left = 0
-  Top = 0
+inherited frmPackagesList: TfrmPackagesList
   Width = 603
   Height = 432
-  Anchors = [akLeft, akTop, akRight, akBottom]
-  Color = clWhite
-  ParentBackground = False
-  ParentColor = False
-  TabOrder = 0
-  object txtTitle: TUText
-    Left = 0
-    Top = 0
+  ExplicitWidth = 603
+  ExplicitHeight = 432
+  inherited txtTitle: TUText
     Width = 603
-    Height = 38
-    Align = alTop
-    Alignment = taCenter
     Caption = 'Packages list'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
-    Font.Height = -28
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    ParentFont = False
-    Layout = tlCenter
-    WordWrap = True
-    ThemeManager = AppThemeManager
-    TextKind = tkTitle
     ExplicitWidth = 156
   end
-  object splitter: TUSeparator
+  object splitter: TUSeparator [1]
     Left = 413
     Top = 38
     Width = 5
@@ -37,7 +17,7 @@ object frmPackagesList: TfrmPackagesList
     CustomColor = clWhite
     Align = alRight
   end
-  object boxPackageInfo: TUPanel
+  object boxPackageInfo: TUPanel [2]
     Left = 418
     Top = 38
     Width = 185
@@ -80,7 +60,7 @@ object frmPackagesList: TfrmPackagesList
       ExplicitWidth = 110
     end
   end
-  object listPackages: TListView
+  object listPackages: TListView [3]
     Left = 0
     Top = 38
     Width = 413
@@ -112,9 +92,5 @@ object frmPackagesList: TfrmPackagesList
     ViewStyle = vsReport
     OnCustomDrawItem = listPackagesCustomDrawItem
     OnSelectItem = listPackagesSelectItem
-  end
-  object AppThemeManager: TUThemeManager
-    Left = 280
-    Top = 320
   end
 end
