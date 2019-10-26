@@ -25,10 +25,15 @@ type
     class function FromPixelToScreen(Pixel, PPI: Single): Integer;
     class function GetSystemLanguage: string;
     class procedure SetupAppLanguage;
+    class procedure CreateGraphic(const ImageType: string; out Graphic: TGraphic);
   end;
 
 implementation
 
+
+uses
+  PNGImage,
+  JPeg;
 
 { TUtils }
 
@@ -48,6 +53,17 @@ end;
 class function TUtils.GetAsset(const AssetName: string): string;
 begin
   Result := TPath.Combine(TPath.Combine(ExtractFileDir(ParamStr(0)), 'Assets'), AssetName);
+end;
+
+class procedure TUtils.CreateGraphic(const ImageType: string; out Graphic: TGraphic);
+begin
+  case IndexText(ImageType, ['.png', '.jpg', '.jpeg']) of
+    0: Graphic := TPngImage.Create;
+    1, 2: Graphic := TJPEGImage.Create;
+  else
+    raise Exception.CreateFmt('Unable to handle the image type %s', [ImageType]);
+  end;
+
 end;
 
 class function TUtils.GetSystemLanguage: string;

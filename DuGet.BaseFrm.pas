@@ -12,6 +12,8 @@ type
     AppThemeManager: TUThemeManager;
     boxMain: TUPanel;
     txtTitle: TUText;
+  protected
+    procedure OnChangeTheme(Sender: TObject; Theme: TUTheme); virtual; abstract;
   public
     procedure UpdateTheme;
     constructor Create(AOwner: TComponent); override;
@@ -40,6 +42,8 @@ begin
   else
     boxMain.CustomBackColor := clBlack;
   boxMain.CustomTextColor := GetTextColorFromBackground(boxMain.CustomBackColor);
+
+  OnChangeTheme(Self, AppThemeManager.Theme);
 end;
 
 end.

@@ -38,6 +38,12 @@ type
     FCreatedAt: TDate;
     FUrl: string;
     FCloneUrl: string;
+    { From Delphinus.Info.json file }
+    FPackageId: string;
+    FAlternativeName: string;
+    FLogoFileName: string;
+    FLogo: TBytes;
+    FLicensesType: TArray<string>;
   public
     class function ParseJSON(JsonData: TJSONObject): TPackageInfo;
   public
@@ -54,6 +60,13 @@ type
     property CloneUrl: string read FCloneUrl write FCloneUrl;
     property DefaultBranch: string read FDefaultBranch write FDefaultBranch;
     property Owner: TOwnerInfo read FOwnerInfo;
+
+    { From Delphinus.Info.json file }
+    property PackageId: string read FPackageId write FPackageId;
+    property AlternativeName: string read FAlternativeName write FAlternativeName;
+    property LogoFileName: string read FLogoFileName write FLogoFileName;
+    property Logo: TBytes read FLogo write FLogo;
+    property LicensesType: TArray<string> read FLicensesType write FLicensesType;
 
     procedure LoadJSON(JsonData: TJSONObject);
 

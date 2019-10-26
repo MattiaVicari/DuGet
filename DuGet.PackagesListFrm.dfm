@@ -31,20 +31,12 @@ inherited frmPackagesList: TfrmPackagesList
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
-      object splitter: TUSeparator
-        Left = 413
+      object boxPackageInfo: TUPanel
+        Left = 360
         Top = 0
-        Width = 5
+        Width = 243
         Height = 394
         ThemeManager = AppThemeManager
-        CustomColor = clWhite
-        Align = alRight
-      end
-      object boxPackageInfo: TUPanel
-        Left = 418
-        Top = 0
-        Width = 185
-        Height = 394
         CustomTextColor = clBlack
         CustomBackColor = 15132390
         Align = alRight
@@ -58,13 +50,14 @@ inherited frmPackagesList: TfrmPackagesList
         Padding.Top = 5
         Padding.Right = 15
         Padding.Bottom = 15
+        ParentBackground = False
         ParentFont = False
         ShowCaption = False
-        TabOrder = 1
+        TabOrder = 0
         object txtPackageInfo: TUText
           Left = 15
           Top = 5
-          Width = 155
+          Width = 213
           Height = 28
           Align = alTop
           Alignment = taCenter
@@ -82,10 +75,15 @@ inherited frmPackagesList: TfrmPackagesList
         end
       end
       object listPackages: TListView
-        Left = 0
-        Top = 0
-        Width = 413
-        Height = 394
+        AlignWithMargins = True
+        Left = 10
+        Top = 10
+        Width = 340
+        Height = 384
+        Margins.Left = 10
+        Margins.Top = 10
+        Margins.Right = 10
+        Margins.Bottom = 0
         Align = alClient
         BevelInner = bvNone
         BevelOuter = bvNone
@@ -99,7 +97,7 @@ inherited frmPackagesList: TfrmPackagesList
         DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -19
+        Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
         FlatScrollBars = True
@@ -109,7 +107,7 @@ inherited frmPackagesList: TfrmPackagesList
         ParentDoubleBuffered = False
         ParentFont = False
         ShowColumnHeaders = False
-        TabOrder = 2
+        TabOrder = 1
         ViewStyle = vsReport
         OnCustomDrawItem = listPackagesCustomDrawItem
         OnSelectItem = listPackagesSelectItem
