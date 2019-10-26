@@ -5,7 +5,8 @@ interface
 uses
   Vcl.Controls, Vcl.Forms, System.IOUtils, System.SysUtils, System.Classes,
   System.Types, System.Generics.Collections,
-  Vcl.WinXPanels, WinApi.Windows;
+  Vcl.WinXPanels, WinApi.Windows,
+  UCL.Classes, UCL.TUThemeManager;
 
 type
   TPageType = class of TFrame;
@@ -15,12 +16,15 @@ type
     FPageContainer: TCardPanel;
     FCurrentPage: TFrame;
     FCurrentPageName: string;
+    FCurrentTheme: TUTheme;
     FListOfPages: TObjectList<TFrame>;
     procedure EnableBackButton;
   public
     procedure Push(PageType: TPageType); overload;
     procedure Push(const PageName: string); overload;
     procedure Pop;
+
+    procedure SetUTheme(const Theme: TUTheme);
 
     destructor Destroy; override;
     constructor Create(APageContainer: TCardPanel);
@@ -38,6 +42,7 @@ function NavigationManager: TNavigationManager;
 implementation
 
 uses
+  DuGet.BaseFrm,
   DuGet.Constants;
 
 function NavigationManager: TNavigationManager;
@@ -57,6 +62,7 @@ begin
   FCurrentPageName := '';
   FPageContainer := APageContainer;
   FListOfPages := TObjectList<TFrame>.Create(False);
+  FCurrentTheme := utLight;
 end;
 
 destructor TNavigationManager.Destroy;
@@ -116,6 +122,31 @@ begin
   FCurrentPage.Height := Card.Height;
 
   EnableBackButton;
+  SetUTheme(FCurrentTheme);
+end;
+
+procedure TNavigationManager.SetUTheme(const Theme: TUTheme);
+var
+  FramePage: TFrame;
+  Component: TComponent;
+  I: Integer;
+begin
+  FCurrentTheme := Theme;
+  for FramePage in FListOfPages do
+  begin
+    for I := 0 to FramePage.ComponentCount - 1 do
+    begin
+      Component := FramePage.Components[I];
+      if Component is TUThemeManager then
+      begin
+        (Component as TUThemeManager).CustomTheme := Theme;
+        break;
+      end;
+    end;
+
+    if FramePage is TfrmBase then
+      (FramePage as TfrmBase).UpdateTheme;
+  end; 
 end;
 
 procedure TNavigationManager.Push(PageType: TPageType);
@@ -133,6 +164,7 @@ begin
   FCurrentPage.Height := Card.Height;
 
   EnableBackButton;
+  SetUTheme(FCurrentTheme);
 end;
 
 initialization

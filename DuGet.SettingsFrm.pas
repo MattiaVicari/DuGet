@@ -10,11 +10,11 @@ uses
 
 type
   TfrmSettings = class(TfrmBase)
-    boxToken: TPanel;
+    txtMessage: TUText;
+    boxToken: TUPanel;
     txtToken: TUText;
     edtToken: TUEdit;
     btnSaveSettings: TUButton;
-    txtMessage: TUText;
     procedure FrameResize(Sender: TObject);
     procedure btnSaveSettingsClick(Sender: TObject);
   public

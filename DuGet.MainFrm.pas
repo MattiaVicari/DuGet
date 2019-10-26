@@ -8,7 +8,7 @@ uses
   Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.WinXPanels,
 
   UCL.TUForm, UCL.TUThemeManager, UCL.TUCaptionBar, UCL.Classes,
-  UCL.TUQuickButton, UCL.TUPanel, UCL.TUSymbolButton, UCL.TUScrollBox,
+  UCL.TUQuickButton, UCL.TUPanel, UCL.TUSymbolButton,
   UCL.IntAnimation, UCL.IntAnimation.Helpers, UCL.TUText,
 
   DuGet.Constants;
@@ -25,7 +25,6 @@ type
     btnMenu: TUSymbolButton;
     btnSettings: TUSymbolButton;
     btnAbout: TUSymbolButton;
-    txtPageTitle: TUText;
     btnPackagesList: TUSymbolButton;
     btnBack: TUQuickButton;
     cardContentPage: TCardPanel;
@@ -39,6 +38,7 @@ type
     procedure btnPackagesListClick(Sender: TObject);
     procedure btnBackClick(Sender: TObject);
   private
+    procedure UpdateCaptionBar;
     procedure MessageHandlerEnableBackButton(var Msg: TMessage); message WM_OWN_ENABLE_BACKBUTTON;
   end;
 
@@ -87,9 +87,18 @@ end;
 procedure TfrmMain.btnSwitchThemeClick(Sender: TObject);
 begin
   if ThemeManager.Theme = utLight then
-    ThemeManager.CustomTheme := utDark
+  begin
+    ThemeManager.CustomTheme := utDark;
+    imgDuGetLogo.Picture.LoadFromFile(TUtils.GetAsset('Logo_black_300x300alpha.png'));
+  end
   else
+  begin
     ThemeManager.CustomTheme := utLight;
+    imgDuGetLogo.Picture.LoadFromFile(TUtils.GetAsset('Logo_300x300alpha.png'));
+  end;
+
+  // Update theme for other pages
+  NavigationManager.SetUTheme(ThemeManager.CustomTheme);
 end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
@@ -106,6 +115,7 @@ begin
   // Setup UForm properties
   ThemeManager := AppThemeManager;
   CaptionBar := AppCaptionBar;
+  UpdateCaptionBar;
 
   // Splash screen
   SplashImage := TUtils.GetAsset('SplashScreen.png');
@@ -122,6 +132,11 @@ end;
 procedure TfrmMain.MessageHandlerEnableBackButton(var Msg: TMessage);
 begin
   btnBack.Visible := (Msg.WParam = 1);
+end;
+
+procedure TfrmMain.UpdateCaptionBar;
+begin
+  AppCaptionBar.Caption := #9 + Trim(AppCaptionBar.Caption);
 end;
 
 end.

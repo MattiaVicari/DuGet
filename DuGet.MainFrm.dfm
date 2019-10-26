@@ -24,7 +24,7 @@ object frmMain: TfrmMain
     Align = alTop
     Alignment = taLeftJustify
     BevelOuter = bvNone
-    Caption = '   TUCaptionBar'
+    Caption = 'DuGet - Package manager for Delphi'
     Color = 15921906
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -33,29 +33,7 @@ object frmMain: TfrmMain
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    ShowCaption = False
     TabOrder = 0
-    ExplicitWidth = 634
-    DesignSize = (
-      635
-      32)
-    object txtPageTitle: TUText
-      Left = 51
-      Top = 0
-      Width = 375
-      Height = 27
-      Anchors = [akLeft, akTop, akRight]
-      Caption = 'Packages list'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
-      Font.Height = -13
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      Layout = tlCenter
-      ThemeManager = AppThemeManager
-      ExplicitWidth = 382
-    end
     object btnSwitchTheme: TUQuickButton
       Left = 455
       Top = 0
@@ -79,7 +57,6 @@ object frmMain: TfrmMain
       ParentFont = False
       TabOrder = 0
       OnClick = btnSwitchThemeClick
-      ExplicitLeft = 454
     end
     object btnMinimize: TUQuickButton
       Left = 500
@@ -102,7 +79,6 @@ object frmMain: TfrmMain
       ParentColor = True
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 499
     end
     object btnMaximize: TUQuickButton
       Left = 545
@@ -125,7 +101,6 @@ object frmMain: TfrmMain
       ParentColor = True
       ParentFont = False
       TabOrder = 2
-      ExplicitLeft = 544
     end
     object btnQuit: TUQuickButton
       Left = 590
@@ -148,7 +123,6 @@ object frmMain: TfrmMain
       ParentColor = True
       ParentFont = False
       TabOrder = 3
-      ExplicitLeft = 589
     end
     object btnBack: TUQuickButton
       Left = 0
@@ -172,8 +146,6 @@ object frmMain: TfrmMain
       TabOrder = 4
       Visible = False
       OnClick = btnBackClick
-      ExplicitLeft = -5
-      ExplicitTop = -5
     end
   end
   object boxHamburgerMenu: TUPanel
@@ -196,7 +168,6 @@ object frmMain: TfrmMain
     ParentDoubleBuffered = False
     ParentFont = False
     TabOrder = 1
-    ExplicitHeight = 468
     object btnMenu: TUSymbolButton
       Left = 0
       Top = 0
@@ -289,7 +260,6 @@ object frmMain: TfrmMain
       Align = alBottom
       TabOrder = 2
       TabStop = True
-      ExplicitTop = 428
     end
     object btnPackagesList: TUSymbolButton
       Left = 0
@@ -330,35 +300,26 @@ object frmMain: TfrmMain
     Height = 486
     Align = alClient
     ActiveCard = cardWelcome
+    BevelOuter = bvNone
     Color = clWhite
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    ParentBackground = False
-    ParentFont = False
     TabOrder = 2
-    ExplicitLeft = 51
-    ExplicitTop = 38
-    ExplicitWidth = 589
-    ExplicitHeight = 468
     object cardWelcome: TCard
-      Left = 1
-      Top = 1
-      Width = 588
-      Height = 484
+      Left = 0
+      Top = 0
+      Width = 590
+      Height = 486
       CardIndex = 0
       TabOrder = 0
       ExplicitLeft = 6
       ExplicitTop = 6
-      ExplicitWidth = 595
+      ExplicitWidth = 588
+      ExplicitHeight = 484
       DesignSize = (
-        588
-        484)
+        590
+        486)
       object imgDuGetLogo: TImage
-        Left = 286
-        Top = 176
+        Left = 288
+        Top = 178
         Width = 308
         Height = 309
         Anchors = [akRight, akBottom]
@@ -550,7 +511,6 @@ object frmMain: TfrmMain
           818125D22644709EDEFE9CD6C39936E1F1F2534C64FB36DB00FEE3FF994601D2
           F8AF3DE20000000049454E44AE426082}
         Transparent = True
-        ExplicitLeft = 288
         ExplicitTop = 168
       end
     end
