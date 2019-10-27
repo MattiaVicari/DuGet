@@ -6,7 +6,7 @@ uses
   Vcl.Graphics, System.IOUtils, System.SysUtils, System.Classes, System.StrUtils,
   WinApi.Windows,
   Vcl.ActnList, Vcl.Controls,
-  Vcl.ExtCtrls, Vcl.DBCtrls, Data.DB, Datasnap.DBClient,
+  Vcl.ExtCtrls, Vcl.DBCtrls, Data.DB, Datasnap.DBClient, System.JSON,
   IBX.IBDatabase, IBX.IBSQL,
   Data.Win.ADODB, SHDocVw,
   JvGnugettext,
@@ -22,8 +22,10 @@ type
     class procedure SetupThemeManager(ThemeManager: TUThemeManager);
     { Utility }
     class function GetAsset(const AssetName: string): string;
+    class function GetCacheFolder: string;
     class function FromPixelToScreen(Pixel, PPI: Single): Integer;
     class function GetSystemLanguage: string;
+    class function JsonCoalesceValue(JsonValue: TJsonValue): string;
     class procedure SetupAppLanguage;
     class procedure CreateGraphic(const ImageType: string; out Graphic: TGraphic);
   end;
@@ -83,6 +85,19 @@ begin
   finally
     FreeMem(MyLang);
   end;
+end;
+
+class function TUtils.JsonCoalesceValue(JsonValue: TJsonValue): string;
+begin
+  Result := '';
+  if Assigned(JsonValue) then
+    Result := JsonValue.Value;
+end;
+
+class function TUtils.GetCacheFolder: string;
+begin
+  Result := TPath.Combine(ExtractFileDir(ParamStr(0)), 'cache');
+  ForceDirectories(Result);
 end;
 
 class procedure TUtils.SetupAppLanguage;

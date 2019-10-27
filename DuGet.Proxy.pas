@@ -42,7 +42,7 @@ type
     FPackageId: string;
     FAlternativeName: string;
     FLogoFileName: string;
-    FLogo: TBytes;
+    FLogoCachedFilePath: string;
     FLicensesType: TArray<string>;
   public
     class function ParseJSON(JsonData: TJSONObject): TPackageInfo;
@@ -65,7 +65,7 @@ type
     property PackageId: string read FPackageId write FPackageId;
     property AlternativeName: string read FAlternativeName write FAlternativeName;
     property LogoFileName: string read FLogoFileName write FLogoFileName;
-    property Logo: TBytes read FLogo write FLogo;
+    property LogoCachedFilePath: string read FLogoCachedFilePath write FLogoCachedFilePath;
     property LicensesType: TArray<string> read FLicensesType write FLicensesType;
 
     procedure LoadJSON(JsonData: TJSONObject);
@@ -136,6 +136,7 @@ begin
   FCreatedAt := StrToDateDef(JsonData.GetValue('created_at').Value, 0);
   FUpdatedAt := StrToDateDef(JsonData.GetValue('updated_at').Value, 0);
   FCloneUrl := JsonData.GetValue('clone_url').Value;
+  FDefaultBranch := JsonData.GetValue('default_branch').Value;
 
   FOwnerInfo.LoadJSON(TJSONObject(JsonData.GetValue('owner')));
 end;

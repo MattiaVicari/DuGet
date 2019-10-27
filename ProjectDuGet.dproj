@@ -126,6 +126,7 @@
         </DCCReference>
         <DCCReference Include="DuGet.App.Settings.pas"/>
         <DCCReference Include="DuGet.Constants.pas"/>
+        <DCCReference Include="DuGet.HttpClient.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

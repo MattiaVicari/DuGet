@@ -8,6 +8,7 @@ object frmBase: TfrmBase
   ParentBackground = False
   ParentColor = False
   TabOrder = 0
+  OnResize = FrameResize
   object boxMain: TUPanel
     Left = 0
     Top = 0
@@ -48,6 +49,11 @@ object frmBase: TfrmBase
       TextKind = tkTitle
       ExplicitWidth = 115
     end
+  end
+  object ActivityIndicator: TActivityIndicator
+    Left = 176
+    Top = 128
+    IndicatorSize = aisXLarge
   end
   object AppThemeManager: TUThemeManager
     Left = 40

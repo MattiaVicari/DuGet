@@ -11,7 +11,8 @@ uses
   DuGet.SettingsFrm in 'DuGet.SettingsFrm.pas' {frmSettings: TFrame},
   DuGet.BaseFrm in 'DuGet.BaseFrm.pas' {frmBase: TFrame},
   DuGet.App.Settings in 'DuGet.App.Settings.pas',
-  DuGet.Constants in 'DuGet.Constants.pas';
+  DuGet.Constants in 'DuGet.Constants.pas',
+  DuGet.HttpClient in 'DuGet.HttpClient.pas';
 
 {$R *.res}
 

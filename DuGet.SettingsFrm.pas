@@ -4,9 +4,10 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UCL.TUThemeManager,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UCL.TUThemeManager, UCL.Classes,
   Vcl.StdCtrls, System.UITypes, JvGnugettext,
-  DuGet.BaseFrm, UCL.TUText, Vcl.ExtCtrls, UCL.TUPanel, UCL.TUEdit, UCL.TUButton;
+  DuGet.BaseFrm, UCL.TUText, Vcl.ExtCtrls, UCL.TUPanel, UCL.TUEdit, UCL.TUButton,
+  Vcl.WinXCtrls;
 
 type
   TfrmSettings = class(TfrmBase)
@@ -17,6 +18,8 @@ type
     btnSaveSettings: TUButton;
     procedure FrameResize(Sender: TObject);
     procedure btnSaveSettingsClick(Sender: TObject);
+  protected
+    procedure OnChangeTheme(Sender: TObject; Theme: TUTheme); override;
   public
     constructor Create(AOwner: TComponent); override;
   end;
@@ -57,6 +60,21 @@ procedure TfrmSettings.FrameResize(Sender: TObject);
 begin
   inherited;
   boxToken.Left := Max((ClientWidth - boxToken.Width) div 2, 0);
+end;
+
+procedure TfrmSettings.OnChangeTheme(Sender: TObject; Theme: TUTheme);
+begin
+  inherited;
+  if Theme = utLight then
+  begin
+    boxToken.CustomBackColor := clWhite;
+    boxToken.CustomTextColor := clBlack;
+  end
+  else
+  begin
+    boxToken.CustomBackColor := clBlack;
+    boxToken.CustomTextColor := clWhite;
+  end;
 end;
 
 initialization

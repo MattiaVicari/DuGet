@@ -9,7 +9,7 @@ uses
   UCL.TUForm, UCL.TUThemeManager, Vcl.StdCtrls, UCL.TUText, UCL.TUSeparator,
   UCL.Classes, UCL.Utils,
   Vcl.ExtCtrls, UCL.TUPanel, Vcl.ComCtrls,
-  DuGet.BaseFrm, DuGet.Proxy;
+  DuGet.BaseFrm, DuGet.Proxy, Vcl.WinXCtrls;
 
 type
   TfrmPackagesList = class(TfrmBase)
@@ -25,12 +25,24 @@ type
     FProxy: IDuGetProxy;
     FDefaultLogoGraphic: TGraphic;
     FCacheLogoList: TObjectDictionary<string, TGraphic>;
+    procedure LoadTerminated(Sender: TObject);
     procedure LoadList;
   protected
     procedure OnChangeTheme(Sender: TObject; Theme: TUTheme); override;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
+  end;
+
+  TLoadDataThread = class(TThread)
+  private
+    FProxy: IDuGetProxy;
+    FDataList: TListView;
+  protected
+    procedure Execute; override;
+  public
+    property Proxy: IDuGetProxy read FProxy write FProxy;
+    property DataList: TListView read FDataList write FDataList;
   end;
 
 implementation
@@ -84,7 +96,7 @@ var
   Rect, TextRect, LogoRect: TRect;
   ViewCanvas: TCanvas;
   LogoGraphic: TGraphic;
-  LogStream: TBytesStream;
+  LogStream: TFileStream;
   PackageName, Licenses: string;
 begin
   DefaultDraw := False;
@@ -104,7 +116,7 @@ begin
   end;
 
   // Package logo
-  if Info.LogoFileName <> '' then
+  if Info.LogoCachedFilePath <> '' then
   begin
     try
       if FCacheLogoList.ContainsKey(Info.PackageId) then
@@ -112,7 +124,7 @@ begin
       else
       begin
         TUtils.CreateGraphic(ExtractFileExt(Info.LogoFileName), LogoGraphic);
-        LogStream := TBytesStream.Create(Info.Logo);
+        LogStream := TFileStream.Create(Info.LogoCachedFilePath, fmOpenRead);
         try
           LogoGraphic.LoadFromStream(LogStream);
           LogoGraphic.SetSize(LogoSize, LogoSize);
@@ -184,21 +196,20 @@ end;
 
 procedure TfrmPackagesList.LoadList;
 var
-  Info: TPackageInfo;
+  LoadThread: TLoadDataThread;
 begin
-  listPackages.Items.BeginUpdate;
-  try
-    FProxy.SetAccessToken(TAppSettings.Instance.Token);
-    for Info in FProxy.GetPackagesList do
-    begin
-      with listPackages.Items.Add do
-      begin
-        Data := Info;
-      end;
-    end;
-  finally
-    listPackages.Items.EndUpdate;
-  end;
+  IsBusy := True;
+  LoadThread := TLoadDataThread.Create(True);
+  LoadThread.FreeOnTerminate := True;
+  LoadThread.Proxy := FProxy;
+  LoadThread.DataList := listPackages;
+  LoadThread.OnTerminate := LoadTerminated;
+  LoadThread.Start;
+end;
+
+procedure TfrmPackagesList.LoadTerminated(Sender: TObject);
+begin
+  IsBusy := False;
 end;
 
 procedure TfrmPackagesList.OnChangeTheme(Sender: TObject; Theme: TUTheme);
@@ -213,6 +224,31 @@ begin
   begin
     listPackages.Color := clBlack;
     listPackages.Font.Color := clWhite;
+  end;
+end;
+
+{ TLoadDataThread }
+
+procedure TLoadDataThread.Execute;
+var
+  Info: TPackageInfo;
+begin
+  inherited;
+  FProxy.SetAccessToken(TAppSettings.Instance.Token);
+  for Info in FProxy.GetPackagesList do
+  begin
+    Synchronize(procedure
+      begin
+        FDataList.Items.BeginUpdate;
+        try
+          with FDataList.Items.Add do
+          begin
+            Data := Info;
+          end;
+        finally
+          FDataList.Items.EndUpdate;
+        end;
+      end);
   end;
 end;
 

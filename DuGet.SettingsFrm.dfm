@@ -1,7 +1,6 @@
 inherited frmSettings: TfrmSettings
   Width = 564
   Height = 316
-  OnResize = FrameResize
   ExplicitWidth = 564
   ExplicitHeight = 316
   inherited boxMain: TUPanel
@@ -50,6 +49,7 @@ inherited frmSettings: TfrmSettings
       Font.Height = -12
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentBackground = False
       ParentFont = False
       ShowCaption = False
       TabOrder = 0
@@ -129,5 +129,11 @@ inherited frmSettings: TfrmSettings
         OnClick = btnSaveSettingsClick
       end
     end
+  end
+  inherited ActivityIndicator: TActivityIndicator
+    Top = 126
+    ExplicitTop = 126
+    ExplicitWidth = 64
+    ExplicitHeight = 64
   end
 end
