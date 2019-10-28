@@ -9,13 +9,38 @@ uses
   UCL.TUForm, UCL.TUThemeManager, Vcl.StdCtrls, UCL.TUText, UCL.TUSeparator,
   UCL.Classes, UCL.Utils,
   Vcl.ExtCtrls, UCL.TUPanel, Vcl.ComCtrls,
-  DuGet.BaseFrm, DuGet.Proxy, Vcl.WinXCtrls;
+  DuGet.BaseFrm, DuGet.Proxy, Vcl.WinXCtrls, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
 
 type
   TfrmPackagesList = class(TfrmBase)
     boxPackageInfo: TUPanel;
     txtPackageInfo: TUText;
     listPackages: TListView;
+    fdmPackages: TFDMemTable;
+    fdmPackagesID: TIntegerField;
+    fdmPackagesNODE_ID: TStringField;
+    fdmPackagesNAME: TStringField;
+    fdmPackagesFULL_NAME: TStringField;
+    fdmPackagesHTML_URL: TStringField;
+    fdmPackagesDESCRIPTION: TStringField;
+    fdmPackagesURL: TStringField;
+    fdmPackagesDOWNLOADS_URL: TStringField;
+    fdmPackagesCREATED_AT: TDateTimeField;
+    fdmPackagesUPDATED_AT: TDateTimeField;
+    fdmPackagesCLONE_URL: TStringField;
+    fdmPackagesDEFAULT_BRANCH: TStringField;
+    fdmPackagesPACKAGE_ID: TStringField;
+    fdmPackagesALTERNATIVE_NAME: TStringField;
+    fdmPackagesLOGO_FILENAME: TStringField;
+    fdmPackagesLOGO_CACHED_FILEPATH: TStringField;
+    fdmPackagesLICENSES_TYPE: TStringField;
+    fdmPackagesOWNER_ID: TIntegerField;
+    fdmPackagesOWNER_LOGIN: TStringField;
+    fdmPackagesOWNER_NODE_ID: TStringField;
+    fdmPackagesOWNER_AVATAR_URL: TStringField;
     procedure listPackagesCustomDrawItem(Sender: TCustomListView;
       Item: TListItem; State: TCustomDrawState; var DefaultDraw: Boolean);
     procedure listPackagesSelectItem(Sender: TObject; Item: TListItem;
@@ -38,11 +63,13 @@ type
   private
     FProxy: IDuGetProxy;
     FDataList: TListView;
+    FCacheCDS: TFDMemTable;
   protected
     procedure Execute; override;
   public
     property Proxy: IDuGetProxy read FProxy write FProxy;
     property DataList: TListView read FDataList write FDataList;
+    property CacheCDS: TFDMemTable read FCacheCDS write FCacheCDS;
   end;
 
 implementation
@@ -202,6 +229,7 @@ begin
   LoadThread := TLoadDataThread.Create(True);
   LoadThread.FreeOnTerminate := True;
   LoadThread.Proxy := FProxy;
+  LoadThread.CacheCDS := fdmPackages;
   LoadThread.DataList := listPackages;
   LoadThread.OnTerminate := LoadTerminated;
   LoadThread.Start;
@@ -235,6 +263,7 @@ var
 begin
   inherited;
   FProxy.SetAccessToken(TAppSettings.Instance.Token);
+  FProxy.SetCacheContainer(FCacheCDS);
   for Info in FProxy.GetPackagesList do
   begin
     Synchronize(procedure

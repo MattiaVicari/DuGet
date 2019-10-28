@@ -3,7 +3,10 @@ unit DuGet.Proxy;
 interface
 
 uses
-  System.SysUtils, System.Generics.Collections, System.JSON;
+  System.SysUtils, System.Classes, System.Generics.Collections, System.JSON,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   { Owner info }
@@ -20,6 +23,8 @@ type
     property AvatarUrl: string read FAvatarUrl write FAvatarUrl;
 
     procedure LoadJSON(JsonData: TJSONObject);
+    procedure CreateFromCDS(CDS: TFDMemTable);
+    procedure SaveToCDS(CDS: TFDMemTable);
   end;
 
   { Package info }
@@ -46,6 +51,7 @@ type
     FLicensesType: TArray<string>;
   public
     class function ParseJSON(JsonData: TJSONObject): TPackageInfo;
+    class function CreateFromCDS(CDS: TFDMemTable): TPackageInfo;
   public
     property Id: Integer read FId write FId;
     property NodeId: string read FNodeId write FNodeId;
@@ -69,6 +75,8 @@ type
     property LicensesType: TArray<string> read FLicensesType write FLicensesType;
 
     procedure LoadJSON(JsonData: TJSONObject);
+    procedure LoadFromCDS(CDS: TFDMemTable);
+    procedure SaveToCDS(CDS: TFDMemTable);
 
     constructor Create;
     destructor Destroy; override;
@@ -83,17 +91,22 @@ type
     function GetPackagesList: TObjectList<TPackageInfo>;
     function GetAccessToken: string;
     procedure SetAccessToken(const Token: string);
+    procedure SetCacheContainer(CDS: TFDMemTable);
+    function GetCacheContainer: TFDMemTable;
   end;
 
   { Base class for proxy }
   TDuGetProxyBase = class(TInterfacedObject, IDuGetProxy)
   protected
     FAccessToken: string;
+    FCDSCache: TFDMemTable;
   public
     function GetPackagesList: TObjectList<TPackageInfo>; virtual; abstract;
     procedure LoadPackagesList; virtual; abstract;
     function GetAccessToken: string;
     procedure SetAccessToken(const Token: string);
+    procedure SetCacheContainer(CDS: TFDMemTable);
+    function GetCacheContainer: TFDMemTable;
     constructor Create; virtual;
   end;
 
@@ -117,10 +130,51 @@ begin
   FOwnerInfo := TOwnerInfo.Create;
 end;
 
+class function TPackageInfo.CreateFromCDS(CDS: TFDMemTable): TPackageInfo;
+begin
+  Result := TPackageInfo.Create;
+  Result.LoadFromCDS(CDS);
+end;
+
 destructor TPackageInfo.Destroy;
 begin
   FreeAndNil(FOwnerInfo);
   inherited;
+end;
+
+procedure TPackageInfo.LoadFromCDS(CDS: TFDMemTable);
+var
+  LicensesList: TStringList;
+begin
+  FId := CDS.FieldByName('ID').AsInteger;
+  FNodeId := CDS.FieldByName('NODE_ID').AsString;
+  FName := CDS.FieldByName('NAME').AsString;
+  FFullName := CDS.FieldByName('FULL_NAME').AsString;
+  FHtmlUrl := CDS.FieldByName('HTML_URL').AsString;
+  FDescription := CDS.FieldByName('DESCRIPTION').AsString;
+  FUrl := CDS.FieldByName('URL').AsString;
+  FDownloadUrl := CDS.FieldByName('DOWNLOADS_URL').AsString;
+  FCreatedAt := CDS.FieldByName('CREATED_AT').AsDateTime;
+  FUpdatedAt := CDS.FieldByName('UPDATED_AT').AsDateTime;
+  FCloneUrl := CDS.FieldByName('CLONE_URL').AsString;
+  FDefaultBranch := CDS.FieldByName('DEFAULT_BRANCH').AsString;
+
+  FOwnerInfo.CreateFromCDS(CDS);
+
+  FPackageId := CDS.FieldByName('PACKAGE_ID').AsString;
+  FAlternativeName := CDS.FieldByName('ALTERNATIVE_NAME').AsString;
+  FLogoFileName := CDS.FieldByName('LOGO_FILENAME').AsString;
+  FLogoCachedFilePath := CDS.FieldByName('LOGO_CACHED_FILEPATH').AsString;
+
+  LicensesList := TStringList.Create;
+  try
+    LicensesList.Delimiter := ',';
+    LicensesList.StrictDelimiter := True;
+    LicensesList.DelimitedText := CDS.FieldByName('LICENSES_TYPE').AsString;
+    FLicensesType := LicensesList.ToStringArray;
+  finally
+    LicensesList.Free;
+  end;
 end;
 
 procedure TPackageInfo.LoadJSON(JsonData: TJSONObject);
@@ -147,7 +201,52 @@ begin
   Result.LoadJSON(JsonData);
 end;
 
+procedure TPackageInfo.SaveToCDS(CDS: TFDMemTable);
+var
+  I: Integer;
+  LicensesList: TStringList;
+begin
+  CDS.FieldByName('ID').AsInteger := FId;
+  CDS.FieldByName('NODE_ID').AsString := FNodeId;
+  CDS.FieldByName('NAME').AsString := FName;
+  CDS.FieldByName('FULL_NAME').AsString := FFullName;
+  CDS.FieldByName('HTML_URL').AsString := FHtmlUrl;
+  CDS.FieldByName('DESCRIPTION').AsString := FDescription;
+  CDS.FieldByName('URL').AsString := FUrl;
+  CDS.FieldByName('DOWNLOADS_URL').AsString := FDownloadUrl;
+  CDS.FieldByName('CREATED_AT').AsDateTime := FCreatedAt;
+  CDS.FieldByName('UPDATED_AT').AsDateTime := FUpdatedAt;
+  CDS.FieldByName('CLONE_URL').AsString := FCloneUrl;
+  CDS.FieldByName('DEFAULT_BRANCH').AsString := FDefaultBranch;
+
+  FOwnerInfo.SaveToCDS(CDS);
+
+  CDS.FieldByName('PACKAGE_ID').AsString := FPackageId;
+  CDS.FieldByName('ALTERNATIVE_NAME').AsString := FAlternativeName;
+  CDS.FieldByName('LOGO_FILENAME').AsString := FLogoFileName;
+  CDS.FieldByName('LOGO_CACHED_FILEPATH').AsString := FLogoCachedFilePath;
+
+  LicensesList := TStringList.Create;
+  try
+    LicensesList.Delimiter := ',';
+    LicensesList.StrictDelimiter := True;
+    for I := 0 to Length(FLicensesType) - 1 do
+      LicensesList.Add(FLicensesType[I]);
+    CDS.FieldByName('LICENSES_TYPE').AsString := LicensesList.DelimitedText;
+  finally
+    LicensesList.Free;
+  end;
+end;
+
 { TOwnerInfo }
+
+procedure TOwnerInfo.CreateFromCDS(CDS: TFDMemTable);
+begin
+  FId := CDS.FieldByName('OWNER_ID').AsInteger;
+  FLogin := CDS.FieldByName('OWNER_LOGIN').AsString;
+  FNodeId := CDS.FieldByName('OWNER_NODE_ID').AsString;
+  FAvatarUrl := CDS.FieldByName('OWNER_AVATAR_URL').AsString;
+end;
 
 procedure TOwnerInfo.LoadJSON(JsonData: TJSONObject);
 begin
@@ -155,6 +254,14 @@ begin
   FLogin := JsonData.GetValue('login').Value;
   FNodeId := JsonData.GetValue('node_id').Value;
   FAvatarUrl := JsonData.GetValue('avatar_url').Value;
+end;
+
+procedure TOwnerInfo.SaveToCDS(CDS: TFDMemTable);
+begin
+  CDS.FieldByName('OWNER_ID').AsInteger := FId;
+  CDS.FieldByName('OWNER_LOGIN').AsString := FLogin;
+  CDS.FieldByName('OWNER_NODE_ID').AsString := FNodeId;
+  CDS.FieldByName('OWNER_AVATAR_URL').AsString := FAvatarUrl;
 end;
 
 { TProxyFactory }
@@ -201,9 +308,19 @@ begin
   Result := FAccessToken;
 end;
 
+function TDuGetProxyBase.GetCacheContainer: TFDMemTable;
+begin
+  Result := FCDSCache;
+end;
+
 procedure TDuGetProxyBase.SetAccessToken(const Token: string);
 begin
   FAccessToken := Token;
+end;
+
+procedure TDuGetProxyBase.SetCacheContainer(CDS: TFDMemTable);
+begin
+  FCDSCache := CDS;
 end;
 
 end.

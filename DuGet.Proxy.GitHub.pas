@@ -5,6 +5,9 @@ interface
 uses
   System.SysUtils, System.Variants, System.Classes,
   System.Generics.Collections, System.IOUtils, System.NetEncoding,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   JvGnugettext,
   DuGet.Proxy;
 
@@ -143,7 +146,7 @@ procedure TDuGetProxyGitHub.LoadPackagesList;
 var
   HttpClient: DuGet.HttpClient.THttpClient;
   Info: TPackageInfo;
-  Response: string;
+  Response, CacheFilePath: string;
   JsonResponse: TJSONObject;
   Items: TJSONArray;
   Item: TJSONValue;
@@ -152,9 +155,41 @@ begin
     raise Exception.Create(Format(_('You have to provide your personal access token for GitHub API.' + sLineBreak +
                             'See here %s'), [GitHubTokenHelpUrl]));
 
+  CacheFilePath := TPath.Combine(TUtils.GetCacheFolder, 'packages.cache');
+
   FPackagesList.Clear;
 
   try
+    if Assigned(FCDSCache) then
+    begin
+      if FCDSCache.Active then
+        FCDSCache.EmptyDataSet;
+      FCDSCache.Open;
+    end;
+
+    // Laod from cache
+    if TFile.Exists(CacheFilePath) and Assigned(FCDSCache) then
+    begin
+      FCDSCache.LoadFromFile(CacheFilePath, sfBinary);
+      FCDSCache.First;
+      while not FCDSCache.Eof do
+      begin
+        Info := TPackageInfo.CreateFromCDS(FCDSCache);
+        try
+          FPackagesList.Add(Info);
+          FCDSCache.Next;
+        except
+            on E: Exception do
+            begin
+              Info.Free;
+              raise;
+            end;
+          end;
+      end;
+      Exit;
+    end;
+
+    // Do request for packages
     HttpClient := DuGet.HttpClient.THttpClient.Create;
     try
       HttpClient.Token := FAccessToken;
@@ -172,6 +207,14 @@ begin
           try
             LoadMetadata(Info); // Extra info from metadata file
             FPackagesList.Add(Info);
+
+            // Cache
+            if Assigned(FCDSCache) then
+            begin
+              FCDSCache.Insert;
+              Info.SaveToCDS(FCDSCache);
+              FCDSCache.Post;
+            end;
           except
             on E: Exception do
             begin
@@ -187,6 +230,12 @@ begin
 
     finally
       HttpClient.Free;
+    end;
+
+    if Assigned(FCDSCache) then
+    begin
+      FCDSCache.SaveToFile(CacheFilePath, sfBinary);
+      FCDSCache.Close;
     end;
   except
     on E: Exception do
