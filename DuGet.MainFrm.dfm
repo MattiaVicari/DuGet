@@ -25,9 +25,9 @@ object frmMain: TfrmMain
     Alignment = taLeftJustify
     BevelOuter = bvNone
     Caption = 'DuGet - Package manager for Delphi'
-    Color = 2829099
+    Color = 15921906
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
+    Font.Color = clBlack
     Font.Height = -12
     Font.Name = 'Segoe UI'
     Font.Style = []
@@ -49,7 +49,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       Caption = #59144
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
+      Font.Color = clBlack
       Font.Height = -13
       Font.Name = 'Segoe MDL2 Assets'
       Font.Style = []
@@ -72,7 +72,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       Caption = #59192
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
+      Font.Color = clBlack
       Font.Height = -13
       Font.Name = 'Segoe MDL2 Assets'
       Font.Style = []
@@ -94,7 +94,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       Caption = #57347
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
+      Font.Color = clBlack
       Font.Height = -13
       Font.Name = 'Segoe MDL2 Assets'
       Font.Style = []
@@ -116,7 +116,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       Caption = #57606
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
+      Font.Color = clBlack
       Font.Height = -13
       Font.Name = 'Segoe MDL2 Assets'
       Font.Style = []
@@ -137,7 +137,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       Caption = #57510
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
+      Font.Color = clBlack
       Font.Height = -13
       Font.Name = 'Segoe MDL2 Assets'
       Font.Style = []
@@ -160,7 +160,7 @@ object frmMain: TfrmMain
     BevelOuter = bvNone
     DoubleBuffered = True
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
+    Font.Color = clBlack
     Font.Height = -12
     Font.Name = 'Segoe UI'
     Font.Style = []
@@ -512,6 +512,7 @@ object frmMain: TfrmMain
     end
   end
   object AppThemeManager: TUThemeManager
+    UseSystemTheme = False
     Left = 456
     Top = 48
   end

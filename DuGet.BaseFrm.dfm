@@ -37,7 +37,7 @@ object frmBase: TfrmBase
       Caption = 'Page title'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -28
       Font.Name = 'Segoe UI'
       Font.Style = []

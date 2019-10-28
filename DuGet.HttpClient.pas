@@ -34,7 +34,7 @@ constructor THttpClient.Create;
 begin
   FHttpClient := TIdHttp.Create(nil);
   FIOHandler := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
-  FIOHandler.SSLOptions.Method := TIdSSLVersion.sslvTLSv1_2;
+  FIOHandler.SSLOptions.Method := TIdSSLVersion.sslvSSLv23;
   FHttpClient.IOHandler := FIOHandler;
 end;
 

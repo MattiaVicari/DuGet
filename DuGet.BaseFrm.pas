@@ -69,11 +69,13 @@ begin
   begin
     boxMain.CustomBackColor := clWhite;
     ActivityIndicator.IndicatorColor := aicBlack;
+    Self.Color := clWhite;
   end
   else
   begin
     boxMain.CustomBackColor := clBlack;
     ActivityIndicator.IndicatorColor := aicWhite;
+    Self.Color := clBlack;
   end;
   boxMain.CustomTextColor := GetTextColorFromBackground(boxMain.CustomBackColor);
 
