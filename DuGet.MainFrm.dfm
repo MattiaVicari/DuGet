@@ -25,9 +25,9 @@ object frmMain: TfrmMain
     Alignment = taLeftJustify
     BevelOuter = bvNone
     Caption = 'DuGet - Package manager for Delphi'
-    Color = 15921906
+    Color = 2829099
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
+    Font.Color = clWhite
     Font.Height = -12
     Font.Name = 'Segoe UI'
     Font.Style = []
@@ -49,7 +49,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       Caption = #59144
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Segoe MDL2 Assets'
       Font.Style = []
@@ -72,7 +72,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       Caption = #59192
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Segoe MDL2 Assets'
       Font.Style = []
@@ -94,7 +94,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       Caption = #57347
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Segoe MDL2 Assets'
       Font.Style = []
@@ -116,7 +116,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       Caption = #57606
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Segoe MDL2 Assets'
       Font.Style = []
@@ -131,13 +131,13 @@ object frmMain: TfrmMain
       Height = 32
       ThemeManager = AppThemeManager
       ButtonStyle = qbsHighlight
-      LightColor = 4552068
-      DarkColor = 4552068
+      LightColor = 14120960
+      DarkColor = 14120960
       Align = alLeft
       BevelOuter = bvNone
       Caption = #57510
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Segoe MDL2 Assets'
       Font.Style = []
@@ -160,7 +160,7 @@ object frmMain: TfrmMain
     BevelOuter = bvNone
     DoubleBuffered = True
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
+    Font.Color = clWhite
     Font.Height = -12
     Font.Name = 'Segoe UI'
     Font.Style = []
@@ -310,10 +310,6 @@ object frmMain: TfrmMain
       Height = 486
       CardIndex = 0
       TabOrder = 0
-      ExplicitLeft = 6
-      ExplicitTop = 6
-      ExplicitWidth = 588
-      ExplicitHeight = 484
       DesignSize = (
         590
         486)

@@ -10,6 +10,7 @@ const
 
   { Messages }
   WM_OWN_ENABLE_BACKBUTTON = WM_USER + 1;
+  WM_OWN_UPDATE_APPTHEME = WM_USER + 2;
 
   { Colors }
   LightSelectionColor = $00E6E6E6;

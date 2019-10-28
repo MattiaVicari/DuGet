@@ -2,7 +2,6 @@
 Package Manager for Delphi
 
 ## Requirement
-- IDE Delphi Rio 10.3
 - [GNU GetText](http://dxgettext.po.dk/Home) for translations
 - [JEDI](https://github.com/project-jedi)
 - [UniversalCL](https://github.com/VuioVuio/UniversalCL) by VuioVuvio

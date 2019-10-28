@@ -1,16 +1,16 @@
 inherited frmSettings: TfrmSettings
   Width = 564
-  Height = 316
+  Height = 399
   ExplicitWidth = 564
   ExplicitHeight = 316
   inherited boxMain: TUPanel
     Width = 564
-    Height = 316
+    Height = 399
     ExplicitWidth = 564
     ExplicitHeight = 316
     DesignSize = (
       564
-      316)
+      399)
     inherited txtTitle: TUText
       Width = 564
       Caption = 'Settings'
@@ -37,10 +37,10 @@ inherited frmSettings: TfrmSettings
       TextKind = tkDescription
     end
     object boxToken: TUPanel
-      Left = 0
+      Left = 77
       Top = 126
-      Width = 337
-      Height = 121
+      Width = 409
+      Height = 267
       CustomTextColor = clBlack
       CustomBackColor = 15132390
       BevelOuter = bvNone
@@ -54,7 +54,7 @@ inherited frmSettings: TfrmSettings
       ShowCaption = False
       TabOrder = 0
       object txtToken: TUText
-        Left = 123
+        Left = 159
         Top = 6
         Width = 105
         Height = 29
@@ -62,7 +62,7 @@ inherited frmSettings: TfrmSettings
         AutoSize = False
         Caption = 'Token'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Segoe UI Semibold'
         Font.Style = []
@@ -70,8 +70,23 @@ inherited frmSettings: TfrmSettings
         ThemeManager = AppThemeManager
         TextKind = tkEntry
       end
+      object txtThemeSettings: TUText
+        Left = 139
+        Top = 88
+        Width = 97
+        Height = 28
+        Caption = 'App theme'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -20
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ThemeManager = AppThemeManager
+        TextKind = tkHeading
+      end
       object edtToken: TUEdit
-        Left = 0
+        Left = 36
         Top = 41
         Width = 337
         Height = 30
@@ -83,9 +98,9 @@ inherited frmSettings: TfrmSettings
         Edit.Align = alClient
         Edit.Alignment = taCenter
         Edit.BorderStyle = bsNone
-        Edit.Color = clWhite
+        Edit.Color = clBlack
         Edit.Font.Charset = DEFAULT_CHARSET
-        Edit.Font.Color = clBlack
+        Edit.Font.Color = clWhite
         Edit.Font.Height = -13
         Edit.Font.Name = 'Segoe UI'
         Edit.Font.Style = []
@@ -101,8 +116,8 @@ inherited frmSettings: TfrmSettings
         TabOrder = 0
       end
       object btnSaveSettings: TUButton
-        Left = 116
-        Top = 77
+        Left = 152
+        Top = 222
         Width = 112
         Height = 30
         ThemeManager = AppThemeManager
@@ -127,6 +142,72 @@ inherited frmSettings: TfrmSettings
         TabOrder = 1
         TabStop = True
         OnClick = btnSaveSettingsClick
+      end
+      object radioDefaultTheme: TURadioButton
+        Left = 80
+        Top = 117
+        Width = 145
+        Height = 30
+        ThemeManager = AppThemeManager
+        IconFont.Charset = DEFAULT_CHARSET
+        IconFont.Color = clWindowText
+        IconFont.Height = -20
+        IconFont.Name = 'Segoe MDL2 Assets'
+        IconFont.Style = []
+        Group = 'AppTheme'
+        CustomActiveColor = 14120960
+        Text = 'Use system setting'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        OnClick = radioAppThemeClick
+      end
+      object radioLightTheme: TURadioButton
+        Left = 80
+        Top = 147
+        Width = 64
+        Height = 30
+        ThemeManager = AppThemeManager
+        IconFont.Charset = DEFAULT_CHARSET
+        IconFont.Color = clWindowText
+        IconFont.Height = -20
+        IconFont.Name = 'Segoe MDL2 Assets'
+        IconFont.Style = []
+        Group = 'AppTheme'
+        CustomActiveColor = 14120960
+        Text = 'Light'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        OnClick = radioAppThemeClick
+      end
+      object radioDarkTheme: TURadioButton
+        Left = 80
+        Top = 177
+        Width = 63
+        Height = 30
+        ThemeManager = AppThemeManager
+        IconFont.Charset = DEFAULT_CHARSET
+        IconFont.Color = clWindowText
+        IconFont.Height = -20
+        IconFont.Name = 'Segoe MDL2 Assets'
+        IconFont.Style = []
+        Group = 'AppTheme'
+        CustomActiveColor = 14120960
+        Text = 'Dark'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        OnClick = radioAppThemeClick
       end
     end
   end

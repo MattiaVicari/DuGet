@@ -7,18 +7,22 @@ uses
   JvGnugettext;
 
 type
+  TDuGetTheme = (dgtLight, dgtDark, dgtSystem);
+
   TAppSettings = class
   class var
     FAppSettings: TAppSettings;
   private
     FSettingsFilePath: string;
     FToken: string;
+    FTheme: TDuGetTheme;
     function GetInit: Boolean;
   public
     class function Instance: TAppSettings;
     class destructor Destroy;
   public
     property Token: string read FToken write FToken;
+    property Theme: TDuGetTheme read FTheme write FTheme;
     property Init: Boolean read GetInit;
 
     procedure Load;
@@ -30,6 +34,7 @@ type
 implementation
 
 uses
+  DuGet.Utils,
   System.JSON;
 
 const
@@ -41,6 +46,7 @@ constructor TAppSettings.Create;
 begin
   FSettingsFilePath := TPath.Combine(ExtractFileDir(ParamStr(0)), SettingsFileName);
   FToken := '';
+  FTheme := dgtSystem;
 
   Load;
 end;
@@ -81,7 +87,8 @@ begin
       if SettingsJSON.Parse(JsonData, 0, True) = -1 then
         raise Exception.Create(_('Settings are invalid'));
 
-      FToken := SettingsJSON.GetValue('token').Value;
+      FToken := TUtils.JsonCoalesceValue(SettingsJSON.GetValue('token'));
+      FTheme := TDuGetTheme(StrToIntDef(TUtils.JsonCoalesceValue(SettingsJSON.GetValue('theme')), Ord(dgtSystem)));
     finally
       SettingsJSON.Free;
     end;
@@ -99,6 +106,7 @@ begin
     SettingsJSON := TJSONObject.Create;
     try
       SettingsJSON.AddPair('token', FToken);
+      SettingsJSON.AddPair('theme', IntToStr(Ord(FTheme)));
       TFile.WriteAllText(FSettingsFilePath, SettingsJSON.ToJSON); // No BOM
     finally
       SettingsJSON.Free;

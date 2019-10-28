@@ -11,7 +11,7 @@ uses
   UCL.TUQuickButton, UCL.TUPanel, UCL.TUSymbolButton,
   UCL.IntAnimation, UCL.IntAnimation.Helpers, UCL.TUText,
 
-  DuGet.Constants;
+  DuGet.Constants, DuGet.App.Settings;
 
 type
   TfrmMain = class(TUForm)
@@ -38,8 +38,12 @@ type
     procedure btnPackagesListClick(Sender: TObject);
     procedure btnBackClick(Sender: TObject);
   private
+    procedure SetupBackground;
     procedure UpdateCaptionBar;
+    procedure UpdateAppTheme(Theme: TDuGetTheme);
+
     procedure MessageHandlerEnableBackButton(var Msg: TMessage); message WM_OWN_ENABLE_BACKBUTTON;
+    procedure MessageHandlerUpdateAppTheme(var Msg: TMessage); message WM_OWN_UPDATE_APPTHEME;
   end;
 
 var
@@ -51,7 +55,6 @@ implementation
 
 uses
   DuGet.Utils,
-  DuGet.App.Settings,
   DuGet.NavigationManager;
 
 procedure TfrmMain.btnBackClick(Sender: TObject);
@@ -87,18 +90,9 @@ end;
 procedure TfrmMain.btnSwitchThemeClick(Sender: TObject);
 begin
   if ThemeManager.Theme = utLight then
-  begin
-    ThemeManager.CustomTheme := utDark;
-    imgDuGetLogo.Picture.LoadFromFile(TUtils.GetAsset('Logo_black_300x300alpha.png'));
-  end
+    UpdateAppTheme(dgtDark)
   else
-  begin
-    ThemeManager.CustomTheme := utLight;
-    imgDuGetLogo.Picture.LoadFromFile(TUtils.GetAsset('Logo_300x300alpha.png'));
-  end;
-
-  // Update theme for other pages
-  NavigationManager.SetUTheme(ThemeManager.CustomTheme);
+    UpdateAppTheme(dgtLight);
 end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
@@ -115,12 +109,21 @@ begin
   // Setup UForm properties
   ThemeManager := AppThemeManager;
   CaptionBar := AppCaptionBar;
+
+  ThemeManager.UseSystemTheme := (TAppSettings.Instance.Theme = dgtSystem);
+  case TAppSettings.Instance.Theme of
+    dgtLight: ThemeManager.CustomTheme := utLight;
+    dgtDark: ThemeManager.CustomTheme := utDark;
+  end;
+
   UpdateCaptionBar;
 
   // Splash screen
   SplashImage := TUtils.GetAsset('SplashScreen.png');
   SplashScreenDelay := 1000;
   StartSplashScreen;
+
+  SetupBackground;
 
   if not TAppSettings.Instance.Init then
   begin
@@ -134,9 +137,37 @@ begin
   btnBack.Visible := (Msg.WParam = 1);
 end;
 
+procedure TfrmMain.MessageHandlerUpdateAppTheme(var Msg: TMessage);
+begin
+  UpdateAppTheme(TDuGetTheme(Msg.WParam));
+end;
+
+procedure TfrmMain.SetupBackground;
+begin
+  if ThemeManager.Theme = utLight then
+    imgDuGetLogo.Picture.LoadFromFile(TUtils.GetAsset('Logo_300x300alpha.png'))
+  else
+    imgDuGetLogo.Picture.LoadFromFile(TUtils.GetAsset('Logo_black_300x300alpha.png'));
+end;
+
+procedure TfrmMain.UpdateAppTheme(Theme: TDuGetTheme);
+begin
+  if Theme = dgtDark then
+    ThemeManager.CustomTheme := utDark
+  else
+    ThemeManager.CustomTheme := utLight;
+  ThemeManager.UseSystemTheme := (Theme = dgtSystem);
+
+  UpdateCaptionBar;
+  SetupBackground;
+  // Update theme for other pages
+  NavigationManager.SetUTheme(ThemeManager.Theme);
+end;
+
 procedure TfrmMain.UpdateCaptionBar;
 begin
   AppCaptionBar.Caption := #9 + Trim(AppCaptionBar.Caption);
+  btnSwitchTheme.Visible := not ThemeManager.UseSystemTheme;
 end;
 
 end.
