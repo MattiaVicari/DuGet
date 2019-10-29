@@ -8,6 +8,7 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  FireDAC.Stan.StorageBin,
   JvGnugettext,
   DuGet.Proxy;
 
@@ -66,7 +67,7 @@ procedure TDuGetProxyGitHub.LoadMetadata(Info: TPackageInfo);
   end;
 
 var
-  HttpClient: DuGet.HttpClient.THttpClient;
+  HttpClient: TDuGetHttpClient;
   Url, Response, DownloadUrl: string;
   JsonResponse, JsonMetadata, JsonPicture: TJSONObject;
   Item: TJSONValue;
@@ -77,7 +78,7 @@ var
 begin
   Url := Format(GitHubContentUrl, [Info.Owner.Login, Info.Name, 'Delphinus.Info.json', Info.DefaultBranch]);
   try
-    HttpClient := DuGet.HttpClient.THttpClient.Create;
+    HttpClient := TDuGetHttpClient.Create;
     try
       HttpClient.Token := FAccessToken;
 
@@ -144,7 +145,7 @@ end;
 
 procedure TDuGetProxyGitHub.LoadPackagesList;
 var
-  HttpClient: DuGet.HttpClient.THttpClient;
+  HttpClient: TDuGetHttpClient;
   Info: TPackageInfo;
   Response, CacheFilePath: string;
   JsonResponse: TJSONObject;
@@ -190,7 +191,7 @@ begin
     end;
 
     // Do request for packages
-    HttpClient := DuGet.HttpClient.THttpClient.Create;
+    HttpClient := TDuGetHttpClient.Create;
     try
       HttpClient.Token := FAccessToken;
 

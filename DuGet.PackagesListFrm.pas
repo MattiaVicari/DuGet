@@ -83,7 +83,7 @@ uses
   DuGet.App.Settings;
 
 const
-  LogoSize = 150;
+  LogoSize = 100;
 
 { TfrmPackagesList }
 
@@ -93,7 +93,7 @@ var
 begin
   inherited;
 
-  listPackages.Font.Height := 150;
+  listPackages.Font.Height := LogoSize + 80;
 
   FItemSelected := -1;
   FProxy := TProxyFactory.GetProxy('GitHubProxy');
@@ -154,7 +154,7 @@ begin
         LogStream := TFileStream.Create(Info.LogoCachedFilePath, fmOpenRead);
         try
           LogoGraphic.LoadFromStream(LogStream);
-          LogoGraphic.SetSize(LogoSize, LogoSize);
+          //LogoGraphic.SetSize(LogoSize, LogoSize);
           FCacheLogoList.Add(Info.PackageId, LogoGraphic);
         finally
           LogStream.Free;
@@ -198,7 +198,7 @@ begin
   ViewCanvas.Font.Style := [];
   ViewCanvas.Font.Size := 12;
   ViewCanvas.Refresh;
-  ViewCanvas.TextOut(Rect.Left + LogoSize, Rect.Top + 105, Format(_('Author: %s'), [Info.Owner.Login]));
+  ViewCanvas.TextOut(Rect.Left + 5, Rect.Top + 115, Format(_('Author: %s'), [Info.Owner.Login]));
   // Licenses
   Licenses := '';
   for I := Low(Info.LicensesType) to High(Info.LicensesType) do
@@ -212,7 +212,7 @@ begin
   ViewCanvas.Font.Style := [];
   ViewCanvas.Font.Size := 12;
   ViewCanvas.Refresh;
-  ViewCanvas.TextOut(Rect.Left + 5, Rect.Top + LogoSize + 5, Format(_('Licenses: %s'), [Licenses]));
+  ViewCanvas.TextOut(Rect.Left + 5, Rect.Top + LogoSize + 50, Format(_('Licenses: %s'), [Licenses]));
 end;
 
 procedure TfrmPackagesList.listPackagesSelectItem(Sender: TObject;

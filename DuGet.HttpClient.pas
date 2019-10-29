@@ -4,15 +4,14 @@ interface
 
 uses
   System.SysUtils, System.Variants, System.Classes,
-  IdHttp, IdBaseComponent, IdComponent, IdIOHandler,
+  System.Net.HTTPClient,
   IdIOHandlerSocket, IdIOHandlerStack, IdSSL, IdSSLOpenSSL;
 
 type
-  THttpClient = class
+  TDuGetHttpClient = class
   private
     FToken: string;
-    FHttpClient: TIdHttp;
-    FIOHandler: TIdSSLIOHandlerSocketOpenSSL;
+    FHttpClient: THttpClient;
   public
     function Get(const Url: string): string; overload;
     procedure Get(const Url: string; ResponseStream: TStream); overload;
@@ -30,37 +29,34 @@ uses
 
 { THttpClient }
 
-constructor THttpClient.Create;
+constructor TDuGetHttpClient.Create;
 begin
-  FHttpClient := TIdHttp.Create(nil);
-  FIOHandler := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
-  FIOHandler.SSLOptions.Method := TIdSSLVersion.sslvSSLv23;
-  FHttpClient.IOHandler := FIOHandler;
+  FHttpClient := THttpClient.Create;
 end;
 
-destructor THttpClient.Destroy;
+destructor TDuGetHttpClient.Destroy;
 begin
   FHttpClient.Free;
-  FIOHandler.Free;
   inherited;
 end;
 
-procedure THttpClient.Get(const Url: string; ResponseStream: TStream);
+procedure TDuGetHttpClient.Get(const Url: string; ResponseStream: TStream);
 begin
-  FHttpClient.Request.CustomHeaders.Clear;
-  FHttpClient.Request.CustomHeaders.Add('Authorization: token ' + FToken);
-  FHttpClient.Request.UserAgent := UserAgentDuGet;
+  FHttpClient.CustomHeaders['Authorization'] := 'token ' + FToken;
+  FHttpClient.UserAgent := UserAgentDuGet;
 
   FHttpClient.Get(Url, ResponseStream);
 end;
 
-function THttpClient.Get(const Url: string): string;
+function TDuGetHttpClient.Get(const Url: string): string;
+var
+  Response: IHTTPResponse;
 begin
-  FHttpClient.Request.CustomHeaders.Clear;
-  FHttpClient.Request.CustomHeaders.Add('Authorization: token ' + FToken);
-  FHttpClient.Request.UserAgent := UserAgentDuGet;
+  FHttpClient.CustomHeaders['Authorization'] := 'token ' + FToken;
+  FHttpClient.UserAgent := UserAgentDuGet;
 
-  Result := FHttpClient.Get(Url);
+  Response := FHttpClient.Get(Url);
+  Result := Response.ContentAsString(TEncoding.UTF8);
 end;
 
 end.

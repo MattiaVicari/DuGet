@@ -24,7 +24,7 @@ inherited frmPackagesList: TfrmPackagesList
       Align = alClient
       BevelOuter = bvNone
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -12
       Font.Name = 'Segoe UI'
       Font.Style = []
@@ -42,7 +42,7 @@ inherited frmPackagesList: TfrmPackagesList
         Align = alRight
         BevelOuter = bvNone
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Height = -12
         Font.Name = 'Segoe UI'
         Font.Style = []
@@ -63,7 +63,7 @@ inherited frmPackagesList: TfrmPackagesList
           Alignment = taCenter
           Caption = 'Package info'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWhite
           Font.Height = -20
           Font.Name = 'Segoe UI'
           Font.Style = []
