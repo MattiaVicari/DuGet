@@ -16,14 +16,10 @@ type
   { Proxy implementation for GitHub }
   TDuGetProxyGitHub = class(TDuGetProxyBase)
   private
-    FPackagesList: TObjectList<TPackageInfo>;
     procedure LoadMetadata(Info: TPackageInfo);
   public
     procedure LoadPackagesList; override;
     function GetPackagesList: TObjectList<TPackageInfo>; override;
-
-    destructor Destroy; override;
-    constructor Create; override;
   end;
 
 implementation
@@ -39,18 +35,6 @@ const
   GitHubContentUrl = 'https://api.github.com/repos/%s/%s/contents/%s?ref=%s';
 
 { TDuGetProxyGitHub }
-
-constructor TDuGetProxyGitHub.Create;
-begin
-  inherited;
-  FPackagesList := TObjectList<TPackageInfo>.Create(True);
-end;
-
-destructor TDuGetProxyGitHub.Destroy;
-begin
-  FPackagesList.Free;
-  inherited;
-end;
 
 function TDuGetProxyGitHub.GetPackagesList: TObjectList<TPackageInfo>;
 begin
@@ -112,19 +96,22 @@ begin
             // Download the file if it's not in cache
             if not TFile.Exists(Info.LogoCachedFilePath) then
             begin
-              LogoFileStream := TFileStream.Create(Info.LogoCachedFilePath, fmCreate);
+              Response := HttpClient.Get(TIdURI.URLEncode(Url));
+              JsonPicture := TJSONObject.Create;
               try
-                Response := HttpClient.Get(TIdURI.URLEncode(Url));
-                JsonPicture := TJSONObject.Create;
-                try
-                  JsonPicture.Parse(TEncoding.UTF8.GetBytes(Response), 0);
+                JsonPicture.Parse(TEncoding.UTF8.GetBytes(Response), 0);
+                if Assigned(JsonPicture.GetValue('content')) then
+                begin
                   PictureBytes := TNetEncoding.Base64.DecodeStringToBytes(JsonPicture.GetValue('content').Value);
-                  LogoFileStream.WriteData(PictureBytes, Length(PictureBytes));
-                finally
-                  JsonPicture.Free;
+                  LogoFileStream := TFileStream.Create(Info.LogoCachedFilePath, fmCreate);
+                  try
+                    LogoFileStream.WriteData(PictureBytes, Length(PictureBytes));
+                  finally
+                    LogoFileStream.Free;
+                  end;
                 end;
               finally
-                LogoFileStream.Free;
+                JsonPicture.Free;
               end;
             end;
           end;
@@ -139,7 +126,7 @@ begin
       HttpClient.Free;
     end;
   except
-    // No metdata available
+    // No metadata available
   end;
 end;
 
@@ -147,7 +134,7 @@ procedure TDuGetProxyGitHub.LoadPackagesList;
 var
   HttpClient: TDuGetHttpClient;
   Info: TPackageInfo;
-  Response, CacheFilePath: string;
+  Response: string;
   JsonResponse: TJSONObject;
   Items: TJSONArray;
   Item: TJSONValue;
@@ -156,39 +143,12 @@ begin
     raise Exception.Create(Format(_('You have to provide your personal access token for GitHub API.' + sLineBreak +
                             'See here %s'), [GitHubTokenHelpUrl]));
 
-  CacheFilePath := TPath.Combine(TUtils.GetCacheFolder, 'packages.cache');
-
   FPackagesList.Clear;
 
   try
-    if Assigned(FCDSCache) then
-    begin
-      if FCDSCache.Active then
-        FCDSCache.EmptyDataSet;
-      FCDSCache.Open;
-    end;
-
-    // Laod from cache
-    if TFile.Exists(CacheFilePath) and Assigned(FCDSCache) then
-    begin
-      FCDSCache.LoadFromFile(CacheFilePath, sfBinary);
-      FCDSCache.First;
-      while not FCDSCache.Eof do
-      begin
-        Info := TPackageInfo.CreateFromCDS(FCDSCache);
-        try
-          FPackagesList.Add(Info);
-          FCDSCache.Next;
-        except
-            on E: Exception do
-            begin
-              Info.Free;
-              raise;
-            end;
-          end;
-      end;
+    // Look up in cache
+    if LookupCache then
       Exit;
-    end;
 
     // Do request for packages
     HttpClient := TDuGetHttpClient.Create;
@@ -208,14 +168,7 @@ begin
           try
             LoadMetadata(Info); // Extra info from metadata file
             FPackagesList.Add(Info);
-
-            // Cache
-            if Assigned(FCDSCache) then
-            begin
-              FCDSCache.Insert;
-              Info.SaveToCDS(FCDSCache);
-              FCDSCache.Post;
-            end;
+            UpdateCache(Info);
           except
             on E: Exception do
             begin
@@ -233,11 +186,8 @@ begin
       HttpClient.Free;
     end;
 
-    if Assigned(FCDSCache) then
-    begin
-      FCDSCache.SaveToFile(CacheFilePath, sfBinary);
-      FCDSCache.Close;
-    end;
+    SaveCache;
+
   except
     on E: Exception do
       raise Exception.Create(Format(_('Unable to get the list of packages.' + sLineBreak + 'Error: %s'), [E.Message]));

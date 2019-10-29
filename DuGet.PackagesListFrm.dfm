@@ -31,55 +31,12 @@ inherited frmPackagesList: TfrmPackagesList
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
-      object boxPackageInfo: TUPanel
-        Left = 360
-        Top = 0
-        Width = 243
-        Height = 394
-        ThemeManager = AppThemeManager
-        CustomTextColor = clBlack
-        CustomBackColor = 15132390
-        Align = alRight
-        BevelOuter = bvNone
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -12
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        Padding.Left = 15
-        Padding.Top = 5
-        Padding.Right = 15
-        Padding.Bottom = 15
-        ParentBackground = False
-        ParentFont = False
-        ShowCaption = False
-        TabOrder = 0
-        object txtPackageInfo: TUText
-          Left = 15
-          Top = 5
-          Width = 213
-          Height = 28
-          Align = alTop
-          Alignment = taCenter
-          Caption = 'Package info'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -20
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          WordWrap = True
-          ThemeManager = AppThemeManager
-          TextKind = tkHeading
-          ExplicitWidth = 110
-        end
-      end
       object listPackages: TListView
         AlignWithMargins = True
         Left = 10
-        Top = 10
-        Width = 340
-        Height = 384
+        Top = 59
+        Width = 583
+        Height = 335
         Margins.Left = 10
         Margins.Top = 10
         Margins.Right = 10
@@ -107,10 +64,82 @@ inherited frmPackagesList: TfrmPackagesList
         ParentDoubleBuffered = False
         ParentFont = False
         ShowColumnHeaders = False
-        TabOrder = 1
+        TabOrder = 0
         ViewStyle = vsReport
         OnCustomDrawItem = listPackagesCustomDrawItem
         OnSelectItem = listPackagesSelectItem
+        ExplicitTop = 13
+        ExplicitHeight = 384
+      end
+      object boxPackageFilter: TUPanel
+        Left = 0
+        Top = 0
+        Width = 603
+        Height = 49
+        ThemeManager = AppThemeManager
+        CustomTextColor = clBlack
+        CustomBackColor = 15132390
+        Align = alTop
+        BevelOuter = bvNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Padding.Top = 5
+        Padding.Bottom = 5
+        ParentBackground = False
+        ParentFont = False
+        ShowCaption = False
+        TabOrder = 1
+        object btnRefresh: TUSymbolButton
+          Left = 520
+          Top = 5
+          Width = 83
+          Height = 39
+          ThemeManager = AppThemeManager
+          SymbolFont.Charset = DEFAULT_CHARSET
+          SymbolFont.Color = clWindowText
+          SymbolFont.Height = -16
+          SymbolFont.Name = 'Segoe MDL2 Assets'
+          SymbolFont.Style = []
+          TextFont.Charset = DEFAULT_CHARSET
+          TextFont.Color = clWindowText
+          TextFont.Height = -13
+          TextFont.Name = 'Segoe UI'
+          TextFont.Style = []
+          DetailFont.Charset = DEFAULT_CHARSET
+          DetailFont.Color = clWindowText
+          DetailFont.Height = -13
+          DetailFont.Name = 'Segoe UI'
+          DetailFont.Style = []
+          Orientation = oVertical
+          SymbolChar = #57623
+          Text = 'Refresh'
+          TextOffset = 20
+          ShowDetail = False
+          Transparent = True
+          Align = alRight
+          TabOrder = 0
+          TabStop = True
+          OnClick = btnRefreshClick
+          ExplicitLeft = 408
+          ExplicitTop = 6
+        end
+        object searchBox: TSearchBox
+          AlignWithMargins = True
+          Left = 10
+          Top = 8
+          Width = 500
+          Height = 33
+          Margins.Left = 10
+          Margins.Right = 10
+          Align = alClient
+          BevelInner = bvNone
+          BevelOuter = bvNone
+          TabOrder = 1
+          ExplicitHeight = 23
+        end
       end
     end
   end

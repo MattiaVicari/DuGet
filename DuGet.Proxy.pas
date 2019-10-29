@@ -4,6 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Classes, System.Generics.Collections, System.JSON,
+  System.IOUtils,
   FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
@@ -100,14 +101,23 @@ type
   protected
     FAccessToken: string;
     FCDSCache: TFDMemTable;
+    FCacheFilePath: string;
+    FPackagesList: TObjectList<TPackageInfo>;
+    function LookupCache: Boolean;
+    procedure UpdateCache(Info: TPackageInfo);
+    procedure SaveCache;
   public
+    property CacheFilePath: string read FCacheFilePath;
+
     function GetPackagesList: TObjectList<TPackageInfo>; virtual; abstract;
     procedure LoadPackagesList; virtual; abstract;
     function GetAccessToken: string;
     procedure SetAccessToken(const Token: string);
     procedure SetCacheContainer(CDS: TFDMemTable);
     function GetCacheContainer: TFDMemTable;
+
     constructor Create; virtual;
+    destructor Destroy; override;
   end;
 
   { Factory for proxy object }
@@ -122,6 +132,9 @@ type
   end;
 
 implementation
+
+uses
+  DuGet.Utils;
 
 { TPackageInfo }
 
@@ -301,6 +314,14 @@ end;
 constructor TDuGetProxyBase.Create;
 begin
   FAccessToken := '';
+  FPackagesList := TObjectList<TPackageInfo>.Create(True);
+  FCacheFilePath := TPath.Combine(TUtils.GetCacheFolder, 'packages.cache');
+end;
+
+destructor TDuGetProxyBase.Destroy;
+begin
+  FPackagesList.Free;
+  inherited;
 end;
 
 function TDuGetProxyBase.GetAccessToken: string;
@@ -313,6 +334,51 @@ begin
   Result := FCDSCache;
 end;
 
+function TDuGetProxyBase.LookupCache: Boolean;
+var
+  Info: TPackageInfo;
+begin
+  Result := False;
+
+  if not Assigned(FCDSCache) then
+    Exit(False);
+
+  if FCDSCache.Active then
+    FCDSCache.EmptyDataSet;
+  FCDSCache.Open;
+
+  if TFile.Exists(CacheFilePath) then
+  begin
+    Result := True;
+    FCDSCache.LoadFromFile(CacheFilePath, sfBinary);
+    FCDSCache.First;
+    while not FCDSCache.Eof do
+    begin
+      Info := TPackageInfo.CreateFromCDS(FCDSCache);
+      try
+        FPackagesList.Add(Info);
+        FCDSCache.Next;
+      except
+          on E: Exception do
+          begin
+            Info.Free;
+            raise;
+          end;
+        end;
+    end;
+  end;
+
+end;
+
+procedure TDuGetProxyBase.SaveCache;
+begin
+  if not Assigned(FCDSCache) then
+    Exit;
+
+  FCDSCache.SaveToFile(FCacheFilePath, sfBinary);
+  FCDSCache.Close;
+end;
+
 procedure TDuGetProxyBase.SetAccessToken(const Token: string);
 begin
   FAccessToken := Token;
@@ -321,6 +387,15 @@ end;
 procedure TDuGetProxyBase.SetCacheContainer(CDS: TFDMemTable);
 begin
   FCDSCache := CDS;
+end;
+
+procedure TDuGetProxyBase.UpdateCache(Info: TPackageInfo);
+begin
+  if not Assigned(FCDSCache) then
+    Exit;
+  FCDSCache.Insert;
+  Info.SaveToCDS(FCDSCache);
+  FCDSCache.Post;
 end;
 
 end.

@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
-  System.Generics.Collections, System.Types,
+  System.Generics.Collections, System.Types, System.IOUtils,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   UCL.TUForm, UCL.TUThemeManager, Vcl.StdCtrls, UCL.TUText, UCL.TUSeparator,
   UCL.Classes, UCL.Utils,
@@ -12,12 +12,10 @@ uses
   DuGet.BaseFrm, DuGet.Proxy, Vcl.WinXCtrls, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client, UCL.TUSymbolButton;
 
 type
   TfrmPackagesList = class(TfrmBase)
-    boxPackageInfo: TUPanel;
-    txtPackageInfo: TUText;
     listPackages: TListView;
     fdmPackages: TFDMemTable;
     fdmPackagesID: TIntegerField;
@@ -41,10 +39,14 @@ type
     fdmPackagesOWNER_LOGIN: TStringField;
     fdmPackagesOWNER_NODE_ID: TStringField;
     fdmPackagesOWNER_AVATAR_URL: TStringField;
+    boxPackageFilter: TUPanel;
+    btnRefresh: TUSymbolButton;
+    searchBox: TSearchBox;
     procedure listPackagesCustomDrawItem(Sender: TCustomListView;
       Item: TListItem; State: TCustomDrawState; var DefaultDraw: Boolean);
     procedure listPackagesSelectItem(Sender: TObject; Item: TListItem;
       Selected: Boolean);
+    procedure btnRefreshClick(Sender: TObject);
   private
     FItemSelected: Integer;
     FProxy: IDuGetProxy;
@@ -87,6 +89,13 @@ const
 
 { TfrmPackagesList }
 
+procedure TfrmPackagesList.btnRefreshClick(Sender: TObject);
+begin
+  inherited;
+  TDirectory.Delete(TUtils.GetCacheFolder);
+  LoadList;
+end;
+
 constructor TfrmPackagesList.Create(AOwner: TComponent);
 var
   DefaultLogoFileName: string;
@@ -98,7 +107,7 @@ begin
   FItemSelected := -1;
   FProxy := TProxyFactory.GetProxy('GitHubProxy');
 
-  DefaultLogoFileName := TUtils.GetAsset('Logo_150x150.png');
+  DefaultLogoFileName := TUtils.GetAsset('Logo_100x100.png');
   TUtils.CreateGraphic(ExtractFileExt(DefaultLogoFileName), FDefaultLogoGraphic);
   FDefaultLogoGraphic.LoadFromFile(DefaultLogoFileName);
   FDefaultLogoGraphic.SetSize(LogoSize, LogoSize);
@@ -154,7 +163,6 @@ begin
         LogStream := TFileStream.Create(Info.LogoCachedFilePath, fmOpenRead);
         try
           LogoGraphic.LoadFromStream(LogStream);
-          //LogoGraphic.SetSize(LogoSize, LogoSize);
           FCacheLogoList.Add(Info.PackageId, LogoGraphic);
         finally
           LogStream.Free;
@@ -182,9 +190,9 @@ begin
   ViewCanvas.Font.Style := [TFontStyle.fsBold];
   ViewCanvas.Font.Size := 14;
   ViewCanvas.Refresh;
-  ViewCanvas.TextOut(Rect.Left + LogoSize, Rect.Top + 5, PackageName);
+  ViewCanvas.TextOut(Rect.Left + LogoSize + 10, Rect.Top + 5, PackageName);
   // Description
-  TextRect.Left := Rect.Left + LogoSize + 5;
+  TextRect.Left := Rect.Left + LogoSize + 10;
   TextRect.Right := Rect.Width - 5;
   TextRect.Top := Rect.Top + 50;
   TextRect.Bottom := TextRect.Top + 50;
@@ -247,11 +255,15 @@ begin
   begin
     listPackages.Color := clWhite;
     listPackages.Font.Color := clBlack;
+    searchBox.Font.Color := clBlack;
+    searchBox.Color := clWhite;
   end
   else
   begin
     listPackages.Color := clBlack;
     listPackages.Font.Color := clWhite;
+    searchBox.Font.Color := clWhite;
+    searchBox.Color := clBlack;
   end;
 end;
 
