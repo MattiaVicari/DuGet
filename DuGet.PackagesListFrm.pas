@@ -47,8 +47,10 @@ type
     procedure listPackagesSelectItem(Sender: TObject; Item: TListItem;
       Selected: Boolean);
     procedure btnRefreshClick(Sender: TObject);
+    procedure searchBoxInvokeSearch(Sender: TObject);
   private
     FItemSelected: Integer;
+    FFilter: string;
     FProxy: IDuGetProxy;
     FDefaultLogoGraphic: TGraphic;
     FCacheLogoList: TObjectDictionary<string, TGraphic>;
@@ -66,10 +68,12 @@ type
     FProxy: IDuGetProxy;
     FDataList: TListView;
     FCacheCDS: TFDMemTable;
+    FFilter: string;
   protected
     procedure Execute; override;
   public
     property Proxy: IDuGetProxy read FProxy write FProxy;
+    property Filter: string read FFilter write FFilter;
     property DataList: TListView read FDataList write FDataList;
     property CacheCDS: TFDMemTable read FCacheCDS write FCacheCDS;
   end;
@@ -102,6 +106,7 @@ var
 begin
   inherited;
 
+  FFilter := '';
   listPackages.Font.Height := LogoSize + 80;
 
   FItemSelected := -1;
@@ -152,7 +157,7 @@ begin
   end;
 
   // Package logo
-  if Info.LogoCachedFilePath <> '' then
+  if (Info.LogoCachedFilePath <> '') and (TFile.Exists(Info.LogoCachedFilePath)) then
   begin
     try
       if FCacheLogoList.ContainsKey(Info.PackageId) then
@@ -237,6 +242,7 @@ begin
   LoadThread := TLoadDataThread.Create(True);
   LoadThread.FreeOnTerminate := True;
   LoadThread.Proxy := FProxy;
+  LoadThread.Filter := FFilter;
   LoadThread.CacheCDS := fdmPackages;
   LoadThread.DataList := listPackages;
   LoadThread.OnTerminate := LoadTerminated;
@@ -256,40 +262,69 @@ begin
     listPackages.Color := clWhite;
     listPackages.Font.Color := clBlack;
     searchBox.Font.Color := clBlack;
-    searchBox.Color := clWhite;
   end
   else
   begin
     listPackages.Color := clBlack;
     listPackages.Font.Color := clWhite;
-    searchBox.Font.Color := clWhite;
-    searchBox.Color := clBlack;
+    searchBox.Font.Color := clBlack;
   end;
+end;
+
+procedure TfrmPackagesList.searchBoxInvokeSearch(Sender: TObject);
+begin
+  inherited;
+  FFilter := searchBox.Text;
+  LoadList;
 end;
 
 { TLoadDataThread }
 
 procedure TLoadDataThread.Execute;
+  function CheckFilter(AInfo: TPackageInfo): Boolean;
+  begin
+    Result := True;
+    if FFilter <> '' then
+    begin
+      Result := AInfo.Name.Contains(FFilter);
+      Result := Result or AInfo.FullName.Contains(FFilter);
+      Result := Result or AInfo.AlternativeName.Contains(FFilter);
+    end;
+  end;
 var
   Info: TPackageInfo;
 begin
   inherited;
+
+  Synchronize(procedure
+  begin
+    FDataList.Items.BeginUpdate;
+    try
+      FDataList.Items.Clear;
+    finally
+      FDataList.Items.EndUpdate;
+    end;
+  end);
+
   FProxy.SetAccessToken(TAppSettings.Instance.Token);
   FProxy.SetCacheContainer(FCacheCDS);
   for Info in FProxy.GetPackagesList do
   begin
-    Synchronize(procedure
-      begin
-        FDataList.Items.BeginUpdate;
-        try
-          with FDataList.Items.Add do
-          begin
-            Data := Info;
+    if CheckFilter(Info) then
+    begin
+      Synchronize(procedure
+        begin
+          FDataList.Items.BeginUpdate;
+          try
+            with FDataList.Items.Add do
+            begin
+              Data := Info;
+            end;
+          finally
+            FDataList.Items.EndUpdate;
           end;
-        finally
-          FDataList.Items.EndUpdate;
-        end;
-      end);
+        end);
+      end;
   end;
 end;
 

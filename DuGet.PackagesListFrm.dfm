@@ -68,8 +68,6 @@ inherited frmPackagesList: TfrmPackagesList
         ViewStyle = vsReport
         OnCustomDrawItem = listPackagesCustomDrawItem
         OnSelectItem = listPackagesSelectItem
-        ExplicitTop = 13
-        ExplicitHeight = 384
       end
       object boxPackageFilter: TUPanel
         Left = 0
@@ -92,6 +90,9 @@ inherited frmPackagesList: TfrmPackagesList
         ParentFont = False
         ShowCaption = False
         TabOrder = 1
+        DesignSize = (
+          603
+          49)
         object btnRefresh: TUSymbolButton
           Left = 520
           Top = 5
@@ -117,28 +118,27 @@ inherited frmPackagesList: TfrmPackagesList
           SymbolChar = #57623
           Text = 'Refresh'
           TextOffset = 20
+          Detail = 'Detail'
           ShowDetail = False
           Transparent = True
           Align = alRight
           TabOrder = 0
           TabStop = True
           OnClick = btnRefreshClick
-          ExplicitLeft = 408
-          ExplicitTop = 6
         end
         object searchBox: TSearchBox
           AlignWithMargins = True
           Left = 10
-          Top = 8
+          Top = 16
           Width = 500
-          Height = 33
+          Height = 23
           Margins.Left = 10
           Margins.Right = 10
-          Align = alClient
+          Anchors = [akLeft, akTop, akRight]
           BevelInner = bvNone
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitHeight = 23
+          OnInvokeSearch = searchBoxInvokeSearch
         end
       end
     end
