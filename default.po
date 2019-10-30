@@ -7,13 +7,71 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-10-19 23:02\n"
-"PO-Revision-Date: 2019-10-19 23:02\n"
+"POT-Creation-Date: 2019-10-30 23:49\n"
+"PO-Revision-Date: 2019-10-30 23:49\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: dxgettext 2.6.1\n"
+
+#. frmBase..boxMain..Font.Name
+#: DuGet.BaseFrm.dfm:24
+#. frmBase..boxMain..txtTitle..Font.Name
+#: DuGet.BaseFrm.dfm:42
+#. frmMain..AppCaptionBar..Font.Name
+#: DuGet.MainFrm.dfm:32
+#. frmMain..boxHamburgerMenu..Font.Name
+#: DuGet.MainFrm.dfm:165
+#. frmMain..boxHamburgerMenu..btnMenu..TextFont.Name
+#: DuGet.MainFrm.dfm:185
+#. frmMain..boxHamburgerMenu..btnMenu..DetailFont.Name
+#: DuGet.MainFrm.dfm:190
+#. frmMain..boxHamburgerMenu..btnSettings..TextFont.Name
+#: DuGet.MainFrm.dfm:217
+#. frmMain..boxHamburgerMenu..btnSettings..DetailFont.Name
+#: DuGet.MainFrm.dfm:222
+#. frmMain..boxHamburgerMenu..btnAbout..TextFont.Name
+#: DuGet.MainFrm.dfm:248
+#. frmMain..boxHamburgerMenu..btnAbout..DetailFont.Name
+#: DuGet.MainFrm.dfm:253
+#. frmMain..boxHamburgerMenu..btnPackagesList..TextFont.Name
+#: DuGet.MainFrm.dfm:278
+#. frmMain..boxHamburgerMenu..btnPackagesList..DetailFont.Name
+#: DuGet.MainFrm.dfm:283
+#. frmPackagesList..boxMain..boxContent..Font.Name
+#: DuGet.PackagesListFrm.dfm:29
+#. frmPackagesList..boxMain..boxContent..listPackages..Font.Name
+#: DuGet.PackagesListFrm.dfm:58
+#. frmPackagesList..boxMain..boxContent..boxPackageFilter..Font.Name
+#: DuGet.PackagesListFrm.dfm:87
+#. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..TextFont.Name
+#: DuGet.PackagesListFrm.dfm:109
+#. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..DetailFont.Name
+#: DuGet.PackagesListFrm.dfm:114
+#. frmSettings..boxMain..txtMessage..Font.Name
+#: DuGet.SettingsFrm.dfm:31
+#. frmSettings..boxMain..boxToken..Font.Name
+#: DuGet.SettingsFrm.dfm:50
+#. frmSettings..boxMain..boxToken..txtThemeSettings..Font.Name
+#: DuGet.SettingsFrm.dfm:82
+#. frmSettings..boxMain..boxToken..edtToken..Edit.Font.Name
+#: DuGet.SettingsFrm.dfm:105
+#. frmSettings..boxMain..boxToken..btnSaveSettings..Font.Name
+#: DuGet.SettingsFrm.dfm:139
+#. frmSettings..boxMain..boxToken..radioDefaultTheme..Font.Name
+#: DuGet.SettingsFrm.dfm:163
+#. frmSettings..boxMain..boxToken..radioLightTheme..Font.Name
+#: DuGet.SettingsFrm.dfm:185
+#. frmSettings..boxMain..boxToken..radioDarkTheme..Font.Name
+#: DuGet.SettingsFrm.dfm:207
+msgid "Segoe UI"
+msgstr ""
+
+#. frmBase..boxMain..txtTitle..Caption
+#: DuGet.BaseFrm.dfm:37
+msgid "Page title"
+msgstr ""
 
 #. frmMain..Caption
 #: DuGet.MainFrm.dfm:4
@@ -27,38 +85,7 @@ msgstr ""
 
 #. frmMain..AppCaptionBar..Caption
 #: DuGet.MainFrm.dfm:27
-#. frmPackagesList..txtTitle..Caption
-#: DuGet.PackagesListFrm.dfm:18
-msgid "Packages list"
-msgstr ""
-
-#. frmMain..AppCaptionBar..Font.Name
-#: DuGet.MainFrm.dfm:32
-#. frmMain..boxHamburgerMenu..Font.Name
-#: DuGet.MainFrm.dfm:142
-#. frmMain..boxHamburgerMenu..btnMenu..TextFont.Name
-#: DuGet.MainFrm.dfm:162
-#. frmMain..boxHamburgerMenu..btnMenu..DetailFont.Name
-#: DuGet.MainFrm.dfm:167
-#. frmMain..boxHamburgerMenu..btnSettings..TextFont.Name
-#: DuGet.MainFrm.dfm:194
-#. frmMain..boxHamburgerMenu..btnSettings..DetailFont.Name
-#: DuGet.MainFrm.dfm:199
-#. frmMain..boxHamburgerMenu..btnAbout..TextFont.Name
-#: DuGet.MainFrm.dfm:225
-#. frmMain..boxHamburgerMenu..btnAbout..DetailFont.Name
-#: DuGet.MainFrm.dfm:230
-#. frmMain..boxPageContent..Font.Name
-#: DuGet.MainFrm.dfm:254
-#. frmPackagesList..txtTitle..Font.Name
-#: DuGet.PackagesListFrm.dfm:22
-#. frmPackagesList..boxContent..Font.Name
-#: DuGet.PackagesListFrm.dfm:44
-#. frmPackagesList..boxContent..boxPackageInfo..Font.Name
-#: DuGet.PackagesListFrm.dfm:94
-#. frmPackagesList..boxContent..boxPackageInfo..txtPackageInfo..Font.Name
-#: DuGet.PackagesListFrm.dfm:114
-msgid "Segoe UI"
+msgid "DuGet - Package manager for Delphi"
 msgstr ""
 
 #. frmMain..AppCaptionBar..btnSwitchTheme..Hint
@@ -74,41 +101,272 @@ msgstr ""
 #: DuGet.MainFrm.dfm:99
 #. frmMain..AppCaptionBar..btnQuit..Font.Name
 #: DuGet.MainFrm.dfm:121
+#. frmMain..AppCaptionBar..btnBack..Font.Name
+#: DuGet.MainFrm.dfm:142
 #. frmMain..boxHamburgerMenu..btnMenu..SymbolFont.Name
-#: DuGet.MainFrm.dfm:157
+#: DuGet.MainFrm.dfm:180
 #. frmMain..boxHamburgerMenu..btnSettings..SymbolFont.Name
-#: DuGet.MainFrm.dfm:189
+#: DuGet.MainFrm.dfm:212
 #. frmMain..boxHamburgerMenu..btnAbout..SymbolFont.Name
-#: DuGet.MainFrm.dfm:220
+#: DuGet.MainFrm.dfm:243
+#. frmMain..boxHamburgerMenu..btnPackagesList..SymbolFont.Name
+#: DuGet.MainFrm.dfm:273
+#. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..SymbolFont.Name
+#: DuGet.PackagesListFrm.dfm:104
+#. frmSettings..boxMain..boxToken..radioDefaultTheme..IconFont.Name
+#: DuGet.SettingsFrm.dfm:155
+#. frmSettings..boxMain..boxToken..radioLightTheme..IconFont.Name
+#: DuGet.SettingsFrm.dfm:177
+#. frmSettings..boxMain..boxToken..radioDarkTheme..IconFont.Name
+#: DuGet.SettingsFrm.dfm:199
 msgid "Segoe MDL2 Assets"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnMenu..Text
-#: DuGet.MainFrm.dfm:170
+#: DuGet.MainFrm.dfm:193
 msgid "Menu"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnMenu..Detail
-#: DuGet.MainFrm.dfm:172
+#: DuGet.MainFrm.dfm:195
 #. frmMain..boxHamburgerMenu..btnSettings..Detail
-#: DuGet.MainFrm.dfm:204
+#: DuGet.MainFrm.dfm:227
 #. frmMain..boxHamburgerMenu..btnAbout..Detail
-#: DuGet.MainFrm.dfm:235
+#: DuGet.MainFrm.dfm:258
+#. frmMain..boxHamburgerMenu..btnPackagesList..Detail
+#: DuGet.MainFrm.dfm:288
 msgid "Detail"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnSettings..Text
-#: DuGet.MainFrm.dfm:202
+#: DuGet.MainFrm.dfm:225
+#. frmMain..boxHamburgerMenu..btnPackagesList..Text
+#: DuGet.MainFrm.dfm:286
+#. frmSettings..boxMain..txtTitle..Caption
+#: DuGet.SettingsFrm.dfm:16
 msgid "Settings"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnAbout..Text
-#: DuGet.MainFrm.dfm:233
+#: DuGet.MainFrm.dfm:256
 msgid "About"
 msgstr ""
 
-#. frmPackagesList..boxContent..boxPackageInfo..txtPackageInfo..Caption
-#: DuGet.PackagesListFrm.dfm:110
-msgid "Package info"
+#. frmPackagesList..boxMain..txtTitle..Caption
+#: DuGet.PackagesListFrm.dfm:13
+msgid "Packages list"
+msgstr ""
+
+#. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..Text
+#: DuGet.PackagesListFrm.dfm:118
+msgid "Refresh"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesID..FieldName
+#: DuGet.PackagesListFrm.dfm:161
+msgid "ID"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesNODE_ID..FieldName
+#: DuGet.PackagesListFrm.dfm:164
+msgid "NODE_ID"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesNAME..FieldName
+#: DuGet.PackagesListFrm.dfm:168
+msgid "NAME"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesFULL_NAME..FieldName
+#: DuGet.PackagesListFrm.dfm:172
+msgid "FULL_NAME"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesHTML_URL..FieldName
+#: DuGet.PackagesListFrm.dfm:176
+msgid "HTML_URL"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesDESCRIPTION..FieldName
+#: DuGet.PackagesListFrm.dfm:180
+msgid "DESCRIPTION"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesURL..FieldName
+#: DuGet.PackagesListFrm.dfm:184
+msgid "URL"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesDOWNLOADS_URL..FieldName
+#: DuGet.PackagesListFrm.dfm:188
+msgid "DOWNLOADS_URL"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesCREATED_AT..FieldName
+#: DuGet.PackagesListFrm.dfm:192
+msgid "CREATED_AT"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesUPDATED_AT..FieldName
+#: DuGet.PackagesListFrm.dfm:195
+msgid "UPDATED_AT"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesCLONE_URL..FieldName
+#: DuGet.PackagesListFrm.dfm:198
+msgid "CLONE_URL"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesDEFAULT_BRANCH..FieldName
+#: DuGet.PackagesListFrm.dfm:202
+msgid "DEFAULT_BRANCH"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesPACKAGE_ID..FieldName
+#: DuGet.PackagesListFrm.dfm:206
+msgid "PACKAGE_ID"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesALTERNATIVE_NAME..FieldName
+#: DuGet.PackagesListFrm.dfm:210
+msgid "ALTERNATIVE_NAME"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesLOGO_FILENAME..FieldName
+#: DuGet.PackagesListFrm.dfm:214
+msgid "LOGO_FILENAME"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesLOGO_CACHED_FILEPATH..FieldName
+#: DuGet.PackagesListFrm.dfm:218
+msgid "LOGO_CACHED_FILEPATH"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesLICENSES_TYPE..FieldName
+#: DuGet.PackagesListFrm.dfm:222
+msgid "LICENSES_TYPE"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesOWNER_ID..FieldName
+#: DuGet.PackagesListFrm.dfm:226
+msgid "OWNER_ID"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesOWNER_LOGIN..FieldName
+#: DuGet.PackagesListFrm.dfm:229
+msgid "OWNER_LOGIN"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesOWNER_NODE_ID..FieldName
+#: DuGet.PackagesListFrm.dfm:233
+msgid "OWNER_NODE_ID"
+msgstr ""
+
+#. frmPackagesList..fdmPackages..fdmPackagesOWNER_AVATAR_URL..FieldName
+#: DuGet.PackagesListFrm.dfm:237
+msgid "OWNER_AVATAR_URL"
+msgstr ""
+
+#. frmSettings..boxMain..txtMessage..Caption
+#: DuGet.SettingsFrm.dfm:27
+msgid "Message"
+msgstr ""
+
+#. frmSettings..boxMain..boxToken..txtToken..Caption
+#: DuGet.SettingsFrm.dfm:63
+msgid "Token"
+msgstr ""
+
+#. frmSettings..boxMain..boxToken..txtToken..Font.Name
+#: DuGet.SettingsFrm.dfm:67
+msgid "Segoe UI Semibold"
+msgstr ""
+
+#. frmSettings..boxMain..boxToken..txtThemeSettings..Caption
+#: DuGet.SettingsFrm.dfm:78
+msgid "App theme"
+msgstr ""
+
+#. frmSettings..boxMain..boxToken..edtToken..Edit.PasswordChar
+#: DuGet.SettingsFrm.dfm:108
+msgid "*"
+msgstr ""
+
+#. frmSettings..boxMain..boxToken..btnSaveSettings..Text
+#: DuGet.SettingsFrm.dfm:135
+msgid "Save"
+msgstr ""
+
+#. frmSettings..boxMain..boxToken..radioDefaultTheme..Group
+#: DuGet.SettingsFrm.dfm:157
+#. frmSettings..boxMain..boxToken..radioLightTheme..Group
+#: DuGet.SettingsFrm.dfm:179
+#. frmSettings..boxMain..boxToken..radioDarkTheme..Group
+#: DuGet.SettingsFrm.dfm:201
+msgid "AppTheme"
+msgstr ""
+
+#. frmSettings..boxMain..boxToken..radioDefaultTheme..Text
+#: DuGet.SettingsFrm.dfm:159
+msgid "Use system setting"
+msgstr ""
+
+#. frmSettings..boxMain..boxToken..radioLightTheme..Text
+#: DuGet.SettingsFrm.dfm:181
+msgid "Light"
+msgstr ""
+
+#. frmSettings..boxMain..boxToken..radioDarkTheme..Text
+#: DuGet.SettingsFrm.dfm:203
+msgid "Dark"
+msgstr ""
+
+#: DuGet.App.Settings.pas:88
+msgid "Settings are invalid"
+msgstr ""
+
+#: DuGet.App.Settings.pas:97
+msgid "Unable to load the application settings. Error: "
+"%s"
+msgstr ""
+
+#. No BOM
+#: DuGet.App.Settings.pas:116
+msgid "Unable to update the application settings. Error: "
+"%s"
+msgstr ""
+
+#. Author
+#: DuGet.PackagesListFrm.pas:209
+msgid "Author: %s"
+msgstr ""
+
+#. Licenses
+#: DuGet.PackagesListFrm.pas:223
+msgid "Licenses: %s"
+msgstr ""
+
+#: DuGet.Proxy.GitHub.pas:144
+msgid "You have to provide your personal access token for GitHub API.\n"
+"See here %s"
+msgstr ""
+
+#: DuGet.Proxy.GitHub.pas:193
+msgid "Unable to get the list of packages.\n"
+"Error: %s"
+msgstr ""
+
+#: DuGet.SettingsFrm.pas:46
+msgid "You have to type your personal access "
+"token"
+msgstr ""
+
+#: DuGet.SettingsFrm.pas:52
+msgid "Settings are saved"
+msgstr ""
+
+#: DuGet.SettingsFrm.pas:69
+msgid "You have to type your personal access token in order to get the list "
+"of packages"
 msgstr ""
 
