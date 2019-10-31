@@ -102,7 +102,6 @@ end;
 
 class procedure TUtils.SetupAppLanguage;
 const
-  LanguagesAvailable: array of string = ['it', 'it_IT', 'en', 'en_US'];
   DefLang = 'en';
 var
   Lang: string;
@@ -111,8 +110,6 @@ begin
 
   try
     Lang := TUtils.GetSystemLanguage;
-    if not MatchStr(Lang, LanguagesAvailable) then
-      Lang := DefLang;
   except
     Lang := DefLang;
   end;
