@@ -213,12 +213,16 @@ begin
   ViewCanvas.Refresh;
   ViewCanvas.TextOut(Rect.Left + 5, Rect.Top + 115, Format(_('Author: %s'), [Info.Owner.Login]));
   // Licenses
-  Licenses := '';
-  for I := Low(Info.LicensesType) to High(Info.LicensesType) do
+  Licenses := '-';
+  if Length(Info.LicensesType) > 0 then
   begin
-    if Licenses <> '' then
-      Licenses := Licenses + ', ';
-    Licenses := Info.LicensesType[I];
+    Licenses := '';
+    for I := Low(Info.LicensesType) to High(Info.LicensesType) do
+    begin
+      if Licenses <> '' then
+        Licenses := Licenses + ', ';
+      Licenses := Info.LicensesType[I];
+    end;
   end;
   ViewCanvas.Font.Color := listPackages.Font.Color;
   ViewCanvas.Font.Name := listPackages.Font.Name;
@@ -261,13 +265,11 @@ begin
   begin
     listPackages.Color := clWhite;
     listPackages.Font.Color := clBlack;
-    searchBox.Font.Color := clBlack;
   end
   else
   begin
     listPackages.Color := clBlack;
     listPackages.Font.Color := clWhite;
-    searchBox.Font.Color := clBlack;
   end;
 end;
 

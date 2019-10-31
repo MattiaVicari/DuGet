@@ -90,9 +90,6 @@ inherited frmPackagesList: TfrmPackagesList
         ParentFont = False
         ShowCaption = False
         TabOrder = 1
-        DesignSize = (
-          603
-          49)
         object btnRefresh: TUSymbolButton
           Left = 520
           Top = 5
@@ -129,16 +126,25 @@ inherited frmPackagesList: TfrmPackagesList
         object searchBox: TSearchBox
           AlignWithMargins = True
           Left = 10
-          Top = 16
+          Top = 15
           Width = 500
-          Height = 23
+          Height = 24
           Margins.Left = 10
+          Margins.Top = 10
           Margins.Right = 10
-          Anchors = [akLeft, akTop, akRight]
+          Margins.Bottom = 5
+          Align = alLeft
           BevelInner = bvNone
           BevelOuter = bvNone
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 1
           OnInvokeSearch = searchBoxInvokeSearch
+          ExplicitHeight = 23
         end
       end
     end
