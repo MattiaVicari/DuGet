@@ -11,6 +11,7 @@ object frmMain: TfrmMain
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  WindowState = wsMaximized
   OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
@@ -131,8 +132,8 @@ object frmMain: TfrmMain
       Height = 32
       ThemeManager = AppThemeManager
       ButtonStyle = qbsHighlight
-      LightColor = 14120960
-      DarkColor = 14120960
+      LightColor = 4552068
+      DarkColor = 4552068
       Align = alLeft
       BevelOuter = bvNone
       Caption = #57510
