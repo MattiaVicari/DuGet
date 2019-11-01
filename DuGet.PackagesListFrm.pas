@@ -78,6 +78,7 @@ procedure TfrmPackagesList.btnRefreshClick(Sender: TObject);
 begin
   inherited;
   TUtils.ClearCache;
+  FProxy.ClearData;
   FModulePackage.ClearData;
   LoadList;
 end;

@@ -89,6 +89,7 @@ type
   IDuGetProxy = interface(IInterface)
   ['{696D11D8-861B-4433-839D-E9D5B8AC1CA2}']
     procedure LoadPackagesList;
+    procedure ClearData;
     function GetPackagesList: TObjectList<TPackageInfo>;
     function GetAccessToken: string;
     procedure SetAccessToken(const Token: string);
@@ -115,6 +116,7 @@ type
     procedure SetAccessToken(const Token: string);
     procedure SetCacheContainer(CDS: TFDMemTable);
     function GetCacheContainer: TFDMemTable;
+    procedure ClearData;
 
     constructor Create; virtual;
     destructor Destroy; override;
@@ -311,6 +313,11 @@ end;
 
 { TDuGetProxyBase }
 
+procedure TDuGetProxyBase.ClearData;
+begin
+  FPackagesList.Clear;
+end;
+
 constructor TDuGetProxyBase.Create;
 begin
   FAccessToken := '';
@@ -374,9 +381,10 @@ procedure TDuGetProxyBase.SaveCache;
 begin
   if not Assigned(FCDSCache) then
     Exit;
-
   FCDSCache.SaveToFile(FCacheFilePath, sfBinary);
   FCDSCache.Close;
+  FCDSCache.LoadFromFile(FCacheFilePath, sfBinary);
+  FCDSCache.First;
 end;
 
 procedure TDuGetProxyBase.SetAccessToken(const Token: string);

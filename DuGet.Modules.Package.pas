@@ -71,6 +71,7 @@ procedure TmodPackage.FindPackage(const PackageId: string);
 begin
   if not fdmPackages.Active then
     fdmPackages.Open;
+  fdmPackages.First;
   fdmPackages.Locate('PACKAGE_ID', PackageId, [loCaseInsensitive]);
 end;
 

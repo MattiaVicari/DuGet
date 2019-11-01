@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-10-30 23:49\n"
-"PO-Revision-Date: 2019-10-30 23:49\n"
+"POT-Creation-Date: 2019-11-01 23:25\n"
+"PO-Revision-Date: 2019-11-01 23:25\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,35 +20,69 @@ msgstr ""
 #. frmBase..boxMain..txtTitle..Font.Name
 #: DuGet.BaseFrm.dfm:42
 #. frmMain..AppCaptionBar..Font.Name
-#: DuGet.MainFrm.dfm:32
+#: DuGet.MainFrm.dfm:33
 #. frmMain..boxHamburgerMenu..Font.Name
-#: DuGet.MainFrm.dfm:165
+#: DuGet.MainFrm.dfm:166
 #. frmMain..boxHamburgerMenu..btnMenu..TextFont.Name
-#: DuGet.MainFrm.dfm:185
+#: DuGet.MainFrm.dfm:186
 #. frmMain..boxHamburgerMenu..btnMenu..DetailFont.Name
-#: DuGet.MainFrm.dfm:190
+#: DuGet.MainFrm.dfm:191
 #. frmMain..boxHamburgerMenu..btnSettings..TextFont.Name
-#: DuGet.MainFrm.dfm:217
+#: DuGet.MainFrm.dfm:218
 #. frmMain..boxHamburgerMenu..btnSettings..DetailFont.Name
-#: DuGet.MainFrm.dfm:222
+#: DuGet.MainFrm.dfm:223
 #. frmMain..boxHamburgerMenu..btnAbout..TextFont.Name
-#: DuGet.MainFrm.dfm:248
+#: DuGet.MainFrm.dfm:249
 #. frmMain..boxHamburgerMenu..btnAbout..DetailFont.Name
-#: DuGet.MainFrm.dfm:253
+#: DuGet.MainFrm.dfm:254
 #. frmMain..boxHamburgerMenu..btnPackagesList..TextFont.Name
-#: DuGet.MainFrm.dfm:278
+#: DuGet.MainFrm.dfm:279
 #. frmMain..boxHamburgerMenu..btnPackagesList..DetailFont.Name
-#: DuGet.MainFrm.dfm:283
+#: DuGet.MainFrm.dfm:284
+#. frmPackageDetail..boxMain..boxContent..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:29
+#. frmPackageDetail..boxMain..boxContent..txtLblName..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5061
+#. frmPackageDetail..boxMain..boxContent..txtName..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5075
+#. frmPackageDetail..boxMain..boxContent..txtLblDescription..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5089
+#. frmPackageDetail..boxMain..boxContent..txtLblAuthour..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5103
+#. frmPackageDetail..boxMain..boxContent..txtAuthor..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5117
+#. frmPackageDetail..boxMain..boxContent..txtLblLicenses..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5131
+#. frmPackageDetail..boxMain..boxContent..txtLicenses..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5145
+#. frmPackageDetail..boxMain..boxContent..txtLblCreatedAt..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5159
+#. frmPackageDetail..boxMain..boxContent..txtCreatedAt..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5173
+#. frmPackageDetail..boxMain..boxContent..txtLblUpdatedAt..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5187
+#. frmPackageDetail..boxMain..boxContent..txtUpdatedAt..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5201
+#. frmPackageDetail..boxMain..boxContent..txtLblUrl..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5215
+#. frmPackageDetail..boxMain..boxContent..linkUrl..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5230
+#. frmPackageDetail..boxMain..boxContent..txtLblCloneUrl..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5249
+#. frmPackageDetail..boxMain..boxContent..linkCloneUrl..Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5264
 #. frmPackagesList..boxMain..boxContent..Font.Name
 #: DuGet.PackagesListFrm.dfm:29
 #. frmPackagesList..boxMain..boxContent..listPackages..Font.Name
 #: DuGet.PackagesListFrm.dfm:58
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..Font.Name
-#: DuGet.PackagesListFrm.dfm:87
+#: DuGet.PackagesListFrm.dfm:85
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..TextFont.Name
-#: DuGet.PackagesListFrm.dfm:109
+#: DuGet.PackagesListFrm.dfm:107
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..DetailFont.Name
-#: DuGet.PackagesListFrm.dfm:114
+#: DuGet.PackagesListFrm.dfm:112
+#. frmPackagesList..boxMain..boxContent..boxPackageFilter..searchBox..Font.Name
+#: DuGet.PackagesListFrm.dfm:143
 #. frmSettings..boxMain..txtMessage..Font.Name
 #: DuGet.SettingsFrm.dfm:31
 #. frmSettings..boxMain..boxToken..Font.Name
@@ -84,35 +118,35 @@ msgid "Tahoma"
 msgstr ""
 
 #. frmMain..AppCaptionBar..Caption
-#: DuGet.MainFrm.dfm:27
+#: DuGet.MainFrm.dfm:28
 msgid "DuGet - Package manager for Delphi"
 msgstr ""
 
 #. frmMain..AppCaptionBar..btnSwitchTheme..Hint
-#: DuGet.MainFrm.dfm:42
+#: DuGet.MainFrm.dfm:43
 msgid "Change theme"
 msgstr ""
 
 #. frmMain..AppCaptionBar..btnSwitchTheme..Font.Name
-#: DuGet.MainFrm.dfm:54
+#: DuGet.MainFrm.dfm:55
 #. frmMain..AppCaptionBar..btnMinimize..Font.Name
-#: DuGet.MainFrm.dfm:77
+#: DuGet.MainFrm.dfm:78
 #. frmMain..AppCaptionBar..btnMaximize..Font.Name
-#: DuGet.MainFrm.dfm:99
+#: DuGet.MainFrm.dfm:100
 #. frmMain..AppCaptionBar..btnQuit..Font.Name
-#: DuGet.MainFrm.dfm:121
+#: DuGet.MainFrm.dfm:122
 #. frmMain..AppCaptionBar..btnBack..Font.Name
-#: DuGet.MainFrm.dfm:142
+#: DuGet.MainFrm.dfm:143
 #. frmMain..boxHamburgerMenu..btnMenu..SymbolFont.Name
-#: DuGet.MainFrm.dfm:180
+#: DuGet.MainFrm.dfm:181
 #. frmMain..boxHamburgerMenu..btnSettings..SymbolFont.Name
-#: DuGet.MainFrm.dfm:212
+#: DuGet.MainFrm.dfm:213
 #. frmMain..boxHamburgerMenu..btnAbout..SymbolFont.Name
-#: DuGet.MainFrm.dfm:243
+#: DuGet.MainFrm.dfm:244
 #. frmMain..boxHamburgerMenu..btnPackagesList..SymbolFont.Name
-#: DuGet.MainFrm.dfm:273
+#: DuGet.MainFrm.dfm:274
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..SymbolFont.Name
-#: DuGet.PackagesListFrm.dfm:104
+#: DuGet.PackagesListFrm.dfm:102
 #. frmSettings..boxMain..boxToken..radioDefaultTheme..IconFont.Name
 #: DuGet.SettingsFrm.dfm:155
 #. frmSettings..boxMain..boxToken..radioLightTheme..IconFont.Name
@@ -123,33 +157,271 @@ msgid "Segoe MDL2 Assets"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnMenu..Text
-#: DuGet.MainFrm.dfm:193
+#: DuGet.MainFrm.dfm:194
 msgid "Menu"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnMenu..Detail
-#: DuGet.MainFrm.dfm:195
+#: DuGet.MainFrm.dfm:196
 #. frmMain..boxHamburgerMenu..btnSettings..Detail
-#: DuGet.MainFrm.dfm:227
+#: DuGet.MainFrm.dfm:228
 #. frmMain..boxHamburgerMenu..btnAbout..Detail
-#: DuGet.MainFrm.dfm:258
+#: DuGet.MainFrm.dfm:259
 #. frmMain..boxHamburgerMenu..btnPackagesList..Detail
-#: DuGet.MainFrm.dfm:288
+#: DuGet.MainFrm.dfm:289
+#. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..Detail
+#: DuGet.PackagesListFrm.dfm:118
 msgid "Detail"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnSettings..Text
-#: DuGet.MainFrm.dfm:225
+#: DuGet.MainFrm.dfm:226
 #. frmMain..boxHamburgerMenu..btnPackagesList..Text
-#: DuGet.MainFrm.dfm:286
+#: DuGet.MainFrm.dfm:287
 #. frmSettings..boxMain..txtTitle..Caption
 #: DuGet.SettingsFrm.dfm:16
 msgid "Settings"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnAbout..Text
-#: DuGet.MainFrm.dfm:256
+#: DuGet.MainFrm.dfm:257
 msgid "About"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesID..FieldName
+#: DuGet.Modules.Package.dfm:17
+msgid "ID"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesNODE_ID..FieldName
+#: DuGet.Modules.Package.dfm:20
+msgid "NODE_ID"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesNAME..FieldName
+#: DuGet.Modules.Package.dfm:24
+msgid "NAME"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesFULL_NAME..FieldName
+#: DuGet.Modules.Package.dfm:28
+msgid "FULL_NAME"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesHTML_URL..FieldName
+#: DuGet.Modules.Package.dfm:32
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption3..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5356
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5363
+msgid "HTML_URL"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesDESCRIPTION..FieldName
+#: DuGet.Modules.Package.dfm:36
+#. frmPackageDetail..BindingsList..LinkControlToField1..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5328
+msgid "DESCRIPTION"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesURL..FieldName
+#: DuGet.Modules.Package.dfm:40
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5365
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL2..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5372
+msgid "URL"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesDOWNLOADS_URL..FieldName
+#: DuGet.Modules.Package.dfm:44
+msgid "DOWNLOADS_URL"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesCREATED_AT..FieldName
+#: DuGet.Modules.Package.dfm:48
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption6..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5342
+msgid "CREATED_AT"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesUPDATED_AT..FieldName
+#: DuGet.Modules.Package.dfm:51
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption5..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5335
+msgid "UPDATED_AT"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesCLONE_URL..FieldName
+#: DuGet.Modules.Package.dfm:54
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5307
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL2..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5370
+msgid "CLONE_URL"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesDEFAULT_BRANCH..FieldName
+#: DuGet.Modules.Package.dfm:58
+msgid "DEFAULT_BRANCH"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesPACKAGE_ID..FieldName
+#: DuGet.Modules.Package.dfm:62
+msgid "PACKAGE_ID"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesALTERNATIVE_NAME..FieldName
+#: DuGet.Modules.Package.dfm:66
+msgid "ALTERNATIVE_NAME"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesLOGO_FILENAME..FieldName
+#: DuGet.Modules.Package.dfm:70
+msgid "LOGO_FILENAME"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesLOGO_CACHED_FILEPATH..FieldName
+#: DuGet.Modules.Package.dfm:74
+msgid "LOGO_CACHED_FILEPATH"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesLICENSES_TYPE..FieldName
+#: DuGet.Modules.Package.dfm:78
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption2..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5321
+msgid "LICENSES_TYPE"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesOWNER_ID..FieldName
+#: DuGet.Modules.Package.dfm:82
+msgid "OWNER_ID"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesOWNER_LOGIN..FieldName
+#: DuGet.Modules.Package.dfm:85
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption4..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5314
+msgid "OWNER_LOGIN"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesOWNER_NODE_ID..FieldName
+#: DuGet.Modules.Package.dfm:89
+msgid "OWNER_NODE_ID"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesOWNER_AVATAR_URL..FieldName
+#: DuGet.Modules.Package.dfm:93
+msgid "OWNER_AVATAR_URL"
+msgstr ""
+
+#. modPackage..fdmPackages..fdmPackagesPACKAGE_NAME..FieldName
+#: DuGet.Modules.Package.dfm:98
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption7..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5349
+msgid "PACKAGE_NAME"
+msgstr ""
+
+#. frmPackageDetail..boxMain..txtTitle..Caption
+#: DuGet.PackagesDetailFrm.dfm:13
+msgid "Package detail"
+msgstr ""
+
+#. frmPackageDetail..boxMain..boxContent..txtLblName..Caption
+#: DuGet.PackagesDetailFrm.dfm:5057
+msgid "Package name:"
+msgstr ""
+
+#. frmPackageDetail..boxMain..boxContent..txtName..Caption
+#: DuGet.PackagesDetailFrm.dfm:5071
+#. frmPackageDetail..boxMain..boxContent..txtAuthor..Caption
+#: DuGet.PackagesDetailFrm.dfm:5113
+#. frmPackageDetail..boxMain..boxContent..txtLicenses..Caption
+#: DuGet.PackagesDetailFrm.dfm:5141
+#. frmPackageDetail..boxMain..boxContent..txtCreatedAt..Caption
+#: DuGet.PackagesDetailFrm.dfm:5169
+#. frmPackageDetail..boxMain..boxContent..txtUpdatedAt..Caption
+#: DuGet.PackagesDetailFrm.dfm:5197
+#. frmPackageDetail..boxMain..boxContent..linkUrl..Caption
+#: DuGet.PackagesDetailFrm.dfm:5226
+#. frmPackageDetail..boxMain..boxContent..linkCloneUrl..Caption
+#: DuGet.PackagesDetailFrm.dfm:5260
+msgid "..."
+msgstr ""
+
+#. frmPackageDetail..boxMain..boxContent..txtLblDescription..Caption
+#: DuGet.PackagesDetailFrm.dfm:5085
+msgid "Description:"
+msgstr ""
+
+#. frmPackageDetail..boxMain..boxContent..txtLblAuthour..Caption
+#: DuGet.PackagesDetailFrm.dfm:5099
+msgid "Author:"
+msgstr ""
+
+#. frmPackageDetail..boxMain..boxContent..txtLblLicenses..Caption
+#: DuGet.PackagesDetailFrm.dfm:5127
+msgid "Licenses:"
+msgstr ""
+
+#. frmPackageDetail..boxMain..boxContent..txtLblCreatedAt..Caption
+#: DuGet.PackagesDetailFrm.dfm:5155
+msgid "Created at:"
+msgstr ""
+
+#. frmPackageDetail..boxMain..boxContent..txtLblUpdatedAt..Caption
+#: DuGet.PackagesDetailFrm.dfm:5183
+msgid "Updated at:"
+msgstr ""
+
+#. frmPackageDetail..boxMain..boxContent..txtLblUrl..Caption
+#: DuGet.PackagesDetailFrm.dfm:5211
+msgid "Url:"
+msgstr ""
+
+#. frmPackageDetail..boxMain..boxContent..txtLblCloneUrl..Caption
+#: DuGet.PackagesDetailFrm.dfm:5245
+msgid "Clone url:"
+msgstr ""
+
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption..Category
+#: DuGet.PackagesDetailFrm.dfm:5305
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption4..Category
+#: DuGet.PackagesDetailFrm.dfm:5312
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption2..Category
+#: DuGet.PackagesDetailFrm.dfm:5319
+#. frmPackageDetail..BindingsList..LinkControlToField1..Category
+#: DuGet.PackagesDetailFrm.dfm:5326
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption5..Category
+#: DuGet.PackagesDetailFrm.dfm:5333
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption6..Category
+#: DuGet.PackagesDetailFrm.dfm:5340
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption7..Category
+#: DuGet.PackagesDetailFrm.dfm:5347
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption3..Category
+#: DuGet.PackagesDetailFrm.dfm:5354
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL..Category
+#: DuGet.PackagesDetailFrm.dfm:5361
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL2..Category
+#: DuGet.PackagesDetailFrm.dfm:5368
+msgid "Quick Bindings"
+msgstr ""
+
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5309
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption4..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5316
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption2..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5323
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption5..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5337
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption6..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5344
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption7..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5351
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption3..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5358
+msgid "Caption"
 msgstr ""
 
 #. frmPackagesList..boxMain..txtTitle..Caption
@@ -158,113 +430,8 @@ msgid "Packages list"
 msgstr ""
 
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..Text
-#: DuGet.PackagesListFrm.dfm:118
+#: DuGet.PackagesListFrm.dfm:116
 msgid "Refresh"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesID..FieldName
-#: DuGet.PackagesListFrm.dfm:161
-msgid "ID"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesNODE_ID..FieldName
-#: DuGet.PackagesListFrm.dfm:164
-msgid "NODE_ID"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesNAME..FieldName
-#: DuGet.PackagesListFrm.dfm:168
-msgid "NAME"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesFULL_NAME..FieldName
-#: DuGet.PackagesListFrm.dfm:172
-msgid "FULL_NAME"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesHTML_URL..FieldName
-#: DuGet.PackagesListFrm.dfm:176
-msgid "HTML_URL"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesDESCRIPTION..FieldName
-#: DuGet.PackagesListFrm.dfm:180
-msgid "DESCRIPTION"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesURL..FieldName
-#: DuGet.PackagesListFrm.dfm:184
-msgid "URL"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesDOWNLOADS_URL..FieldName
-#: DuGet.PackagesListFrm.dfm:188
-msgid "DOWNLOADS_URL"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesCREATED_AT..FieldName
-#: DuGet.PackagesListFrm.dfm:192
-msgid "CREATED_AT"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesUPDATED_AT..FieldName
-#: DuGet.PackagesListFrm.dfm:195
-msgid "UPDATED_AT"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesCLONE_URL..FieldName
-#: DuGet.PackagesListFrm.dfm:198
-msgid "CLONE_URL"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesDEFAULT_BRANCH..FieldName
-#: DuGet.PackagesListFrm.dfm:202
-msgid "DEFAULT_BRANCH"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesPACKAGE_ID..FieldName
-#: DuGet.PackagesListFrm.dfm:206
-msgid "PACKAGE_ID"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesALTERNATIVE_NAME..FieldName
-#: DuGet.PackagesListFrm.dfm:210
-msgid "ALTERNATIVE_NAME"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesLOGO_FILENAME..FieldName
-#: DuGet.PackagesListFrm.dfm:214
-msgid "LOGO_FILENAME"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesLOGO_CACHED_FILEPATH..FieldName
-#: DuGet.PackagesListFrm.dfm:218
-msgid "LOGO_CACHED_FILEPATH"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesLICENSES_TYPE..FieldName
-#: DuGet.PackagesListFrm.dfm:222
-msgid "LICENSES_TYPE"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesOWNER_ID..FieldName
-#: DuGet.PackagesListFrm.dfm:226
-msgid "OWNER_ID"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesOWNER_LOGIN..FieldName
-#: DuGet.PackagesListFrm.dfm:229
-msgid "OWNER_LOGIN"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesOWNER_NODE_ID..FieldName
-#: DuGet.PackagesListFrm.dfm:233
-msgid "OWNER_NODE_ID"
-msgstr ""
-
-#. frmPackagesList..fdmPackages..fdmPackagesOWNER_AVATAR_URL..FieldName
-#: DuGet.PackagesListFrm.dfm:237
-msgid "OWNER_AVATAR_URL"
 msgstr ""
 
 #. frmSettings..boxMain..txtMessage..Caption
@@ -336,13 +503,17 @@ msgid "Unable to update the application settings. Error: "
 "%s"
 msgstr ""
 
+#: DuGet.PackagesDetailFrm.pas:70
+msgid "Invalid context for the page"
+msgstr ""
+
 #. Author
-#: DuGet.PackagesListFrm.pas:209
+#: DuGet.PackagesListFrm.pas:199
 msgid "Author: %s"
 msgstr ""
 
 #. Licenses
-#: DuGet.PackagesListFrm.pas:223
+#: DuGet.PackagesListFrm.pas:217
 msgid "Licenses: %s"
 msgstr ""
 
