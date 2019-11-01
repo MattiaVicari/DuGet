@@ -47,7 +47,6 @@ implementation
 uses
   RTTI,
   DuGet.Attributes,
-  DuGet.BaseFrm,
   DuGet.Constants;
 
 function NavigationManager: TNavigationManager;

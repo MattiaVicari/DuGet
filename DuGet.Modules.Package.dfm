@@ -3,6 +3,7 @@ object modPackage: TmodPackage
   Height = 200
   Width = 288
   object fdmPackages: TFDMemTable
+    OnCalcFields = fdmPackagesCalcFields
     FetchOptions.AssignedValues = [evMode]
     FetchOptions.Mode = fmAll
     ResourceOptions.AssignedValues = [rvSilentMode]
@@ -10,7 +11,7 @@ object modPackage: TmodPackage
     UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
     UpdateOptions.CheckRequired = False
     UpdateOptions.AutoCommitUpdates = True
-    Left = 23
+    Left = 31
     Top = 14
     object fdmPackagesID: TIntegerField
       FieldName = 'ID'
@@ -91,6 +92,12 @@ object modPackage: TmodPackage
     object fdmPackagesOWNER_AVATAR_URL: TStringField
       FieldName = 'OWNER_AVATAR_URL'
       Size = 1000
+    end
+    object fdmPackagesPACKAGE_NAME: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'PACKAGE_NAME'
+      Size = 100
+      Calculated = True
     end
   end
 end

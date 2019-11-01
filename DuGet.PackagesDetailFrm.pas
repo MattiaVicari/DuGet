@@ -4,9 +4,12 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DuGet.BaseFrm, UCL.TUThemeManager,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.IOUtils,
+  DuGet.BaseFrm, UCL.TUThemeManager,
   Vcl.WinXCtrls, Vcl.StdCtrls, UCL.TUText, Vcl.ExtCtrls, UCL.TUPanel,
-  UCL.TUHyperLink, UCL.Classes, DuGet.Proxy, DuGet.Modules.Package;
+  UCL.TUHyperLink, UCL.Classes, DuGet.Proxy, DuGet.Modules.Package,
+  Data.Bind.EngExt, Vcl.Bind.DBEngExt, System.Rtti, System.Bindings.Outputs,
+  Vcl.Bind.Editors, Data.Bind.Components, Data.Bind.DBScope;
 
 type
   TfrmPackageDetail = class(TfrmBase)
@@ -28,14 +31,21 @@ type
     linkUrl: TUHyperLink;
     txtLblCloneUrl: TUText;
     linkCloneUrl: TUHyperLink;
-  private
-    FModulePackage: TmodPackage;
+    BindSource: TBindSourceDB;
+    BindingsList: TBindingsList;
+    LinkPropertyToFieldCaption: TLinkPropertyToField;
+    LinkPropertyToFieldCaption4: TLinkPropertyToField;
+    LinkPropertyToFieldCaption2: TLinkPropertyToField;
+    LinkControlToField1: TLinkControlToField;
+    LinkPropertyToFieldCaption5: TLinkPropertyToField;
+    LinkPropertyToFieldCaption6: TLinkPropertyToField;
+    LinkPropertyToFieldCaption7: TLinkPropertyToField;
+    LinkPropertyToFieldCaption3: TLinkPropertyToField;
+    LinkPropertyToFieldURL: TLinkPropertyToField;
+    LinkPropertyToFieldURL2: TLinkPropertyToField;
   protected
     procedure OnChangeTheme(Sender: TObject; Theme: TUTheme); override;
     procedure OnAppear(Sender: TObject); override;
-  public
-    constructor Create(AOwner: TComponent); override;
-    destructor Destroy; override;
   end;
 
 //var
@@ -46,29 +56,25 @@ implementation
 {$R *.dfm}
 
 uses
-  JvGnugettext;
+  JvGnugettext,
+  DuGet.Utils;
 
 { TfrmPackageDetail }
 
-constructor TfrmPackageDetail.Create(AOwner: TComponent);
-begin
-  inherited;
-  FModulePackage := TmodPackage.Create(nil);
-end;
-
-destructor TfrmPackageDetail.Destroy;
-begin
-  FModulePackage.Free;
-  inherited;
-end;
-
 procedure TfrmPackageDetail.OnAppear(Sender: TObject);
+var
+  DataModule: TmodPackage;
 begin
   inherited;
-  if not Assigned(BindingContext) or not (BindingContext is TPackageInfo) then
+  if not Assigned(BindingContext) or not (BindingContext is TmodPackage) then
     raise Exception.Create(_('Invalid context for the page'));
 
-  FModulePackage.LoadPackageData((BindingContext as TPackageInfo));
+  DataModule := (BindingContext as TmodPackage);
+  if (DataModule.fdmPackagesLOGO_CACHED_FILEPATH.AsString <> '')
+    and (TFile.Exists(DataModule.fdmPackagesLOGO_CACHED_FILEPATH.AsString)) then
+    imgLogo.Picture.LoadFromFile(DataModule.fdmPackagesLOGO_CACHED_FILEPATH.AsString)
+  else
+    imgLogo.Picture.LoadFromFile(TUtils.GetAsset('Logo_150x150.png'));
 end;
 
 procedure TfrmPackageDetail.OnChangeTheme(Sender: TObject; Theme: TUTheme);

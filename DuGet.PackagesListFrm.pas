@@ -77,7 +77,8 @@ const
 procedure TfrmPackagesList.btnRefreshClick(Sender: TObject);
 begin
   inherited;
-  TDirectory.Delete(TUtils.GetCacheFolder);
+  TUtils.ClearCache;
+  FModulePackage.ClearData;
   LoadList;
 end;
 
@@ -218,8 +219,11 @@ end;
 procedure TfrmPackagesList.listPackagesSelectItem(Sender: TObject;
   Item: TListItem; Selected: Boolean);
 begin
+  if not Selected then
+    Exit;
   FItemSelected := Item.Index;
-  NavigationManager.Push('PackagesDetailPage', TPackageInfo(Item.Data));
+  FModulePackage.FindPackage(TPackageInfo(Item.Data).PackageId);
+  NavigationManager.Push('PackagesDetailPage', FModulePackage);
 end;
 
 procedure TfrmPackagesList.LoadList;
@@ -231,7 +235,7 @@ begin
   LoadThread.FreeOnTerminate := True;
   LoadThread.Proxy := FProxy;
   LoadThread.Filter := FFilter;
-  LoadThread.CacheCDS := FModulePackage.fdmPackages;
+  LoadThread.CacheCDS := FModulePackage.Data;
   LoadThread.DataList := listPackages;
   LoadThread.OnTerminate := LoadTerminated;
   LoadThread.Start;

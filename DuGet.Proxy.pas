@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Classes, System.Generics.Collections, System.JSON,
-  System.IOUtils,
+  System.IOUtils, System.DateUtils,
   FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
@@ -200,8 +200,8 @@ begin
   FDescription := JsonData.GetValue('description').Value;
   FUrl := JsonData.GetValue('url').Value;
   FDownloadUrl := JsonData.GetValue('downloads_url').Value;
-  FCreatedAt := StrToDateDef(JsonData.GetValue('created_at').Value, 0);
-  FUpdatedAt := StrToDateDef(JsonData.GetValue('updated_at').Value, 0);
+  FCreatedAt := ISO8601ToDate(JsonData.GetValue('created_at').Value);
+  FUpdatedAt := ISO8601ToDate(JsonData.GetValue('updated_at').Value);
   FCloneUrl := JsonData.GetValue('clone_url').Value;
   FDefaultBranch := JsonData.GetValue('default_branch').Value;
 

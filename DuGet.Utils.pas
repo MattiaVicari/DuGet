@@ -20,9 +20,12 @@ type
     class procedure DoTranslation(Sender: TComponent);
     { Theme }
     class procedure SetupThemeManager(ThemeManager: TUThemeManager);
-    { Utility }
+    { Asset }
     class function GetAsset(const AssetName: string): string;
+    { Cache }
     class function GetCacheFolder: string;
+    class procedure ClearCache;
+    { Utilities }
     class function FromPixelToScreen(Pixel, PPI: Single): Integer;
     class function GetSystemLanguage: string;
     class function JsonCoalesceValue(JsonValue: TJsonValue): string;
@@ -55,6 +58,19 @@ end;
 class function TUtils.GetAsset(const AssetName: string): string;
 begin
   Result := TPath.Combine(TPath.Combine(ExtractFileDir(ParamStr(0)), 'Assets'), AssetName);
+end;
+
+class procedure TUtils.ClearCache;
+var
+  SearchRec: TSearchRec;
+begin
+  if FindFirst(TPath.Combine(GetCacheFolder, '*.*'), faAnyFile, SearchRec) = 0 then
+  begin
+    repeat
+      if (SearchRec.Attr and faDirectory) <> faDirectory then
+        TFile.Delete( TPath.Combine(GetCacheFolder, SearchRec.Name));
+    until FindNext(SearchRec) <> 0;
+  end;
 end;
 
 class procedure TUtils.CreateGraphic(const ImageType: string; out Graphic: TGraphic);

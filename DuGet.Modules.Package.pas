@@ -32,8 +32,15 @@ type
     fdmPackagesOWNER_LOGIN: TStringField;
     fdmPackagesOWNER_NODE_ID: TStringField;
     fdmPackagesOWNER_AVATAR_URL: TStringField;
+    fdmPackagesPACKAGE_NAME: TStringField;
+    procedure fdmPackagesCalcFields(DataSet: TDataSet);
+  private
+    function GetData: TFDMemTable;
   public
     procedure LoadPackageData(Data: TPackageInfo);
+    procedure FindPackage(const PackageId: string);
+    procedure ClearData;
+    property Data: TFDMemTable read GetData;
   end;
 
 //var
@@ -46,6 +53,31 @@ implementation
 {$R *.dfm}
 
 { TmodPackage }
+
+procedure TmodPackage.ClearData;
+begin
+  if fdmPackages.Active then
+    fdmPackages.EmptyDataSet;
+end;
+
+procedure TmodPackage.fdmPackagesCalcFields(DataSet: TDataSet);
+begin
+  fdmPackagesPACKAGE_NAME.AsString := fdmPackagesNAME.AsString;
+  if fdmPackagesALTERNATIVE_NAME.AsString <> '' then
+    fdmPackagesPACKAGE_NAME.AsString := fdmPackagesALTERNATIVE_NAME.AsString;
+end;
+
+procedure TmodPackage.FindPackage(const PackageId: string);
+begin
+  if not fdmPackages.Active then
+    fdmPackages.Open;
+  fdmPackages.Locate('PACKAGE_ID', PackageId, [loCaseInsensitive]);
+end;
+
+function TmodPackage.GetData: TFDMemTable;
+begin
+  Result := fdmPackages;
+end;
 
 procedure TmodPackage.LoadPackageData(Data: TPackageInfo);
 begin
