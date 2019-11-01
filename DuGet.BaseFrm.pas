@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UCL.TUThemeManager,
   Vcl.StdCtrls, UCL.TUText, Vcl.ExtCtrls, UCL.TUPanel, UCL.Classes, UCL.Utils,
-  Vcl.WinXCtrls;
+  Vcl.WinXCtrls,
+  DuGet.Attributes;
 
 type
   TfrmBase = class(TFrame)
@@ -16,13 +17,21 @@ type
     ActivityIndicator: TActivityIndicator;
     procedure FrameResize(Sender: TObject);
   private
+    [PageContext]
+    FContext: TObject;
     FIsBusy: Boolean;
     procedure SetIsBusy(const Value: Boolean);
   protected
     procedure OnChangeTheme(Sender: TObject; Theme: TUTheme); virtual;
+    procedure OnAppear(Sender: Tobject); virtual;
   public
-    property IsBusy: Boolean read FIsBusy write SetIsBusy;
+    [AppThemeChanged]
     procedure UpdateTheme;
+    [PageAppear]
+    procedure PageAppear;
+
+    property IsBusy: Boolean read FIsBusy write SetIsBusy;
+    property BindingContext: TObject read FContext write FContext;
     constructor Create(AOwner: TComponent); override;
   end;
 
@@ -38,6 +47,7 @@ uses
 constructor TfrmBase.Create(AOwner: TComponent);
 begin
   inherited;
+  FContext := nil;
   FIsBusy := False;
   ActivityIndicator.Visible := False;
   TUtils.DoTranslation(Self);
@@ -50,9 +60,19 @@ begin
   ActivityIndicator.Top := (ClientHeight - ActivityIndicator.Height) div 2;
 end;
 
+procedure TfrmBase.OnAppear(Sender: Tobject);
+begin
+  // Implement if needed
+end;
+
 procedure TfrmBase.OnChangeTheme(Sender: TObject; Theme: TUTheme);
 begin
   // Implement if needed
+end;
+
+procedure TfrmBase.PageAppear;
+begin
+  OnAppear(Self);
 end;
 
 procedure TfrmBase.SetIsBusy(const Value: Boolean);

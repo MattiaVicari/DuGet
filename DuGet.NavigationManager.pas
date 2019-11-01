@@ -19,9 +19,12 @@ type
     FCurrentTheme: TUTheme;
     FListOfPages: TObjectList<TFrame>;
     procedure EnableBackButton;
+    procedure InjectContext(Page: TFrame; Context: TObject);
+    procedure AppThemeChanged(Page: TFrame);
+    procedure PageAppear(Page: TFrame);
   public
-    procedure Push(PageType: TPageType); overload;
-    procedure Push(const PageName: string); overload;
+    procedure Push(PageType: TPageType; Context: TObject = nil); overload;
+    procedure Push(const PageName: string; Context: TObject = nil); overload;
     procedure Pop;
 
     procedure SetUTheme(const Theme: TUTheme);
@@ -42,6 +45,8 @@ function NavigationManager: TNavigationManager;
 implementation
 
 uses
+  RTTI,
+  DuGet.Attributes,
   DuGet.BaseFrm,
   DuGet.Constants;
 
@@ -53,6 +58,29 @@ begin
 end;
 
 { TNavigationManager }
+
+procedure TNavigationManager.AppThemeChanged(Page: TFrame);
+var
+  RttiContext: TRttiContext;
+  RttiType: TRttiType;
+  RttiAttr: TCustomAttribute;
+  RttiMethod: TRttiMethod;
+begin
+  RttiContext := TRttiContext.Create;
+  try
+    RttiType := RttiContext.GetType(Page.ClassType);
+    for RttiMethod in RttiType.GetMethods do
+    begin
+      for RttiAttr in RttiMethod.GetAttributes do
+      begin
+        if RttiAttr is AppThemeChangedAttribute then
+          RttiMethod.Invoke(Page, []);
+      end;
+    end;
+  finally
+    RttiContext.Free;
+  end;
+end;
 
 constructor TNavigationManager.Create(APageContainer: TCardPanel);
 begin
@@ -77,6 +105,52 @@ begin
     PostMessage(Screen.Forms[0].Handle, WM_OWN_ENABLE_BACKBUTTON, 1, 0)
   else
     PostMessage(Screen.Forms[0].Handle, WM_OWN_ENABLE_BACKBUTTON, 0, 0);
+end;
+
+procedure TNavigationManager.InjectContext(Page: TFrame; Context: TObject);
+var
+  RttiContext: TRttiContext;
+  RttiType: TRttiType;
+  RttiAttr: TCustomAttribute;
+  RttiField: TRttiField;
+begin
+  RttiContext := TRttiContext.Create;
+  try
+    RttiType := RttiContext.GetType(Page.ClassType);
+    for RttiField in RttiType.GetFields do
+    begin
+      for RttiAttr in RttiField.GetAttributes do
+      begin
+        if RttiAttr is PageContextAttribute then
+          RttiField.SetValue(Page, Context);
+      end;
+    end;
+  finally
+    RttiContext.Free;
+  end;
+end;
+
+procedure TNavigationManager.PageAppear(Page: TFrame);
+var
+  RttiContext: TRttiContext;
+  RttiType: TRttiType;
+  RttiAttr: TCustomAttribute;
+  RttiMethod: TRttiMethod;
+begin
+  RttiContext := TRttiContext.Create;
+  try
+    RttiType := RttiContext.GetType(Page.ClassType);
+    for RttiMethod in RttiType.GetMethods do
+    begin
+      for RttiAttr in RttiMethod.GetAttributes do
+      begin
+        if RttiAttr is PageAppearAttribute then
+          RttiMethod.Invoke(Page, []);
+      end;
+    end;
+  finally
+    RttiContext.Free;
+  end;
 end;
 
 procedure TNavigationManager.Pop;
@@ -104,7 +178,7 @@ begin
   end;
 end;
 
-procedure TNavigationManager.Push(const PageName: string);
+procedure TNavigationManager.Push(const PageName: string; Context: TObject);
 var
   PageClass: TPageType;
   Card: TCard;
@@ -121,8 +195,11 @@ begin
   FCurrentPage.Width := Card.Width;
   FCurrentPage.Height := Card.Height;
 
+  if Assigned(Context) then
+    InjectContext(FCurrentPage, Context);
   EnableBackButton;
   SetUTheme(FCurrentTheme);
+  PageAppear(FCurrentPage);
 end;
 
 procedure TNavigationManager.SetUTheme(const Theme: TUTheme);
@@ -143,13 +220,11 @@ begin
         break;
       end;
     end;
-
-    if FramePage is TfrmBase then
-      (FramePage as TfrmBase).UpdateTheme;
+    AppThemeChanged(FramePage)
   end; 
 end;
 
-procedure TNavigationManager.Push(PageType: TPageType);
+procedure TNavigationManager.Push(PageType: TPageType; Context: TObject);
 var
   Card: TCard;
 begin
@@ -163,8 +238,11 @@ begin
   FCurrentPage.Width := Card.Width;
   FCurrentPage.Height := Card.Height;
 
+  if Assigned(Context) then
+    InjectContext(FCurrentPage, Context);
   EnableBackButton;
   SetUTheme(FCurrentTheme);
+  PageAppear(FCurrentPage);
 end;
 
 initialization

@@ -12,7 +12,10 @@ uses
   DuGet.BaseFrm in 'DuGet.BaseFrm.pas' {frmBase: TFrame},
   DuGet.App.Settings in 'DuGet.App.Settings.pas',
   DuGet.Constants in 'DuGet.Constants.pas',
-  DuGet.HttpClient in 'DuGet.HttpClient.pas';
+  DuGet.HttpClient in 'DuGet.HttpClient.pas',
+  DuGet.PackagesDetailFrm in 'DuGet.PackagesDetailFrm.pas' {frmPackageDetail: TFrame},
+  DuGet.Attributes in 'DuGet.Attributes.pas',
+  DuGet.Modules.Package in 'DuGet.Modules.Package.pas' {modPackage: TDataModule};
 
 {$R *.res}
 

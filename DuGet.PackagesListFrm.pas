@@ -9,36 +9,15 @@ uses
   UCL.TUForm, UCL.TUThemeManager, Vcl.StdCtrls, UCL.TUText, UCL.TUSeparator,
   UCL.Classes, UCL.Utils,
   Vcl.ExtCtrls, UCL.TUPanel, Vcl.ComCtrls,
-  DuGet.BaseFrm, DuGet.Proxy, Vcl.WinXCtrls, FireDAC.Stan.Intf,
+  Vcl.WinXCtrls, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, UCL.TUSymbolButton;
+  FireDAC.Comp.Client, UCL.TUSymbolButton,
+  DuGet.BaseFrm, DuGet.Proxy, DuGet.Modules.Package;
 
 type
   TfrmPackagesList = class(TfrmBase)
     listPackages: TListView;
-    fdmPackages: TFDMemTable;
-    fdmPackagesID: TIntegerField;
-    fdmPackagesNODE_ID: TStringField;
-    fdmPackagesNAME: TStringField;
-    fdmPackagesFULL_NAME: TStringField;
-    fdmPackagesHTML_URL: TStringField;
-    fdmPackagesDESCRIPTION: TStringField;
-    fdmPackagesURL: TStringField;
-    fdmPackagesDOWNLOADS_URL: TStringField;
-    fdmPackagesCREATED_AT: TDateTimeField;
-    fdmPackagesUPDATED_AT: TDateTimeField;
-    fdmPackagesCLONE_URL: TStringField;
-    fdmPackagesDEFAULT_BRANCH: TStringField;
-    fdmPackagesPACKAGE_ID: TStringField;
-    fdmPackagesALTERNATIVE_NAME: TStringField;
-    fdmPackagesLOGO_FILENAME: TStringField;
-    fdmPackagesLOGO_CACHED_FILEPATH: TStringField;
-    fdmPackagesLICENSES_TYPE: TStringField;
-    fdmPackagesOWNER_ID: TIntegerField;
-    fdmPackagesOWNER_LOGIN: TStringField;
-    fdmPackagesOWNER_NODE_ID: TStringField;
-    fdmPackagesOWNER_AVATAR_URL: TStringField;
     boxPackageFilter: TUPanel;
     btnRefresh: TUSymbolButton;
     searchBox: TSearchBox;
@@ -51,6 +30,7 @@ type
   private
     FItemSelected: Integer;
     FFilter: string;
+    FModulePackage: TmodPackage;
     FProxy: IDuGetProxy;
     FDefaultLogoGraphic: TGraphic;
     FCacheLogoList: TObjectDictionary<string, TGraphic>;
@@ -86,7 +66,8 @@ uses
   JvGnugettext,
   DuGet.Utils,
   DuGet.Constants,
-  DuGet.App.Settings;
+  DuGet.App.Settings,
+  DuGet.NavigationManager;
 
 const
   LogoSize = 100;
@@ -106,6 +87,7 @@ var
 begin
   inherited;
 
+  FModulePackage := TmodPackage.Create(nil);
   FFilter := '';
   listPackages.Font.Height := LogoSize + 80;
 
@@ -124,6 +106,7 @@ end;
 
 destructor TfrmPackagesList.Destroy;
 begin
+  FModulePackage.Free;
   FDefaultLogoGraphic.Free;
   FCacheLogoList.Free;
   inherited;
@@ -236,6 +219,7 @@ procedure TfrmPackagesList.listPackagesSelectItem(Sender: TObject;
   Item: TListItem; Selected: Boolean);
 begin
   FItemSelected := Item.Index;
+  NavigationManager.Push('PackagesDetailPage', TPackageInfo(Item.Data));
 end;
 
 procedure TfrmPackagesList.LoadList;
@@ -247,7 +231,7 @@ begin
   LoadThread.FreeOnTerminate := True;
   LoadThread.Proxy := FProxy;
   LoadThread.Filter := FFilter;
-  LoadThread.CacheCDS := fdmPackages;
+  LoadThread.CacheCDS := FModulePackage.fdmPackages;
   LoadThread.DataList := listPackages;
   LoadThread.OnTerminate := LoadTerminated;
   LoadThread.Start;
