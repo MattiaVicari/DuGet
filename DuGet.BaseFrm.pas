@@ -7,7 +7,7 @@ uses
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UCL.TUThemeManager,
   Vcl.StdCtrls, UCL.TUText, Vcl.ExtCtrls, UCL.TUPanel, UCL.Classes, UCL.Utils,
   Vcl.WinXCtrls,
-  DuGet.Attributes;
+  DuGet.Attributes, Vcl.Imaging.pngimage;
 
 type
   TfrmBase = class(TFrame)

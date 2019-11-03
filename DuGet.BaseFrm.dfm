@@ -1,8 +1,8 @@
 object frmBase: TfrmBase
   Left = 0
   Top = 0
-  Width = 391
-  Height = 291
+  Width = 597
+  Height = 473
   Anchors = [akLeft, akTop, akRight, akBottom]
   Color = clWhite
   ParentBackground = False
@@ -12,8 +12,8 @@ object frmBase: TfrmBase
   object boxMain: TUPanel
     Left = 0
     Top = 0
-    Width = 391
-    Height = 291
+    Width = 597
+    Height = 473
     CustomTextColor = clBlack
     CustomBackColor = clWhite
     Align = alClient
@@ -27,10 +27,12 @@ object frmBase: TfrmBase
     ParentFont = False
     ShowCaption = False
     TabOrder = 0
+    ExplicitWidth = 391
+    ExplicitHeight = 291
     object txtTitle: TUText
       Left = 0
       Top = 0
-      Width = 391
+      Width = 597
       Height = 38
       Align = alTop
       Alignment = taCenter

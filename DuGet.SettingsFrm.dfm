@@ -2,12 +2,12 @@ inherited frmSettings: TfrmSettings
   Width = 564
   Height = 399
   ExplicitWidth = 564
-  ExplicitHeight = 316
+  ExplicitHeight = 399
   inherited boxMain: TUPanel
     Width = 564
     Height = 399
     ExplicitWidth = 564
-    ExplicitHeight = 316
+    ExplicitHeight = 399
     DesignSize = (
       564
       399)
@@ -214,7 +214,5 @@ inherited frmSettings: TfrmSettings
   inherited ActivityIndicator: TActivityIndicator
     Top = 126
     ExplicitTop = 126
-    ExplicitWidth = 64
-    ExplicitHeight = 64
   end
 end

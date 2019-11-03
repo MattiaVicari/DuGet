@@ -13,7 +13,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, UCL.TUSymbolButton,
-  DuGet.BaseFrm, DuGet.Proxy, DuGet.Modules.Package;
+  DuGet.BaseFrm, DuGet.Proxy, DuGet.Modules.Package, Vcl.Imaging.pngimage;
 
 type
   TfrmPackagesList = class(TfrmBase)
@@ -224,6 +224,7 @@ begin
     Exit;
   FItemSelected := Item.Index;
   FModulePackage.FindPackage(TPackageInfo(Item.Data).PackageId);
+  listPackages.Selected := nil; // In order to allow the selection of the same item
   NavigationManager.Push('PackagesDetailPage', FModulePackage);
 end;
 

@@ -9,7 +9,8 @@ uses
   Vcl.WinXCtrls, Vcl.StdCtrls, UCL.TUText, Vcl.ExtCtrls, UCL.TUPanel,
   UCL.TUHyperLink, UCL.Classes, DuGet.Proxy, DuGet.Modules.Package,
   Data.Bind.EngExt, Vcl.Bind.DBEngExt, System.Rtti, System.Bindings.Outputs,
-  Vcl.Bind.Editors, Data.Bind.Components, Data.Bind.DBScope;
+  Vcl.Bind.Editors, Data.Bind.Components, Data.Bind.DBScope,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmPackageDetail = class(TfrmBase)

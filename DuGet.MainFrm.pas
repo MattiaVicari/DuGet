@@ -37,6 +37,7 @@ type
     procedure btnSettingsClick(Sender: TObject);
     procedure btnPackagesListClick(Sender: TObject);
     procedure btnBackClick(Sender: TObject);
+    procedure btnAboutClick(Sender: TObject);
   private
     procedure SetupBackground;
     procedure UpdateCaptionBar;
@@ -44,6 +45,7 @@ type
 
     procedure MessageHandlerEnableBackButton(var Msg: TMessage); message WM_OWN_ENABLE_BACKBUTTON;
     procedure MessageHandlerUpdateAppTheme(var Msg: TMessage); message WM_OWN_UPDATE_APPTHEME;
+    procedure MessageHandlerShowMenu(var Msg: TMessage); message WM_OWN_SHOW_MENU;
   end;
 
 var
@@ -56,6 +58,15 @@ implementation
 uses
   DuGet.Utils,
   DuGet.NavigationManager;
+
+procedure TfrmMain.btnAboutClick(Sender: TObject);
+begin
+  if NavigationManager.CurrentPage <> 'AboutPage' then
+  begin
+    NavigationManager.PopToRoot;
+    NavigationManager.Push('AboutPage');
+  end;
+end;
 
 procedure TfrmMain.btnBackClick(Sender: TObject);
 begin
@@ -78,13 +89,19 @@ end;
 procedure TfrmMain.btnPackagesListClick(Sender: TObject);
 begin
   if NavigationManager.CurrentPage <> 'PackagesListPage' then
+  begin
+    NavigationManager.PopToRoot;
     NavigationManager.Push('PackagesListPage');
+  end;
 end;
 
 procedure TfrmMain.btnSettingsClick(Sender: TObject);
 begin
-  NavigationManager.Pop;
-  NavigationManager.Push('SettingsPage');
+  if NavigationManager.CurrentPage <> 'SettingsPage' then
+  begin
+    NavigationManager.PopToRoot;
+    NavigationManager.Push('SettingsPage');
+  end;
 end;
 
 procedure TfrmMain.btnSwitchThemeClick(Sender: TObject);
@@ -128,13 +145,18 @@ begin
   if not TAppSettings.Instance.Init then
   begin
     // You have to insert your personal token for GitHub API
-    NavigationManager.Push('SettingsPage');
+    NavigationManager.PushAsModal('SettingsPage');
   end;
 end;
 
 procedure TfrmMain.MessageHandlerEnableBackButton(var Msg: TMessage);
 begin
   btnBack.Visible := (Msg.WParam = 1);
+end;
+
+procedure TfrmMain.MessageHandlerShowMenu(var Msg: TMessage);
+begin
+  boxHamburgerMenu.Visible := (Msg.WParam = 1);
 end;
 
 procedure TfrmMain.MessageHandlerUpdateAppTheme(var Msg: TMessage);
@@ -161,7 +183,7 @@ begin
   UpdateCaptionBar;
   SetupBackground;
   // Update theme for other pages
-  NavigationManager.SetUTheme(ThemeManager.Theme);
+  NavigationManager.SetUTheme(Theme);
 end;
 
 procedure TfrmMain.UpdateCaptionBar;

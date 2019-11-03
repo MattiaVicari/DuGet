@@ -7,7 +7,7 @@ uses
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UCL.TUThemeManager, UCL.Classes,
   Vcl.StdCtrls, System.UITypes, JvGnugettext,
   DuGet.BaseFrm, DuGet.App.Settings,  UCL.TUText, Vcl.ExtCtrls, UCL.TUPanel, UCL.TUEdit, UCL.TUButton,
-  Vcl.WinXCtrls, UCL.TUCheckBox, UCL.TURadioButton;
+  Vcl.WinXCtrls, UCL.TUCheckBox, UCL.TURadioButton, Vcl.Imaging.pngimage;
 
 type
   TfrmSettings = class(TfrmBase)
@@ -37,6 +37,7 @@ implementation
 
 uses
   Math,
+  DuGet.NavigationManager,
   DuGet.Constants;
 
 procedure TfrmSettings.btnSaveSettingsClick(Sender: TObject);
@@ -50,6 +51,8 @@ begin
   TAppSettings.Instance.Save;
 
   MessageDlg(_('Settings are saved'), mtInformation, [mbOK], 0);
+  if NavigationManager.IsModal then
+    NavigationManager.PopAsModal;
 end;
 
 constructor TfrmSettings.Create(AOwner: TComponent);

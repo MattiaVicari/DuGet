@@ -261,6 +261,7 @@ object frmMain: TfrmMain
       Align = alBottom
       TabOrder = 2
       TabStop = True
+      OnClick = btnAboutClick
     end
     object btnPackagesList: TUSymbolButton
       Left = 0
@@ -508,7 +509,6 @@ object frmMain: TfrmMain
           818125D22644709EDEFE9CD6C39936E1F1F2534C64FB36DB00FEE3FF994601D2
           F8AF3DE20000000049454E44AE426082}
         Transparent = True
-        ExplicitTop = 168
       end
     end
   end

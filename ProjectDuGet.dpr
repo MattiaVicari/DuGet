@@ -1,5 +1,7 @@
 program ProjectDuGet;
 
+{$R 'duget_version.res' 'duget_version.rc'}
+
 uses
   Vcl.Forms,
   DuGet.MainFrm in 'DuGet.MainFrm.pas' {frmMain},
@@ -15,7 +17,8 @@ uses
   DuGet.HttpClient in 'DuGet.HttpClient.pas',
   DuGet.PackagesDetailFrm in 'DuGet.PackagesDetailFrm.pas' {frmPackageDetail: TFrame},
   DuGet.Attributes in 'DuGet.Attributes.pas',
-  DuGet.Modules.Package in 'DuGet.Modules.Package.pas' {modPackage: TDataModule};
+  DuGet.Modules.Package in 'DuGet.Modules.Package.pas' {modPackage: TDataModule},
+  DuGet.AboutFrm in 'DuGet.AboutFrm.pas' {frmAbout: TFrame};
 
 {$R *.res}
 

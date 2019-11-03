@@ -22,6 +22,7 @@ type
     class procedure SetupThemeManager(ThemeManager: TUThemeManager);
     { Asset }
     class function GetAsset(const AssetName: string): string;
+    class function GetLicense(const LicenseName: string): string;
     { Cache }
     class function GetCacheFolder: string;
     class procedure ClearCache;
@@ -93,8 +94,8 @@ begin
   GetMem(MyLang, Size);
   try
     // This retrieve the current language for UI in Windows.
-    // The best choice should be the current App language... but it is not availble
-    // (currently) the access to the API Windows.Globalization.ApplicationLanguages.GetLanguageForUser
+    // The best choice should be the current App language... but it is not (currently) available
+    // the access to the API Windows.Globalization.ApplicationLanguages.GetLanguageForUser
     // https://docs.microsoft.com/en-us/uwp/api/windows.globalization.applicationlanguages.getlanguagesforuser
     if GetUserDefaultLocaleName(MyLang, Size) <> 0 then
       Result := ReplaceStr(StrPas(MyLang), '-', '_');
@@ -114,6 +115,26 @@ class function TUtils.GetCacheFolder: string;
 begin
   Result := TPath.Combine(ExtractFileDir(ParamStr(0)), 'cache');
   ForceDirectories(Result);
+end;
+
+class function TUtils.GetLicense(const LicenseName: string): string;
+var
+  Lang, Ext: string;
+
+  function GetLicenseFileByLang: string;
+  begin
+    Result := ReplaceStr(LicenseName, Ext, '_' + Lang + Ext);
+  end;
+
+begin
+  Ext := ExtractFileExt(LicenseName);
+  Lang := TUtils.GetSystemLanguage;
+  Result := TPath.Combine(TPath.Combine(ExtractFileDir(ParamStr(0)), 'Licenses'), GetLicenseFileByLang);
+  if not TFile.Exists(Result) then
+  begin
+    Lang := 'en_US';  // Default
+    Result := TPath.Combine(TPath.Combine(ExtractFileDir(ParamStr(0)), 'Licenses'), GetLicenseFileByLang);
+  end;
 end;
 
 class procedure TUtils.SetupAppLanguage;

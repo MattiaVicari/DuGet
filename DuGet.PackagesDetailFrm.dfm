@@ -32,7 +32,6 @@ inherited frmPackageDetail: TfrmPackageDetail
       ParentFont = False
       ShowCaption = False
       TabOrder = 0
-      ExplicitTop = 44
       DesignSize = (
         665
         464)
@@ -5236,6 +5235,7 @@ inherited frmPackageDetail: TfrmPackageDetail
         CustomTextColors.Press = clMedGray
         CustomTextColors.Disabled = clMedGray
         CustomTextColors.Focused = 14120960
+        URL = 'https://embarcadero.com/'
       end
       object txtLblCloneUrl: TUText
         Left = 16
@@ -5270,11 +5270,12 @@ inherited frmPackageDetail: TfrmPackageDetail
         CustomTextColors.Press = clMedGray
         CustomTextColors.Disabled = clMedGray
         CustomTextColors.Focused = 14120960
+        URL = 'https://embarcadero.com/'
       end
       object memDescription: TMemo
-        Left = 246
+        Left = 240
         Top = 70
-        Width = 409
+        Width = 415
         Height = 154
         Anchors = [akLeft, akTop, akRight]
         BevelInner = bvNone
@@ -5285,10 +5286,6 @@ inherited frmPackageDetail: TfrmPackageDetail
         TabOrder = 0
       end
     end
-  end
-  inherited ActivityIndicator: TActivityIndicator
-    ExplicitWidth = 64
-    ExplicitHeight = 64
   end
   object BindSource: TBindSourceDB
     DataSet = modPackage.fdmPackages
