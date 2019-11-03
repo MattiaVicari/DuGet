@@ -294,6 +294,39 @@ object frmMain: TfrmMain
       TabStop = True
       OnClick = btnPackagesListClick
     end
+    object btnPrivacyPolicy: TUSymbolButton
+      Left = 0
+      Top = 406
+      Width = 45
+      Height = 40
+      ThemeManager = AppThemeManager
+      SymbolFont.Charset = DEFAULT_CHARSET
+      SymbolFont.Color = clWindowText
+      SymbolFont.Height = -16
+      SymbolFont.Name = 'Segoe MDL2 Assets'
+      SymbolFont.Style = []
+      TextFont.Charset = DEFAULT_CHARSET
+      TextFont.Color = clWindowText
+      TextFont.Height = -13
+      TextFont.Name = 'Segoe UI'
+      TextFont.Style = []
+      DetailFont.Charset = DEFAULT_CHARSET
+      DetailFont.Color = clWindowText
+      DetailFont.Height = -13
+      DetailFont.Name = 'Segoe UI'
+      DetailFont.Style = []
+      SymbolChar = #59928
+      Text = 'Privacy policy'
+      TextOffset = 45
+      Detail = 'Detail'
+      ShowDetail = False
+      Align = alBottom
+      TabOrder = 4
+      TabStop = True
+      OnClick = btnPrivacyPolicyClick
+      ExplicitLeft = -6
+      ExplicitTop = 400
+    end
   end
   object cardContentPage: TCardPanel
     Left = 45

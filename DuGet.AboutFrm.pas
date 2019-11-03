@@ -63,10 +63,6 @@ begin
   try
     memLicense.Lines.LoadFromFile(TUtils.GetLicense('license.txt'), TEncoding.UTF8);
   except
-  {$IFDEF DEBUG}
-    on E: EFOpenError do
-      raise Exception.Create(_('Please, insert your license files in the "Licenses" folder'));
-  {$ENDIF}
     on E: Exception do
       raise Exception.CreateFmt(_('Unable to load the license information. Error: %s'), [E.Message]);
   end;

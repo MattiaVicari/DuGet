@@ -1,0 +1,54 @@
+﻿=========================================
+Informativa sulla privacy
+=========================================
+Ultimo aggiornamento: 3 novembre 2019
+
+
+*****************************************
+** Premessa
+*****************************************
+Con il nome App, applicazione o software si intende DuGet.
+Questa policy potrà subire aggiornamenti in base alle funzionalità aggiunte all'applicazione. Se non sei d'accordo con questa policy, dovrai disinstallare l'applicazione dai tuoi dispositivi.
+
+
+*****************************************
+** A cosa serve
+*****************************************
+L'applicazione DuGet è package manager (gestore di pacchetti) per Delphi.
+Lo scopo di DuGet è quello di permettere all'utente di trovare i riferimenti sui pacchetti Delphi, open source, presenti sulla piattaforma GitHub.
+
+
+*****************************************
+** Come funziona
+*****************************************
+DuGet si affida al meccanismo di registrazione fornito da Delphinus (https://github.com/Memnarch/Delphinus).
+Se si è proprietari di un repository su GitHub e si vuole pubblicare il proprio package Delphi con queso sistema, seguire la guida all'indirizzo https://github.com/Memnarch/Delphinus/wiki/Publishing-your-Project-for-Delphinus.
+Alla data di questo documento, il progetto Delphinus è open source.
+
+
+*****************************************
+** Token personale delle API di GitHub
+*****************************************
+Per poter funzionare l'applicazione richiede l'inserimento del token personale delle API di GitHub. E' quindi un requisito fondamentale disporre di un account GitHub e creare un proprio token per l'accesso alle API.
+Per maggiori informazioni, visitare il sito https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line.
+L'applicazione consente di salvare questo token in un file locale (sulla macchina dell'utente). Queste informazioni non sono condivise a terzi e sarà premura dell'utente mantenere segreto il token e custodirlo con cura.
+
+
+*****************************************
+** Utilizzo
+*****************************************
+DuGet non fornisce funzioni di installazione dei pacchetti né tantomeno automatismi per il download dei sorgenti.
+Quando utilizzi l'applicazione, mi riservo di raccogliere dati riguardanti il dispositivo utilizzato. Questi dati sono raccolti in forna anonima e includono il sistema operativo, il numero di sessioni aperte, il Paese in cui ti trovi, la versione dell'applicazione e le segnalazioni di arresti anomali (crash). Queste informazioni sono importanti per monitorare e migliorare il funzionamento dell'applicazione e intervenire prontamente per la risoluzione di eventuali bug.
+
+
+*****************************************
+** Responsabilità
+*****************************************
+Non sono responsabile della perdita o furto del token personale per l'accesso alle API di GitHub.
+Non sono responsabile di eventuali danni a cose o persone in seguito all'utilizzo dell'applicazione. 
+
+
+*****************************************
+** Contatti
+*****************************************
+Per domande o dubbi scrivere al seguente indirizzo: info@3dcrypter.it.

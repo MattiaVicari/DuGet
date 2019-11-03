@@ -27,8 +27,10 @@ type
       Selected: Boolean);
     procedure btnRefreshClick(Sender: TObject);
     procedure searchBoxInvokeSearch(Sender: TObject);
+    procedure listPackagesMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
   private
-    FItemSelected: Integer;
+    FItemSelected, FItemOver: Integer;
     FFilter: string;
     FModulePackage: TmodPackage;
     FProxy: IDuGetProxy;
@@ -94,6 +96,7 @@ begin
   listPackages.Font.Height := LogoSize + 80;
 
   FItemSelected := -1;
+  FItemOver := -1;
   FProxy := TProxyFactory.GetProxy('GitHubProxy');
 
   DefaultLogoFileName := TUtils.GetAsset('Logo_100x100.png');
@@ -131,7 +134,7 @@ begin
   Rect := Item.DisplayRect(drBounds);
   Info := Item.Data;
 
-  if FItemSelected = Item.Index then
+  if (FItemSelected = Item.Index) or (FItemOver = Item.Index) then
   begin
     ViewCanvas.Brush.Style := bsSolid;
     if AppThemeManager.Theme = utLight then
@@ -215,6 +218,14 @@ begin
   ViewCanvas.Font.Size := 12;
   ViewCanvas.Refresh;
   ViewCanvas.TextOut(Rect.Left + 5, Rect.Top + LogoSize + 50, Format(_('Licenses: %s'), [Licenses]));
+end;
+
+procedure TfrmPackagesList.listPackagesMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  inherited;
+  if Assigned(listPackages.GetItemAt(X, Y)) then
+    FItemOver := listPackages.GetItemAt(X, Y).Index;
 end;
 
 procedure TfrmPackagesList.listPackagesSelectItem(Sender: TObject;

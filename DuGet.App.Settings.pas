@@ -16,14 +16,19 @@ type
     FSettingsFilePath: string;
     FToken: string;
     FTheme: TDuGetTheme;
+    FPrivacyPolicyAgree: Boolean;
     function GetInit: Boolean;
+    function GetFirstLaunch: Boolean;
   public
     class function Instance: TAppSettings;
     class destructor Destroy;
   public
     property Token: string read FToken write FToken;
     property Theme: TDuGetTheme read FTheme write FTheme;
+    property PrivacyPolicyAgree: Boolean read FPrivacyPolicyAgree write FPrivacyPolicyAgree;
+
     property Init: Boolean read GetInit;
+    property FirstLaunch: Boolean read GetFirstLaunch;
 
     procedure Load;
     procedure Save;
@@ -46,6 +51,7 @@ constructor TAppSettings.Create;
 begin
   FSettingsFilePath := TPath.Combine(ExtractFileDir(ParamStr(0)), SettingsFileName);
   FToken := '';
+  FPrivacyPolicyAgree := False;
   FTheme := dgtSystem;
 
   Load;
@@ -55,6 +61,11 @@ class destructor TAppSettings.Destroy;
 begin
   if Assigned(FAppSettings) then
     FAppSettings.Free;
+end;
+
+function TAppSettings.GetFirstLaunch: Boolean;
+begin
+  Result := not FPrivacyPolicyAgree;
 end;
 
 function TAppSettings.GetInit: Boolean;
@@ -87,8 +98,15 @@ begin
       if SettingsJSON.Parse(JsonData, 0, True) = -1 then
         raise Exception.Create(_('Settings are invalid'));
 
-      FToken := TUtils.JsonCoalesceValue(SettingsJSON.GetValue('token'));
-      FTheme := TDuGetTheme(StrToIntDef(TUtils.JsonCoalesceValue(SettingsJSON.GetValue('theme')), Ord(dgtSystem)));
+      FToken := SettingsJSON.GetValue('token').Value;
+      if Assigned(SettingsJSON.GetValue('theme')) then
+        FTheme := TDuGetTheme(TJSONNumber(SettingsJSON.GetValue('theme')).AsInt)
+      else
+        FTheme := dgtSystem;
+      if Assigned(SettingsJSON.GetValue('privacypolicy')) then
+        FPrivacyPolicyAgree := TJSONBool(SettingsJSON.GetValue('privacypolicy')).AsBoolean
+      else
+        FPrivacyPolicyAgree := False;
     finally
       SettingsJSON.Free;
     end;
@@ -106,7 +124,8 @@ begin
     SettingsJSON := TJSONObject.Create;
     try
       SettingsJSON.AddPair('token', FToken);
-      SettingsJSON.AddPair('theme', IntToStr(Ord(FTheme)));
+      SettingsJSON.AddPair('theme', TJSONNumber.Create(Ord(FTheme)));
+      SettingsJSON.AddPair('privacypolicy', TJSONBool.Create(FPrivacyPolicyAgree));
       TFile.WriteAllText(FSettingsFilePath, SettingsJSON.ToJSON); // No BOM
     finally
       SettingsJSON.Free;

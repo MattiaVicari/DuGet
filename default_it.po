@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-11-03 17:51\n"
-"PO-Revision-Date: 2019-11-03 17:54+0100\n"
+"POT-Creation-Date: 2019-11-03 23:55\n"
+"PO-Revision-Date: 2019-11-03 23:57+0100\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. frmAbout..boxMain..txtTitle..Caption
-#: DuGet.AboutFrm.dfm:9
+#: DuGet.AboutFrm.dfm:6
 msgid "About DuGet"
 msgstr "Informazioni su DuGet"
 
@@ -39,6 +39,8 @@ msgstr "Informazioni su DuGet"
 #. frmMain..boxHamburgerMenu..btnAbout..DetailFont.Name
 #. frmMain..boxHamburgerMenu..btnPackagesList..TextFont.Name
 #. frmMain..boxHamburgerMenu..btnPackagesList..DetailFont.Name
+#. frmMain..boxHamburgerMenu..btnPrivacyPolicy..TextFont.Name
+#. frmMain..boxHamburgerMenu..btnPrivacyPolicy..DetailFont.Name
 #. frmPackageDetail..boxMain..boxContent..Font.Name
 #. frmPackageDetail..boxMain..boxContent..txtLblName..Font.Name
 #. frmPackageDetail..boxMain..boxContent..txtName..Font.Name
@@ -61,6 +63,10 @@ msgstr "Informazioni su DuGet"
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..TextFont.Name
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..DetailFont.Name
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..searchBox..Font.Name
+#. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..Font.Name
+#. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..Font.Name
+#. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..btnAgree..Font.Name
+#. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..btnNotAgree..Font.Name
 #. frmSettings..boxMain..txtMessage..Font.Name
 #. frmSettings..boxMain..boxToken..Font.Name
 #. frmSettings..boxMain..boxToken..txtThemeSettings..Font.Name
@@ -69,12 +75,13 @@ msgstr "Informazioni su DuGet"
 #. frmSettings..boxMain..boxToken..radioDefaultTheme..Font.Name
 #. frmSettings..boxMain..boxToken..radioLightTheme..Font.Name
 #. frmSettings..boxMain..boxToken..radioDarkTheme..Font.Name
-#: DuGet.AboutFrm.dfm:24 DuGet.AboutFrm.dfm:197 DuGet.AboutFrm.dfm:212
-#: DuGet.AboutFrm.dfm:227 DuGet.AboutFrm.dfm:241 DuGet.BaseFrm.dfm:24
+#: DuGet.AboutFrm.dfm:21 DuGet.AboutFrm.dfm:194 DuGet.AboutFrm.dfm:209
+#: DuGet.AboutFrm.dfm:224 DuGet.AboutFrm.dfm:238 DuGet.BaseFrm.dfm:24
 #: DuGet.BaseFrm.dfm:44 DuGet.MainFrm.dfm:33 DuGet.MainFrm.dfm:166
 #: DuGet.MainFrm.dfm:186 DuGet.MainFrm.dfm:191 DuGet.MainFrm.dfm:218
 #: DuGet.MainFrm.dfm:223 DuGet.MainFrm.dfm:249 DuGet.MainFrm.dfm:254
-#: DuGet.MainFrm.dfm:280 DuGet.MainFrm.dfm:285 DuGet.PackagesDetailFrm.dfm:29
+#: DuGet.MainFrm.dfm:280 DuGet.MainFrm.dfm:285 DuGet.MainFrm.dfm:311
+#: DuGet.MainFrm.dfm:316 DuGet.PackagesDetailFrm.dfm:29
 #: DuGet.PackagesDetailFrm.dfm:5060 DuGet.PackagesDetailFrm.dfm:5074
 #: DuGet.PackagesDetailFrm.dfm:5088 DuGet.PackagesDetailFrm.dfm:5102
 #: DuGet.PackagesDetailFrm.dfm:5116 DuGet.PackagesDetailFrm.dfm:5130
@@ -83,9 +90,11 @@ msgstr "Informazioni su DuGet"
 #: DuGet.PackagesDetailFrm.dfm:5200 DuGet.PackagesDetailFrm.dfm:5214
 #: DuGet.PackagesDetailFrm.dfm:5229 DuGet.PackagesDetailFrm.dfm:5249
 #: DuGet.PackagesDetailFrm.dfm:5264 DuGet.PackagesListFrm.dfm:29
-#: DuGet.PackagesListFrm.dfm:58 DuGet.PackagesListFrm.dfm:85
-#: DuGet.PackagesListFrm.dfm:107 DuGet.PackagesListFrm.dfm:112
-#: DuGet.PackagesListFrm.dfm:143 DuGet.SettingsFrm.dfm:31
+#: DuGet.PackagesListFrm.dfm:58 DuGet.PackagesListFrm.dfm:86
+#: DuGet.PackagesListFrm.dfm:108 DuGet.PackagesListFrm.dfm:113
+#: DuGet.PackagesListFrm.dfm:144 DuGet.PrivacyPolicyFrm.dfm:25
+#: DuGet.PrivacyPolicyFrm.dfm:59 DuGet.PrivacyPolicyFrm.dfm:86
+#: DuGet.PrivacyPolicyFrm.dfm:114 DuGet.SettingsFrm.dfm:31
 #: DuGet.SettingsFrm.dfm:50 DuGet.SettingsFrm.dfm:82 DuGet.SettingsFrm.dfm:105
 #: DuGet.SettingsFrm.dfm:139 DuGet.SettingsFrm.dfm:163
 #: DuGet.SettingsFrm.dfm:185 DuGet.SettingsFrm.dfm:207
@@ -93,12 +102,12 @@ msgid "Segoe UI"
 msgstr "Segoe UI"
 
 #. frmAbout..boxMain..boxAbout..txtName..Caption
-#: DuGet.AboutFrm.dfm:193
+#: DuGet.AboutFrm.dfm:190
 msgid "DuGet"
 msgstr "DuGet"
 
 #. frmAbout..boxMain..boxAbout..txtDescription..Caption
-#: DuGet.AboutFrm.dfm:208
+#: DuGet.AboutFrm.dfm:205
 msgid "Package manager for Delphi"
 msgstr "Package manager per Delphi"
 
@@ -110,7 +119,7 @@ msgstr "Package manager per Delphi"
 #. frmPackageDetail..boxMain..boxContent..txtUpdatedAt..Caption
 #. frmPackageDetail..boxMain..boxContent..linkUrl..Caption
 #. frmPackageDetail..boxMain..boxContent..linkCloneUrl..Caption
-#: DuGet.AboutFrm.dfm:223 DuGet.PackagesDetailFrm.dfm:5070
+#: DuGet.AboutFrm.dfm:220 DuGet.PackagesDetailFrm.dfm:5070
 #: DuGet.PackagesDetailFrm.dfm:5112 DuGet.PackagesDetailFrm.dfm:5140
 #: DuGet.PackagesDetailFrm.dfm:5168 DuGet.PackagesDetailFrm.dfm:5196
 #: DuGet.PackagesDetailFrm.dfm:5225 DuGet.PackagesDetailFrm.dfm:5260
@@ -118,7 +127,7 @@ msgid "..."
 msgstr "..."
 
 #. frmAbout..boxMain..boxAbout..txtLicense..Caption
-#: DuGet.AboutFrm.dfm:237
+#: DuGet.AboutFrm.dfm:234
 msgid "License"
 msgstr "Licenza"
 
@@ -156,6 +165,7 @@ msgstr "Cambia tema"
 #. frmMain..boxHamburgerMenu..btnSettings..SymbolFont.Name
 #. frmMain..boxHamburgerMenu..btnAbout..SymbolFont.Name
 #. frmMain..boxHamburgerMenu..btnPackagesList..SymbolFont.Name
+#. frmMain..boxHamburgerMenu..btnPrivacyPolicy..SymbolFont.Name
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..SymbolFont.Name
 #. frmSettings..boxMain..boxToken..radioDefaultTheme..IconFont.Name
 #. frmSettings..boxMain..boxToken..radioLightTheme..IconFont.Name
@@ -163,8 +173,9 @@ msgstr "Cambia tema"
 #: DuGet.MainFrm.dfm:55 DuGet.MainFrm.dfm:78 DuGet.MainFrm.dfm:100
 #: DuGet.MainFrm.dfm:122 DuGet.MainFrm.dfm:143 DuGet.MainFrm.dfm:181
 #: DuGet.MainFrm.dfm:213 DuGet.MainFrm.dfm:244 DuGet.MainFrm.dfm:275
-#: DuGet.PackagesListFrm.dfm:102 DuGet.SettingsFrm.dfm:155
-#: DuGet.SettingsFrm.dfm:177 DuGet.SettingsFrm.dfm:199
+#: DuGet.MainFrm.dfm:306 DuGet.PackagesListFrm.dfm:103
+#: DuGet.SettingsFrm.dfm:155 DuGet.SettingsFrm.dfm:177
+#: DuGet.SettingsFrm.dfm:199
 msgid "Segoe MDL2 Assets"
 msgstr "Segoe MDL2 Assets"
 
@@ -177,9 +188,10 @@ msgstr "Menu"
 #. frmMain..boxHamburgerMenu..btnSettings..Detail
 #. frmMain..boxHamburgerMenu..btnAbout..Detail
 #. frmMain..boxHamburgerMenu..btnPackagesList..Detail
+#. frmMain..boxHamburgerMenu..btnPrivacyPolicy..Detail
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..Detail
 #: DuGet.MainFrm.dfm:196 DuGet.MainFrm.dfm:228 DuGet.MainFrm.dfm:259
-#: DuGet.MainFrm.dfm:290 DuGet.PackagesListFrm.dfm:118
+#: DuGet.MainFrm.dfm:290 DuGet.MainFrm.dfm:321 DuGet.PackagesListFrm.dfm:119
 msgid "Detail"
 msgstr "Detail"
 
@@ -194,6 +206,12 @@ msgstr "Impostazioni"
 #: DuGet.MainFrm.dfm:257
 msgid "About"
 msgstr "Informazioni"
+
+#. frmMain..boxHamburgerMenu..btnPrivacyPolicy..Text
+#. frmPrivacyPolicy..boxMain..txtTitle..Caption
+#: DuGet.MainFrm.dfm:319 DuGet.PrivacyPolicyFrm.dfm:10
+msgid "Privacy policy"
+msgstr "Informativa sulla privacy"
 
 #. modPackage..fdmPackages..fdmPackagesID..FieldName
 #: DuGet.Modules.Package.dfm:17
@@ -364,7 +382,7 @@ msgstr "Url:"
 #. frmPackageDetail..boxMain..boxContent..linkCloneUrl..URL
 #: DuGet.PackagesDetailFrm.dfm:5238 DuGet.PackagesDetailFrm.dfm:5273
 msgid "https://embarcadero.com/"
-msgstr ""
+msgstr "https://embarcadero.com/"
 
 #. frmPackageDetail..boxMain..boxContent..txtLblCloneUrl..Caption
 #: DuGet.PackagesDetailFrm.dfm:5245
@@ -409,9 +427,19 @@ msgid "Packages list"
 msgstr "Lista dei pacchetti"
 
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..Text
-#: DuGet.PackagesListFrm.dfm:116
+#: DuGet.PackagesListFrm.dfm:117
 msgid "Refresh"
 msgstr "Aggiorna"
+
+#. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..btnAgree..Text
+#: DuGet.PrivacyPolicyFrm.dfm:82
+msgid "Agree"
+msgstr "Accetto"
+
+#. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..btnNotAgree..Text
+#: DuGet.PrivacyPolicyFrm.dfm:110
+msgid "Not agree"
+msgstr "Non accetto"
 
 #. frmSettings..boxMain..txtMessage..Caption
 #: DuGet.SettingsFrm.dfm:27
@@ -466,28 +494,24 @@ msgstr "Chiaro"
 msgid "Dark"
 msgstr "Scuro"
 
-#: DuGet.AboutFrm.pas:68
-msgid "Please, insert your license files in the \"Licenses\" folder"
-msgstr "Si prega di inserire i file di licenza nella cartella \"Licenses\""
-
-#: DuGet.AboutFrm.pas:71
+#: DuGet.AboutFrm.pas:67
 msgid "Unable to load the license information. Error: %s"
 msgstr "Impossibile caricare le informazioni sulla licenza. Errore: %s"
 
-#: DuGet.AboutFrm.pas:101
+#: DuGet.AboutFrm.pas:97
 msgid "Unable to retrieve the version information"
 msgstr "Impossibile ottenere le informazioni sulla versione"
 
-#: DuGet.App.Settings.pas:88
+#: DuGet.App.Settings.pas:99
 msgid "Settings are invalid"
 msgstr "Le impostazioni non sono valide"
 
-#: DuGet.App.Settings.pas:97
+#: DuGet.App.Settings.pas:115
 msgid "Unable to load the application settings. Error: %s"
 msgstr "Impossibile caricare le impostazioni dell'applicazione. Errore: %s"
 
 #. No BOM
-#: DuGet.App.Settings.pas:116
+#: DuGet.App.Settings.pas:135
 msgid "Unable to update the application settings. Error: %s"
 msgstr "Impossibile aggiornare le impostazioni dell'applicazione. Errore: %s"
 
@@ -496,14 +520,30 @@ msgid "Invalid context for the page"
 msgstr "Context non valido per la pagina"
 
 #. Author
-#: DuGet.PackagesListFrm.pas:199
+#: DuGet.PackagesListFrm.pas:202
 msgid "Author: %s"
 msgstr "Autore: %s"
 
 #. Licenses
-#: DuGet.PackagesListFrm.pas:217
+#: DuGet.PackagesListFrm.pas:220
 msgid "Licenses: %s"
 msgstr "Licenze: %s"
+
+#: DuGet.PrivacyPolicyFrm.pas:61
+msgid ""
+"The application will be closed.\n"
+"If you don't agree with the privacy policy, you have to uninstall this "
+"software from your device."
+msgstr ""
+"L'applicazione verrà chiusa.\n"
+"Se non si accetta l'informativa sulla privacy, dovrai disinstallare questo "
+"software dal tuo dispositivo."
+
+#: DuGet.PrivacyPolicyFrm.pas:74
+msgid "Unable to load the privacy policy information. Error: %s"
+msgstr ""
+"Impossibile caricare le informazioni sull'informativa sulla privacy. "
+"Errore: %s"
 
 #: DuGet.Proxy.GitHub.pas:144
 msgid ""
@@ -591,3 +631,6 @@ msgstr "VarFileInfo"
 #: duget_version.rc:44
 msgid "Translation"
 msgstr "Translation"
+
+#~ msgid "Please, insert your license files in the \"Licenses\" folder"
+#~ msgstr "Si prega di inserire i file di licenza nella cartella \"Licenses\""

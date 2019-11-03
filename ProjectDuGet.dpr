@@ -18,7 +18,8 @@ uses
   DuGet.PackagesDetailFrm in 'DuGet.PackagesDetailFrm.pas' {frmPackageDetail: TFrame},
   DuGet.Attributes in 'DuGet.Attributes.pas',
   DuGet.Modules.Package in 'DuGet.Modules.Package.pas' {modPackage: TDataModule},
-  DuGet.AboutFrm in 'DuGet.AboutFrm.pas' {frmAbout: TFrame};
+  DuGet.AboutFrm in 'DuGet.AboutFrm.pas' {frmAbout: TFrame},
+  DuGet.PrivacyPolicyFrm in 'DuGet.PrivacyPolicyFrm.pas' {frmPrivacyPolicy: TFrame};
 
 {$R *.res}
 

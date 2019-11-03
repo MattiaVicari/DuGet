@@ -30,6 +30,7 @@ type
     cardContentPage: TCardPanel;
     cardWelcome: TCard;
     imgDuGetLogo: TImage;
+    btnPrivacyPolicy: TUSymbolButton;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnSwitchThemeClick(Sender: TObject);
@@ -38,6 +39,7 @@ type
     procedure btnPackagesListClick(Sender: TObject);
     procedure btnBackClick(Sender: TObject);
     procedure btnAboutClick(Sender: TObject);
+    procedure btnPrivacyPolicyClick(Sender: TObject);
   private
     procedure SetupBackground;
     procedure UpdateCaptionBar;
@@ -95,6 +97,15 @@ begin
   end;
 end;
 
+procedure TfrmMain.btnPrivacyPolicyClick(Sender: TObject);
+begin
+  if NavigationManager.CurrentPage <> 'PrivacyPolicyPage' then
+  begin
+    NavigationManager.PopToRoot;
+    NavigationManager.Push('PrivacyPolicyPage');
+  end;
+end;
+
 procedure TfrmMain.btnSettingsClick(Sender: TObject);
 begin
   if NavigationManager.CurrentPage <> 'SettingsPage' then
@@ -142,7 +153,9 @@ begin
 
   SetupBackground;
 
-  if not TAppSettings.Instance.Init then
+  if TAppSettings.Instance.FirstLaunch then
+    NavigationManager.PushAsModal('PrivacyPolicyPage')
+  else if not TAppSettings.Instance.Init then
   begin
     // You have to insert your personal token for GitHub API
     NavigationManager.PushAsModal('SettingsPage');
@@ -156,7 +169,10 @@ end;
 
 procedure TfrmMain.MessageHandlerShowMenu(var Msg: TMessage);
 begin
-  boxHamburgerMenu.Visible := (Msg.WParam = 1);
+  if Msg.WParam = 1 then
+    boxHamburgerMenu.Width := 45
+  else
+    boxHamburgerMenu.Width := 0;
 end;
 
 procedure TfrmMain.MessageHandlerUpdateAppTheme(var Msg: TMessage);

@@ -67,6 +67,7 @@ inherited frmPackagesList: TfrmPackagesList
         TabOrder = 0
         ViewStyle = vsReport
         OnCustomDrawItem = listPackagesCustomDrawItem
+        OnMouseMove = listPackagesMouseMove
         OnSelectItem = listPackagesSelectItem
       end
       object boxPackageFilter: TUPanel

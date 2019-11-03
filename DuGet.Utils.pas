@@ -23,6 +23,7 @@ type
     { Asset }
     class function GetAsset(const AssetName: string): string;
     class function GetLicense(const LicenseName: string): string;
+    class function GetPrivacyPolicy(const PrivacyPolicyName: string): string;
     { Cache }
     class function GetCacheFolder: string;
     class procedure ClearCache;
@@ -134,6 +135,26 @@ begin
   begin
     Lang := 'en_US';  // Default
     Result := TPath.Combine(TPath.Combine(ExtractFileDir(ParamStr(0)), 'Licenses'), GetLicenseFileByLang);
+  end;
+end;
+
+class function TUtils.GetPrivacyPolicy(const PrivacyPolicyName: string): string;
+var
+  Lang, Ext: string;
+
+  function GetPrivacyPolicyFileByLang: string;
+  begin
+    Result := ReplaceStr(PrivacyPolicyName, Ext, '_' + Lang + Ext);
+  end;
+
+begin
+  Ext := ExtractFileExt(PrivacyPolicyName);
+  Lang := TUtils.GetSystemLanguage;
+  Result := TPath.Combine(TPath.Combine(ExtractFileDir(ParamStr(0)), 'PrivacyPolicy'), GetPrivacyPolicyFileByLang);
+  if not TFile.Exists(Result) then
+  begin
+    Lang := 'en_US';  // Default
+    Result := TPath.Combine(TPath.Combine(ExtractFileDir(ParamStr(0)), 'PrivacyPolicy'), GetPrivacyPolicyFileByLang);
   end;
 end;
 
