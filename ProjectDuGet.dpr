@@ -19,7 +19,8 @@ uses
   DuGet.Attributes in 'DuGet.Attributes.pas',
   DuGet.Modules.Package in 'DuGet.Modules.Package.pas' {modPackage: TDataModule},
   DuGet.AboutFrm in 'DuGet.AboutFrm.pas' {frmAbout: TFrame},
-  DuGet.PrivacyPolicyFrm in 'DuGet.PrivacyPolicyFrm.pas' {frmPrivacyPolicy: TFrame};
+  DuGet.PrivacyPolicyFrm in 'DuGet.PrivacyPolicyFrm.pas' {frmPrivacyPolicy: TFrame},
+  DuGet.Translator in 'DuGet.Translator.pas';
 
 {$R *.res}
 

@@ -6,7 +6,7 @@ inherited frmPrivacyPolicy: TfrmPrivacyPolicy
     ExplicitWidth = 597
     ExplicitHeight = 473
     inherited txtTitle: TUText
-      Width = 586
+      Width = 168
       Caption = 'Privacy policy'
       ExplicitWidth = 168
     end

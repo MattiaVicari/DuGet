@@ -1,5 +1,7 @@
 unit DuGet.PrivacyPolicyFrm;
 
+{$I 'duget.inc'}
+
 interface
 
 uses
@@ -33,8 +35,12 @@ implementation
 {$R *.dfm}
 
 uses
-  Math,
+{$IFDEF GNUGETTEXT}
   JvGnugettext,
+{$ELSE}
+  DuGet.Translator,
+{$ENDIF}
+  Math,
   DuGet.NavigationManager,
   DuGet.App.Settings,
   DuGet.Utils;

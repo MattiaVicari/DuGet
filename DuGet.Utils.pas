@@ -1,15 +1,18 @@
 unit DuGet.Utils;
 
+{$I 'duget.inc'}
+
 interface
 
 uses
   Vcl.Graphics, System.IOUtils, System.SysUtils, System.Classes, System.StrUtils,
-  WinApi.Windows,
+  System.JSON, WinApi.Windows,
+{$IFDEF GNUGETTEXT}
   Vcl.ActnList, Vcl.Controls,
-  Vcl.ExtCtrls, Vcl.DBCtrls, Data.DB, Datasnap.DBClient, System.JSON,
+  Vcl.ExtCtrls, Vcl.DBCtrls, Data.DB, Datasnap.DBClient,
   IBX.IBDatabase, IBX.IBSQL,
   Data.Win.ADODB, SHDocVw,
-  JvGnugettext,
+{$ENDIF}
   UCL.TUThemeManager;
 
 type
@@ -39,6 +42,11 @@ implementation
 
 
 uses
+{$IFDEF GNUGETTEXT}
+  JvGnugettext,
+{$ELSE}
+  DuGet.Translator,
+{$ENDIF}
   PNGImage,
   JPeg;
 
@@ -182,6 +190,7 @@ end;
 
 class procedure TUtils.SetupTranslation();
 begin
+{$IFDEF GNUGETTEXT}
   // Ignore settings for GNUGetText
   TP_GlobalIgnoreClassProperty(TAction,'Category');
   TP_GlobalIgnoreClassProperty(TControl,'HelpKeyword');
@@ -240,6 +249,9 @@ begin
   TP_GlobalIgnoreClassProperty(TADODataset,'IndexName');
   TP_GlobalIgnoreClassProperty(TADODataset,'MasterFields');
   TP_GlobalIgnoreClass(TWebBrowser);
+{$ELSE}
+  // Your code for translations
+{$ENDIF}
 end;
 
 end.

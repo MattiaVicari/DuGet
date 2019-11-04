@@ -1,11 +1,13 @@
 unit DuGet.SettingsFrm;
 
+{$I 'duget.inc'}
+
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UCL.TUThemeManager, UCL.Classes,
-  Vcl.StdCtrls, System.UITypes, JvGnugettext,
+  Vcl.StdCtrls, System.UITypes,
   DuGet.BaseFrm, DuGet.App.Settings,  UCL.TUText, Vcl.ExtCtrls, UCL.TUPanel, UCL.TUEdit, UCL.TUButton,
   Vcl.WinXCtrls, UCL.TUCheckBox, UCL.TURadioButton, Vcl.Imaging.pngimage;
 
@@ -36,6 +38,11 @@ implementation
 {$R *.dfm}
 
 uses
+{$IFDEF GNUGETTEXT}
+  JvGnugettext,
+{$ELSE}
+  DuGet.Translator,
+{$ENDIF}
   Math,
   DuGet.NavigationManager,
   DuGet.Constants;

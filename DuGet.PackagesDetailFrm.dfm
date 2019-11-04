@@ -9,7 +9,7 @@ inherited frmPackageDetail: TfrmPackageDetail
     ExplicitWidth = 665
     ExplicitHeight = 502
     inherited txtTitle: TUText
-      Width = 665
+      Width = 177
       Caption = 'Package detail'
       ExplicitWidth = 177
     end

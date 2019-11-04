@@ -1,5 +1,7 @@
 unit DuGet.Proxy.GitHub;
 
+{$I 'duget.inc'}
+
 interface
 
 uses
@@ -9,7 +11,6 @@ uses
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   FireDAC.Stan.StorageBin,
-  JvGnugettext,
   DuGet.Proxy;
 
 type
@@ -25,6 +26,11 @@ type
 implementation
 
 uses
+{$IFDEF GNUGETTEXT}
+  JvGnugettext,
+{$ELSE}
+  DuGet.Translator,
+{$ENDIF}
   JSON, IdURI,
   DuGet.Utils, DuGet.HttpClient;
 

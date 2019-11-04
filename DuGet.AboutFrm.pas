@@ -1,5 +1,7 @@
 unit DuGet.AboutFrm;
 
+{$I 'duget.inc'}
+
 interface
 
 uses
@@ -52,8 +54,12 @@ implementation
 {$R *.dfm}
 
 uses
-  Math,
+{$IFDEF GNUGETTEXT}
   JvGnugettext,
+{$ELSE}
+  DuGet.Translator,
+{$ENDIF}
+  Math,
   DuGet.Utils;
 
 constructor TfrmAbout.Create(AOwner: TComponent);

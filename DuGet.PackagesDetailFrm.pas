@@ -1,5 +1,7 @@
 unit DuGet.PackagesDetailFrm;
 
+{$I 'duget.inc'}
+
 interface
 
 uses
@@ -57,7 +59,11 @@ implementation
 {$R *.dfm}
 
 uses
+{$IFDEF GNUGETTEXT}
   JvGnugettext,
+{$ELSE}
+  DuGet.Translator,
+{$ENDIF}
   DuGet.Utils;
 
 { TfrmPackageDetail }

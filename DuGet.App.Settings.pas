@@ -1,10 +1,11 @@
 unit DuGet.App.Settings;
 
+{$I 'duget.inc'}
+
 interface
 
 uses
-  System.SysUtils, System.Classes, System.IOUtils,
-  JvGnugettext;
+  System.SysUtils, System.Classes, System.IOUtils;
 
 type
   TDuGetTheme = (dgtLight, dgtDark, dgtSystem);
@@ -39,6 +40,11 @@ type
 implementation
 
 uses
+{$IFDEF GNUGETTEXT}
+  JvGnugettext,
+{$ELSE}
+  DuGet.Translator,
+{$ENDIF}
   DuGet.Utils,
   System.JSON;
 
