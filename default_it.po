@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-11-03 23:55\n"
+"POT-Creation-Date: 2019-11-05 00:06\n"
 "PO-Revision-Date: 2019-11-03 23:57+0100\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. frmAbout..boxMain..txtTitle..Caption
-#: DuGet.AboutFrm.dfm:6
+#: DuGet.AboutFrm.dfm:8
 msgid "About DuGet"
 msgstr "Informazioni su DuGet"
 
@@ -75,13 +75,13 @@ msgstr "Informazioni su DuGet"
 #. frmSettings..boxMain..boxToken..radioDefaultTheme..Font.Name
 #. frmSettings..boxMain..boxToken..radioLightTheme..Font.Name
 #. frmSettings..boxMain..boxToken..radioDarkTheme..Font.Name
-#: DuGet.AboutFrm.dfm:21 DuGet.AboutFrm.dfm:194 DuGet.AboutFrm.dfm:209
-#: DuGet.AboutFrm.dfm:224 DuGet.AboutFrm.dfm:238 DuGet.BaseFrm.dfm:24
+#: DuGet.AboutFrm.dfm:24 DuGet.AboutFrm.dfm:197 DuGet.AboutFrm.dfm:212
+#: DuGet.AboutFrm.dfm:227 DuGet.AboutFrm.dfm:241 DuGet.BaseFrm.dfm:24
 #: DuGet.BaseFrm.dfm:44 DuGet.MainFrm.dfm:33 DuGet.MainFrm.dfm:166
-#: DuGet.MainFrm.dfm:186 DuGet.MainFrm.dfm:191 DuGet.MainFrm.dfm:218
-#: DuGet.MainFrm.dfm:223 DuGet.MainFrm.dfm:249 DuGet.MainFrm.dfm:254
-#: DuGet.MainFrm.dfm:280 DuGet.MainFrm.dfm:285 DuGet.MainFrm.dfm:311
-#: DuGet.MainFrm.dfm:316 DuGet.PackagesDetailFrm.dfm:29
+#: DuGet.MainFrm.dfm:186 DuGet.MainFrm.dfm:191 DuGet.MainFrm.dfm:219
+#: DuGet.MainFrm.dfm:224 DuGet.MainFrm.dfm:250 DuGet.MainFrm.dfm:255
+#: DuGet.MainFrm.dfm:281 DuGet.MainFrm.dfm:286 DuGet.MainFrm.dfm:312
+#: DuGet.MainFrm.dfm:317 DuGet.PackagesDetailFrm.dfm:29
 #: DuGet.PackagesDetailFrm.dfm:5060 DuGet.PackagesDetailFrm.dfm:5074
 #: DuGet.PackagesDetailFrm.dfm:5088 DuGet.PackagesDetailFrm.dfm:5102
 #: DuGet.PackagesDetailFrm.dfm:5116 DuGet.PackagesDetailFrm.dfm:5130
@@ -102,12 +102,12 @@ msgid "Segoe UI"
 msgstr "Segoe UI"
 
 #. frmAbout..boxMain..boxAbout..txtName..Caption
-#: DuGet.AboutFrm.dfm:190
+#: DuGet.AboutFrm.dfm:193
 msgid "DuGet"
 msgstr "DuGet"
 
 #. frmAbout..boxMain..boxAbout..txtDescription..Caption
-#: DuGet.AboutFrm.dfm:205
+#: DuGet.AboutFrm.dfm:208
 msgid "Package manager for Delphi"
 msgstr "Package manager per Delphi"
 
@@ -119,7 +119,7 @@ msgstr "Package manager per Delphi"
 #. frmPackageDetail..boxMain..boxContent..txtUpdatedAt..Caption
 #. frmPackageDetail..boxMain..boxContent..linkUrl..Caption
 #. frmPackageDetail..boxMain..boxContent..linkCloneUrl..Caption
-#: DuGet.AboutFrm.dfm:220 DuGet.PackagesDetailFrm.dfm:5070
+#: DuGet.AboutFrm.dfm:223 DuGet.PackagesDetailFrm.dfm:5070
 #: DuGet.PackagesDetailFrm.dfm:5112 DuGet.PackagesDetailFrm.dfm:5140
 #: DuGet.PackagesDetailFrm.dfm:5168 DuGet.PackagesDetailFrm.dfm:5196
 #: DuGet.PackagesDetailFrm.dfm:5225 DuGet.PackagesDetailFrm.dfm:5260
@@ -127,7 +127,7 @@ msgid "..."
 msgstr "..."
 
 #. frmAbout..boxMain..boxAbout..txtLicense..Caption
-#: DuGet.AboutFrm.dfm:234
+#: DuGet.AboutFrm.dfm:237
 msgid "License"
 msgstr "Licenza"
 
@@ -172,8 +172,8 @@ msgstr "Cambia tema"
 #. frmSettings..boxMain..boxToken..radioDarkTheme..IconFont.Name
 #: DuGet.MainFrm.dfm:55 DuGet.MainFrm.dfm:78 DuGet.MainFrm.dfm:100
 #: DuGet.MainFrm.dfm:122 DuGet.MainFrm.dfm:143 DuGet.MainFrm.dfm:181
-#: DuGet.MainFrm.dfm:213 DuGet.MainFrm.dfm:244 DuGet.MainFrm.dfm:275
-#: DuGet.MainFrm.dfm:306 DuGet.PackagesListFrm.dfm:103
+#: DuGet.MainFrm.dfm:214 DuGet.MainFrm.dfm:245 DuGet.MainFrm.dfm:276
+#: DuGet.MainFrm.dfm:307 DuGet.PackagesListFrm.dfm:103
 #: DuGet.SettingsFrm.dfm:155 DuGet.SettingsFrm.dfm:177
 #: DuGet.SettingsFrm.dfm:199
 msgid "Segoe MDL2 Assets"
@@ -190,26 +190,31 @@ msgstr "Menu"
 #. frmMain..boxHamburgerMenu..btnPackagesList..Detail
 #. frmMain..boxHamburgerMenu..btnPrivacyPolicy..Detail
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..Detail
-#: DuGet.MainFrm.dfm:196 DuGet.MainFrm.dfm:228 DuGet.MainFrm.dfm:259
-#: DuGet.MainFrm.dfm:290 DuGet.MainFrm.dfm:321 DuGet.PackagesListFrm.dfm:119
+#: DuGet.MainFrm.dfm:196 DuGet.MainFrm.dfm:229 DuGet.MainFrm.dfm:260
+#: DuGet.MainFrm.dfm:291 DuGet.MainFrm.dfm:322 DuGet.PackagesListFrm.dfm:119
 msgid "Detail"
 msgstr "Detail"
 
 #. frmMain..boxHamburgerMenu..btnSettings..Text
-#. frmMain..boxHamburgerMenu..btnPackagesList..Text
 #. frmSettings..boxMain..txtTitle..Caption
-#: DuGet.MainFrm.dfm:226 DuGet.MainFrm.dfm:288 DuGet.SettingsFrm.dfm:16
+#: DuGet.MainFrm.dfm:227 DuGet.SettingsFrm.dfm:16
 msgid "Settings"
 msgstr "Impostazioni"
 
 #. frmMain..boxHamburgerMenu..btnAbout..Text
-#: DuGet.MainFrm.dfm:257
+#: DuGet.MainFrm.dfm:258
 msgid "About"
 msgstr "Informazioni"
 
+#. frmMain..boxHamburgerMenu..btnPackagesList..Text
+#. frmPackagesList..boxMain..txtTitle..Caption
+#: DuGet.MainFrm.dfm:289 DuGet.PackagesListFrm.dfm:13
+msgid "Packages list"
+msgstr "Lista dei pacchetti"
+
 #. frmMain..boxHamburgerMenu..btnPrivacyPolicy..Text
 #. frmPrivacyPolicy..boxMain..txtTitle..Caption
-#: DuGet.MainFrm.dfm:319 DuGet.PrivacyPolicyFrm.dfm:10
+#: DuGet.MainFrm.dfm:320 DuGet.PrivacyPolicyFrm.dfm:10
 msgid "Privacy policy"
 msgstr "Informativa sulla privacy"
 
@@ -421,11 +426,6 @@ msgstr "Quick Bindings"
 msgid "Caption"
 msgstr "Caption"
 
-#. frmPackagesList..boxMain..txtTitle..Caption
-#: DuGet.PackagesListFrm.dfm:13
-msgid "Packages list"
-msgstr "Lista dei pacchetti"
-
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..Text
 #: DuGet.PackagesListFrm.dfm:117
 msgid "Refresh"
@@ -494,42 +494,42 @@ msgstr "Chiaro"
 msgid "Dark"
 msgstr "Scuro"
 
-#: DuGet.AboutFrm.pas:67
+#: DuGet.AboutFrm.pas:73
 msgid "Unable to load the license information. Error: %s"
 msgstr "Impossibile caricare le informazioni sulla licenza. Errore: %s"
 
-#: DuGet.AboutFrm.pas:97
+#: DuGet.AboutFrm.pas:103
 msgid "Unable to retrieve the version information"
 msgstr "Impossibile ottenere le informazioni sulla versione"
 
-#: DuGet.App.Settings.pas:99
+#: DuGet.App.Settings.pas:105
 msgid "Settings are invalid"
 msgstr "Le impostazioni non sono valide"
 
-#: DuGet.App.Settings.pas:115
+#: DuGet.App.Settings.pas:121
 msgid "Unable to load the application settings. Error: %s"
 msgstr "Impossibile caricare le impostazioni dell'applicazione. Errore: %s"
 
 #. No BOM
-#: DuGet.App.Settings.pas:135
+#: DuGet.App.Settings.pas:141
 msgid "Unable to update the application settings. Error: %s"
 msgstr "Impossibile aggiornare le impostazioni dell'applicazione. Errore: %s"
 
-#: DuGet.PackagesDetailFrm.pas:71
+#: DuGet.PackagesDetailFrm.pas:77
 msgid "Invalid context for the page"
 msgstr "Context non valido per la pagina"
 
 #. Author
-#: DuGet.PackagesListFrm.pas:202
+#: DuGet.PackagesListFrm.pas:208
 msgid "Author: %s"
 msgstr "Autore: %s"
 
 #. Licenses
-#: DuGet.PackagesListFrm.pas:220
+#: DuGet.PackagesListFrm.pas:226
 msgid "Licenses: %s"
 msgstr "Licenze: %s"
 
-#: DuGet.PrivacyPolicyFrm.pas:61
+#: DuGet.PrivacyPolicyFrm.pas:67
 msgid ""
 "The application will be closed.\n"
 "If you don't agree with the privacy policy, you have to uninstall this "
@@ -539,13 +539,13 @@ msgstr ""
 "Se non si accetta l'informativa sulla privacy, dovrai disinstallare questo "
 "software dal tuo dispositivo."
 
-#: DuGet.PrivacyPolicyFrm.pas:74
+#: DuGet.PrivacyPolicyFrm.pas:80
 msgid "Unable to load the privacy policy information. Error: %s"
 msgstr ""
-"Impossibile caricare le informazioni sull'informativa sulla privacy. "
-"Errore: %s"
+"Impossibile caricare le informazioni sull'informativa sulla privacy. Errore: "
+"%s"
 
-#: DuGet.Proxy.GitHub.pas:144
+#: DuGet.Proxy.GitHub.pas:150
 msgid ""
 "You have to provide your personal access token for GitHub API.\n"
 "See here %s"
@@ -553,7 +553,7 @@ msgstr ""
 "Devi fornire il token di accesso personale per le API di GitHub.\n"
 "Maggiori informazioni qui %s"
 
-#: DuGet.Proxy.GitHub.pas:193
+#: DuGet.Proxy.GitHub.pas:199
 msgid ""
 "Unable to get the list of packages.\n"
 "Error: %s"
@@ -561,15 +561,15 @@ msgstr ""
 "Impossibile ottenere la lista dei pacchetti.\n"
 "Errore: %s"
 
-#: DuGet.SettingsFrm.pas:47
+#: DuGet.SettingsFrm.pas:54
 msgid "You have to type your personal access token"
 msgstr "Devi inserire il tuo token di accesso personale"
 
-#: DuGet.SettingsFrm.pas:53
+#: DuGet.SettingsFrm.pas:60
 msgid "Settings are saved"
 msgstr "Le impostazioni sono state salvate"
 
-#: DuGet.SettingsFrm.pas:72
+#: DuGet.SettingsFrm.pas:79
 msgid ""
 "You have to type your personal access token in order to get the list of "
 "packages"

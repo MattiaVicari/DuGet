@@ -200,6 +200,7 @@ object frmMain: TfrmMain
       TabOrder = 0
       TabStop = True
       OnClick = btnMenuClick
+      ExplicitTop = 6
     end
     object btnSettings: TUSymbolButton
       Left = 0
@@ -285,7 +286,7 @@ object frmMain: TfrmMain
       DetailFont.Name = 'Segoe UI'
       DetailFont.Style = []
       SymbolChar = #59219
-      Text = 'Settings'
+      Text = 'Packages list'
       TextOffset = 45
       Detail = 'Detail'
       ShowDetail = False
@@ -324,8 +325,6 @@ object frmMain: TfrmMain
       TabOrder = 4
       TabStop = True
       OnClick = btnPrivacyPolicyClick
-      ExplicitLeft = -6
-      ExplicitTop = 400
     end
   end
   object cardContentPage: TCardPanel
