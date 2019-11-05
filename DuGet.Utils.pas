@@ -33,7 +33,6 @@ type
     { Utilities }
     class function FromPixelToScreen(Pixel, PPI: Single): Integer;
     class function GetSystemLanguage: string;
-    class function JsonCoalesceValue(JsonValue: TJsonValue): string;
     class procedure SetupAppLanguage;
     class procedure CreateGraphic(const ImageType: string; out Graphic: TGraphic);
   end;
@@ -111,13 +110,6 @@ begin
   finally
     FreeMem(MyLang);
   end;
-end;
-
-class function TUtils.JsonCoalesceValue(JsonValue: TJsonValue): string;
-begin
-  Result := '';
-  if Assigned(JsonValue) then
-    Result := JsonValue.Value;
 end;
 
 class function TUtils.GetCacheFolder: string;

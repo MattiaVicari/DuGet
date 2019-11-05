@@ -200,7 +200,7 @@ object frmMain: TfrmMain
       TabOrder = 0
       TabStop = True
       OnClick = btnMenuClick
-      ExplicitTop = 6
+      ExplicitTop = -6
     end
     object btnSettings: TUSymbolButton
       Left = 0

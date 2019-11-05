@@ -194,18 +194,18 @@ end;
 
 procedure TPackageInfo.LoadJSON(JsonData: TJSONObject);
 begin
-  FId := StrToIntDef(JsonData.GetValue('id').Value, -1);
-  FNodeId := JsonData.GetValue('node_id').Value;
-  FName := JsonData.GetValue('name').Value;
-  FFullName := JsonData.GetValue('full_name').Value;
-  FHtmlUrl := JsonData.GetValue('html_url').Value;
-  FDescription := JsonData.GetValue('description').Value;
-  FUrl := JsonData.GetValue('url').Value;
-  FDownloadUrl := JsonData.GetValue('downloads_url').Value;
-  FCreatedAt := ISO8601ToDate(JsonData.GetValue('created_at').Value);
-  FUpdatedAt := ISO8601ToDate(JsonData.GetValue('updated_at').Value);
-  FCloneUrl := JsonData.GetValue('clone_url').Value;
-  FDefaultBranch := JsonData.GetValue('default_branch').Value;
+  FId := JsonData.GetValue<Integer>('id', -1);
+  FNodeId := JsonData.GetValue<string>('node_id', '');
+  FName := JsonData.GetValue<string>('name', '');
+  FFullName := JsonData.GetValue<string>('full_name', '');
+  FHtmlUrl := JsonData.GetValue<string>('html_url', '');
+  FDescription := JsonData.GetValue<string>('description', '');
+  FUrl := JsonData.GetValue<string>('url', '');
+  FDownloadUrl := JsonData.GetValue<string>('downloads_url', '');
+  FCreatedAt := ISO8601ToDate(JsonData.GetValue<string>('created_at', ''));
+  FUpdatedAt := ISO8601ToDate(JsonData.GetValue<string>('updated_at', ''));
+  FCloneUrl := JsonData.GetValue<string>('clone_url', '');
+  FDefaultBranch := JsonData.GetValue<string>('default_branch', '');
 
   FOwnerInfo.LoadJSON(TJSONObject(JsonData.GetValue('owner')));
 end;
@@ -265,10 +265,10 @@ end;
 
 procedure TOwnerInfo.LoadJSON(JsonData: TJSONObject);
 begin
-  FId := StrToIntDef(JsonData.GetValue('id').Value, -1);
-  FLogin := JsonData.GetValue('login').Value;
-  FNodeId := JsonData.GetValue('node_id').Value;
-  FAvatarUrl := JsonData.GetValue('avatar_url').Value;
+  FId := JsonData.GetValue<Integer>('id', -1);
+  FLogin := JsonData.GetValue<string>('login', '');
+  FNodeId := JsonData.GetValue<string>('node_id', '');
+  FAvatarUrl := JsonData.GetValue<string>('avatar_url', '');
 end;
 
 procedure TOwnerInfo.SaveToCDS(CDS: TFDMemTable);

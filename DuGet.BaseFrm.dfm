@@ -27,8 +27,6 @@ object frmBase: TfrmBase
     ParentFont = False
     ShowCaption = False
     TabOrder = 0
-    ExplicitWidth = 391
-    ExplicitHeight = 291
     object txtTitle: TUText
       Left = 0
       Top = 0

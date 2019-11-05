@@ -84,14 +84,14 @@ begin
         try
           JsonMetadata.Parse(TEncoding.UTF8.GetBytes(Response), 0);
 
-          Info.PackageId := TUtils.JsonCoalesceValue(JsonMetadata.GetValue('id'));
-          Info.AlternativeName := TUtils.JsonCoalesceValue(JsonMetadata.GetValue('name'));
-          Info.LogoFileName := TUtils.JsonCoalesceValue(JsonMetadata.GetValue('picture'));
+          Info.PackageId := JsonMetadata.GetValue<string>('id', '');
+          Info.AlternativeName := JsonMetadata.GetValue<string>('name', '');
+          Info.LogoFileName := JsonMetadata.GetValue<string>('picture', '');
           if Assigned(JsonMetadata.GetValue(('licenses'))) then
           begin
             Items := TJSONArray(JsonMetadata.GetValue(('licenses')));
             for Item in Items do
-              Licenses := Licenses + [TJSONObject(Item).GetValue('type').Value];
+              Licenses := Licenses + [TJSONObject(Item).GetValue<string>('type', '')];
             Info.LicensesType := Licenses;
           end;
 
@@ -108,7 +108,7 @@ begin
                 JsonPicture.Parse(TEncoding.UTF8.GetBytes(Response), 0);
                 if Assigned(JsonPicture.GetValue('content')) then
                 begin
-                  PictureBytes := TNetEncoding.Base64.DecodeStringToBytes(JsonPicture.GetValue('content').Value);
+                  PictureBytes := TNetEncoding.Base64.DecodeStringToBytes(JsonPicture.GetValue<string>('content'));
                   LogoFileStream := TFileStream.Create(Info.LogoCachedFilePath, fmCreate);
                   try
                     LogoFileStream.WriteData(PictureBytes, Length(PictureBytes));

@@ -30,6 +30,7 @@ type
     procedure DoPop;
     procedure AfterPush(Context: TObject);
     procedure AfterPop;
+    function GetHistorySize: Integer;
   public
     procedure Push(PageType: TPageType; Context: TObject = nil); overload;
     procedure Push(const PageName: string; Context: TObject = nil); overload;
@@ -47,6 +48,7 @@ type
     property AppPageContainer: TCardPanel read FPageContainer;
     property CurrentPage: string read FCurrentPageName;
     property IsModal: Boolean read FCurrentPageAsModal;
+    property HistorySize: Integer read GetHistorySize;
   end;
 
 var
@@ -190,6 +192,11 @@ begin
     PostMessage(Screen.Forms[0].Handle, WM_OWN_ENABLE_BACKBUTTON, 1, 0)
   else
     PostMessage(Screen.Forms[0].Handle, WM_OWN_ENABLE_BACKBUTTON, 0, 0);
+end;
+
+function TNavigationManager.GetHistorySize: Integer;
+begin
+  Result := FListOfPages.Count;
 end;
 
 procedure TNavigationManager.InjectContext(Page: TFrame; Context: TObject);

@@ -104,15 +104,9 @@ begin
       if SettingsJSON.Parse(JsonData, 0, True) = -1 then
         raise Exception.Create(_('Settings are invalid'));
 
-      FToken := SettingsJSON.GetValue('token').Value;
-      if Assigned(SettingsJSON.GetValue('theme')) then
-        FTheme := TDuGetTheme(TJSONNumber(SettingsJSON.GetValue('theme')).AsInt)
-      else
-        FTheme := dgtSystem;
-      if Assigned(SettingsJSON.GetValue('privacypolicy')) then
-        FPrivacyPolicyAgree := TJSONBool(SettingsJSON.GetValue('privacypolicy')).AsBoolean
-      else
-        FPrivacyPolicyAgree := False;
+      FToken := SettingsJSON.GetValue<string>('token', '');
+      FTheme := TDuGetTheme(SettingsJSON.GetValue<Integer>('theme', Ord(dgtSystem)));
+      FPrivacyPolicyAgree := SettingsJSON.GetValue<Boolean>('privacypolicy', False);
     finally
       SettingsJSON.Free;
     end;

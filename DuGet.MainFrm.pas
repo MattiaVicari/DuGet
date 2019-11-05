@@ -82,7 +82,7 @@ begin
   // 225 = width of opened menu
   // 45 = width of closed menu
   MenuOffsetWidth := TUtils.FromPixelToScreen(225 - 45, PPI);
-  if boxHamburgerMenu.Width <> TUtils.FromPixelToScreen(45, PPI) then
+  if boxHamburgerMenu.Width > TUtils.FromPixelToScreen(45, PPI) then
     MenuOffsetWidth := -1 * MenuOffsetWidth;
 
   boxHamburgerMenu.AnimationFromCurrent(apWidth, MenuOffsetWidth, 20, 200, akOut, afkQuartic, nil);

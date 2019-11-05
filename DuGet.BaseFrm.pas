@@ -40,6 +40,8 @@ implementation
 {$R *.dfm}
 
 uses
+  DuGet.Constants,
+  DuGet.NavigationManager,
   DuGet.Utils;
 
 { TfrmBase }
@@ -81,6 +83,20 @@ begin
   ActivityIndicator.Animate := Value;
   ActivityIndicator.Visible := Value;
   boxMain.Visible := not Value;
+  if not NavigationManager.IsModal then
+  begin
+    if FIsBusy then
+    begin
+      PostMessage(Screen.Forms[0].Handle, WM_OWN_SHOW_MENU, 0, 0);
+      PostMessage(Screen.Forms[0].Handle, WM_OWN_ENABLE_BACKBUTTON, 0, 0);
+    end
+    else
+    begin
+      PostMessage(Screen.Forms[0].Handle, WM_OWN_SHOW_MENU, 1, 0);
+      if NavigationManager.HistorySize > 1 then
+        PostMessage(Screen.Forms[0].Handle, WM_OWN_ENABLE_BACKBUTTON, 1, 0);
+    end;
+  end;
 end;
 
 procedure TfrmBase.UpdateTheme;
