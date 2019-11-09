@@ -3,10 +3,9 @@ inherited frmPrivacyPolicy: TfrmPrivacyPolicy
   ExplicitWidth = 586
   inherited boxMain: TUPanel
     Width = 586
-    ExplicitWidth = 597
-    ExplicitHeight = 473
+    ExplicitWidth = 586
     inherited txtTitle: TUText
-      Width = 168
+      Width = 586
       Caption = 'Privacy policy'
       ExplicitWidth = 168
     end
@@ -31,19 +30,6 @@ inherited frmPrivacyPolicy: TfrmPrivacyPolicy
       DesignSize = (
         481
         353)
-      object memPrivacyPolicy: TMemo
-        Left = 16
-        Top = 16
-        Width = 457
-        Height = 265
-        Anchors = [akLeft, akTop, akRight, akBottom]
-        BevelInner = bvNone
-        BevelOuter = bvNone
-        BorderStyle = bsNone
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 0
-      end
       object boxButtons: TUPanel
         Left = 120
         Top = 304
@@ -61,7 +47,7 @@ inherited frmPrivacyPolicy: TfrmPrivacyPolicy
         ParentBackground = False
         ParentFont = False
         ShowCaption = False
-        TabOrder = 1
+        TabOrder = 0
         object btnAgree: TUButton
           Left = 10
           Top = 3
@@ -119,6 +105,30 @@ inherited frmPrivacyPolicy: TfrmPrivacyPolicy
           OnClick = btnNotAgreeClick
         end
       end
+      object memPrivacyPolicy: TRichEdit
+        Left = 16
+        Top = 9
+        Width = 449
+        Height = 289
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        BevelInner = bvNone
+        BevelOuter = bvNone
+        BorderStyle = bsNone
+        Ctl3D = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'memPrivacyPolicy')
+        ParentCtl3D = False
+        ParentFont = False
+        ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 1
+        Zoom = 100
+      end
     end
   end
   inherited ActivityIndicator: TActivityIndicator
@@ -126,5 +136,7 @@ inherited frmPrivacyPolicy: TfrmPrivacyPolicy
     Top = 122
     ExplicitLeft = 296
     ExplicitTop = 122
+    ExplicitWidth = 64
+    ExplicitHeight = 64
   end
 end

@@ -6,7 +6,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  System.UITypes,
+  System.UITypes, Vcl.ComCtrls,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DuGet.BaseFrm, UCL.TUThemeManager,
   Vcl.WinXCtrls, Vcl.StdCtrls, UCL.TUText, Vcl.ExtCtrls,
   UCL.TUPanel, UCL.Classes, UCL.TUButton;
@@ -14,15 +14,18 @@ uses
 type
   TfrmPrivacyPolicy = class(TfrmBase)
     boxPrivacyPolicy: TUPanel;
-    memPrivacyPolicy: TMemo;
     boxButtons: TUPanel;
     btnAgree: TUButton;
     btnNotAgree: TUButton;
+    memPrivacyPolicy: TRichEdit;
     procedure FrameResize(Sender: TObject);
     procedure btnAgreeClick(Sender: TObject);
     procedure btnNotAgreeClick(Sender: TObject);
   protected
     procedure OnChangeTheme(Sender: TObject; Theme: TUTheme); override;
+    procedure OnAppear(Sender: TObject); override;
+  private
+    procedure UpdateTextColor(Theme: TUTheme);
   public
     constructor Create(AOwner: TComponent); override;
   end;
@@ -73,12 +76,6 @@ constructor TfrmPrivacyPolicy.Create(AOwner: TComponent);
 begin
   inherited;
   boxButtons.Visible := TAppSettings.Instance.FirstLaunch;
-  try
-    memPrivacyPolicy.Lines.LoadFromFile(TUtils.GetPrivacyPolicy('privacypolicy.txt'), TEncoding.UTF8);
-  except
-    on E: Exception do
-      raise Exception.CreateFmt(_('Unable to load the privacy policy information. Error: %s'), [E.Message]);
-  end;
 end;
 
 procedure TfrmPrivacyPolicy.FrameResize(Sender: TObject);
@@ -87,6 +84,18 @@ begin
   boxPrivacyPolicy.Width := Min(800, Max(400, ClientWidth - 200));
   boxPrivacyPolicy.Left := Max((ClientWidth - boxPrivacyPolicy.Width) div 2, 0);
   boxButtons.Left := Max((boxPrivacyPolicy.Width - boxButtons.Width) div 2, 0);
+end;
+
+procedure TfrmPrivacyPolicy.OnAppear(Sender: TObject);
+begin
+  inherited;
+  try
+    memPrivacyPolicy.Lines.LoadFromFile(TUtils.GetPrivacyPolicy('privacypolicy.rtf'));
+    UpdateTextColor(AppThemeManager.Theme);
+  except
+    on E: Exception do
+      raise Exception.CreateFmt(_('Unable to load the privacy policy information. Error: %s'), [E.Message]);
+  end;
 end;
 
 procedure TfrmPrivacyPolicy.OnChangeTheme(Sender: TObject; Theme: TUTheme);
@@ -109,6 +118,23 @@ begin
     boxButtons.CustomTextColor := clWhite;
     memPrivacyPolicy.Color := clBlack;
     memPrivacyPolicy.Font.Color := clWhite;
+  end;
+  UpdateTextColor(Theme);
+end;
+
+procedure TfrmPrivacyPolicy.UpdateTextColor(Theme: TUTheme);
+begin
+  if Theme = utLight then
+  begin
+    memPrivacyPolicy.SelectAll;
+    memPrivacyPolicy.SelAttributes.Color := clBlack;
+    memPrivacyPolicy.SelStart := 0;
+  end
+  else
+  begin
+    memPrivacyPolicy.SelectAll;
+    memPrivacyPolicy.SelAttributes.Color := clWhite;
+    memPrivacyPolicy.SelStart := 0;
   end;
 end;
 

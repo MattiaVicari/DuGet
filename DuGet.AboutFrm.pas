@@ -7,8 +7,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DuGet.BaseFrm, UCL.TUThemeManager,
-  Vcl.WinXCtrls, Vcl.StdCtrls, UCL.TUText, Vcl.ExtCtrls, UCL.TUPanel,
-  Vcl.Imaging.pngimage,
+  Vcl.WinXCtrls, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
+  UCL.TUText, UCL.TUPanel,
   UCL.Classes;
 
 type
