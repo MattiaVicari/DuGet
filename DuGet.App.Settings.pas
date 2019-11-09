@@ -46,10 +46,12 @@ uses
   DuGet.Translator,
 {$ENDIF}
   DuGet.Utils,
+  CNGCrypt,
   System.JSON;
 
 const
   SettingsFileName = 'duget.settings';
+  Key = 'akfoior$=?sfdklfmsk23SDLSki3034idmkmaAÁDKSk340ifsklfsd';
 
 { TAppSettings }
 
@@ -90,6 +92,9 @@ procedure TAppSettings.Load;
 var
   SettingsJSON: TJSONObject;
   JsonData: TBytes;
+  CipherData: TFileStream;
+  PlainTextData: TMemoryStream;
+  Crypt: TCNGCrypt;
 begin
   if not TFile.Exists(FSettingsFilePath) then
   begin
@@ -97,28 +102,51 @@ begin
     Exit;
   end;
 
+  Crypt := TCNGCrypt.Create;
   try
-    SettingsJSON := TJSONObject.Create;
+    Crypt.Key := TEncoding.UTF8.GetBytes(Key);
     try
-      JsonData := TFile.ReadAllBytes(FSettingsFilePath);
-      if SettingsJSON.Parse(JsonData, 0, True) = -1 then
-        raise Exception.Create(_('Settings are invalid'));
+      SettingsJSON := TJSONObject.Create;
+      try
+        CipherData := TFileStream.Create(FSettingsFilePath, fmOpenRead);
+        try
+          PlainTextData := TMemoryStream.Create;
+          try
+            Crypt.Decrypt(CipherData, PlainTextData);
 
-      FToken := SettingsJSON.GetValue<string>('token', '');
-      FTheme := TDuGetTheme(SettingsJSON.GetValue<Integer>('theme', Ord(dgtSystem)));
-      FPrivacyPolicyAgree := SettingsJSON.GetValue<Boolean>('privacypolicy', False);
-    finally
-      SettingsJSON.Free;
+            SetLength(JsonData, PlainTextData.Size);
+            PlainTextData.Position := 0;
+            PlainTextData.Read(JsonData, PlainTextData.Size);
+          finally
+            PlainTextData.Free;
+          end;
+        finally
+          CipherData.Free;
+        end;
+        if SettingsJSON.Parse(JsonData, 0, True) = -1 then
+          raise Exception.Create(_('Settings are invalid'));
+
+        FToken := SettingsJSON.GetValue<string>('token', '');
+        FTheme := TDuGetTheme(SettingsJSON.GetValue<Integer>('theme', Ord(dgtSystem)));
+        FPrivacyPolicyAgree := SettingsJSON.GetValue<Boolean>('privacypolicy', False);
+      finally
+        SettingsJSON.Free;
+      end;
+    except
+      on E: Exception do
+        raise Exception.CreateFmt(_('Unable to load the application settings. Error: %s'), [E.Message]);
     end;
-  except
-    on E: Exception do
-      raise Exception.CreateFmt(_('Unable to load the application settings. Error: %s'), [E.Message]);
+  finally
+    Crypt.Free;
   end;
 end;
 
 procedure TAppSettings.Save;
 var
   SettingsJSON: TJSONObject;
+  PlainTextData: TStringStream;
+  CipherData: TFileStream;
+  Crypt: TCNGCrypt;
 begin
   try
     SettingsJSON := TJSONObject.Create;
@@ -126,7 +154,24 @@ begin
       SettingsJSON.AddPair('token', FToken);
       SettingsJSON.AddPair('theme', TJSONNumber.Create(Ord(FTheme)));
       SettingsJSON.AddPair('privacypolicy', TJSONBool.Create(FPrivacyPolicyAgree));
-      TFile.WriteAllText(FSettingsFilePath, SettingsJSON.ToJSON); // No BOM
+
+      Crypt := TCNGCrypt.Create;
+      try
+        Crypt.Key := TEncoding.UTF8.GetBytes(Key);
+        PlainTextData := TStringStream.Create(SettingsJSON.ToJSON);
+        try
+          CipherData := TFileStream.Create(FSettingsFilePath, fmCreate);
+          try
+            Crypt.Encrypt(PlainTextData, CipherData);
+          finally
+            CipherData.Free;
+          end;
+        finally
+          PlainTextData.Free;
+        end;
+      finally
+        Crypt.Free;
+      end;
     finally
       SettingsJSON.Free;
     end;

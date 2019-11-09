@@ -31,7 +31,7 @@ Alla data di questo documento, il progetto Delphinus è open source.
 *****************************************
 Per poter funzionare l'applicazione richiede l'inserimento del token personale delle API di GitHub. E' quindi un requisito fondamentale disporre di un account GitHub e creare un proprio token per l'accesso alle API.
 Per maggiori informazioni, visitare il sito https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line.
-L'applicazione consente di salvare questo token in un file locale (sulla macchina dell'utente). Queste informazioni non sono condivise a terzi e sarà premura dell'utente mantenere segreto il token e custodirlo con cura.
+L'applicazione consente di salvare questo token in un file locale di configurazione (sulla dispositivo dell'utente), protetto da crittografia. Queste informazioni non sono condivise a terzi e sarà premura dell'utente mantenere segreto il token e custodirlo con cura.
 
 
 *****************************************

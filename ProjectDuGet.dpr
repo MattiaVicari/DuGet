@@ -20,7 +20,9 @@ uses
   DuGet.Modules.Package in 'DuGet.Modules.Package.pas' {modPackage: TDataModule},
   DuGet.AboutFrm in 'DuGet.AboutFrm.pas' {frmAbout: TFrame},
   DuGet.PrivacyPolicyFrm in 'DuGet.PrivacyPolicyFrm.pas' {frmPrivacyPolicy: TFrame},
-  DuGet.Translator in 'DuGet.Translator.pas';
+  DuGet.Translator in 'DuGet.Translator.pas',
+  CNGCrypt in 'Cryptography\CNGCrypt.pas',
+  WinApi.CNG in 'Cryptography\WinApi.CNG.pas';
 
 {$R *.res}
 

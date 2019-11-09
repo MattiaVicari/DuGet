@@ -31,7 +31,7 @@ At the writing date of this document, the Delphinus project is open source.
 *****************************************
 The software requires the personal access token of the GitHub API, so it is essential have an account at GitHub and create this token.
 For more detail, please visit the page https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line.
-The application save this token in a local file (on the user device). This information is not shared with anyone. User will care to keep the token secret and carefully guard it.
+The application saves this token in a local configuration file (on the user device) protected by cryptography. This information is not shared with anyone. User will care to keep the token secret and carefully guard it.
 
 
 *****************************************
