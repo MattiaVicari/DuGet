@@ -54,7 +54,7 @@ inherited frmSettings: TfrmSettings
       ShowCaption = False
       TabOrder = 0
       object txtToken: TUText
-        Left = 159
+        Left = 155
         Top = 6
         Width = 105
         Height = 29
@@ -71,7 +71,7 @@ inherited frmSettings: TfrmSettings
         TextKind = tkEntry
       end
       object txtThemeSettings: TUText
-        Left = 139
+        Left = 159
         Top = 88
         Width = 97
         Height = 28
@@ -86,7 +86,7 @@ inherited frmSettings: TfrmSettings
         TextKind = tkHeading
       end
       object edtToken: TUEdit
-        Left = 36
+        Left = 39
         Top = 41
         Width = 337
         Height = 30
@@ -117,7 +117,7 @@ inherited frmSettings: TfrmSettings
       end
       object btnSaveSettings: TUButton
         Left = 152
-        Top = 222
+        Top = 231
         Width = 112
         Height = 30
         ThemeManager = AppThemeManager
@@ -145,7 +145,7 @@ inherited frmSettings: TfrmSettings
       end
       object radioDefaultTheme: TURadioButton
         Left = 80
-        Top = 117
+        Top = 131
         Width = 145
         Height = 30
         ThemeManager = AppThemeManager
@@ -167,7 +167,7 @@ inherited frmSettings: TfrmSettings
       end
       object radioLightTheme: TURadioButton
         Left = 80
-        Top = 147
+        Top = 156
         Width = 64
         Height = 30
         ThemeManager = AppThemeManager
@@ -189,7 +189,7 @@ inherited frmSettings: TfrmSettings
       end
       object radioDarkTheme: TURadioButton
         Left = 80
-        Top = 177
+        Top = 186
         Width = 63
         Height = 30
         ThemeManager = AppThemeManager
@@ -214,5 +214,7 @@ inherited frmSettings: TfrmSettings
   inherited ActivityIndicator: TActivityIndicator
     Top = 126
     ExplicitTop = 126
+    ExplicitWidth = 64
+    ExplicitHeight = 64
   end
 end
