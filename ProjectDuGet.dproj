@@ -40,7 +40,7 @@
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Config)'=='MSStore' or '$(Cfg_3)'!=''">
+    <PropertyGroup Condition="'$(Config)'=='MSStoreAdHoc' or '$(Cfg_3)'!=''">
         <Cfg_3>true</Cfg_3>
         <CfgParent>Cfg_2</CfgParent>
         <Cfg_2>true</Cfg_2>
@@ -50,6 +50,19 @@
         <Cfg_3_Win32>true</Cfg_3_Win32>
         <CfgParent>Cfg_3</CfgParent>
         <Cfg_3>true</Cfg_3>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='MSStore' or '$(Cfg_4)'!=''">
+        <Cfg_4>true</Cfg_4>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_4)'=='true') or '$(Cfg_4_Win32)'!=''">
+        <Cfg_4_Win32>true</Cfg_4_Win32>
+        <CfgParent>Cfg_4</CfgParent>
+        <Cfg_4>true</Cfg_4>
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
@@ -115,9 +128,20 @@
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <PF_KeyStoreSubject>CN=Mattia Vicari</PF_KeyStoreSubject>
-        <PF_KeyStorePass>850047CB5FC4070ACF69E520A4687BE9E46B0855A007979E97FF0FD68E643CD0DB48A3D6E35F1C31C1B0572FFA95C375BABB3651043C2288165745F0E5F4228DC949F31ED506FADDBFCAAF0D071E1D0F92013E44C3487208</PF_KeyStorePass>
+        <PF_KeyStorePass>850047CB5FC4070ACF69E520D171E33F81850535A05F97C997AA0FF88E783C8ADB56A385E3111C2FC1E2577DFAC4C363BA95367E043722D3163A459DE5E4229DC938F341D558FA9BBFF8AF11721985D1F7F6330AC3487208</PF_KeyStorePass>
         <PF_UWPDistributionType>AdHoc</PF_UWPDistributionType>
         <BT_BuildType>AppStore</BT_BuildType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_4_Win32)'!=''">
+        <BT_BuildType>AppStore</BT_BuildType>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <PF_UWPPublisher>CN=87205211-281F-41E5-9CFB-64E40E328DC1</PF_UWPPublisher>
+        <PF_UWPPackageName>328223DCrypter.DuGet</PF_UWPPackageName>
+        <PF_UWPPackageDisplayName>DuGet</PF_UWPPackageDisplayName>
+        <PF_UWPPublisherDisplayName>3DCrypter</PF_UWPPublisherDisplayName>
+        <PF_UWPDistributionType>Store</PF_UWPDistributionType>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -171,6 +195,10 @@
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
+        <BuildConfiguration Include="MSStore">
+            <Key>Cfg_4</Key>
+            <CfgParent>Cfg_2</CfgParent>
+        </BuildConfiguration>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -179,7 +207,7 @@
             <Key>Cfg_1</Key>
             <CfgParent>Base</CfgParent>
         </BuildConfiguration>
-        <BuildConfiguration Include="MSStore">
+        <BuildConfiguration Include="MSStoreAdHoc">
             <Key>Cfg_3</Key>
             <CfgParent>Cfg_2</CfgParent>
         </BuildConfiguration>
