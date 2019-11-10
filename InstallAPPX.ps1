@@ -1,0 +1,1 @@
+Add-AppPackage -Path "ProjectDuGet\AppxManifest.xml" -Register

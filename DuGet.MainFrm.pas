@@ -85,7 +85,7 @@ begin
   if boxHamburgerMenu.Width > TUtils.FromPixelToScreen(45, PPI) then
     MenuOffsetWidth := -1 * MenuOffsetWidth;
 
-  boxHamburgerMenu.AnimationFromCurrent(apWidth, MenuOffsetWidth, 20, 200, akOut, afkQuartic, nil);
+  boxHamburgerMenu.AnimationFromCurrent(apWidth, MenuOffsetWidth, 20, 150, akOut, afkQuartic, nil);
 end;
 
 procedure TfrmMain.btnPackagesListClick(Sender: TObject);

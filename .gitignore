@@ -6,3 +6,7 @@
 /duget.settings
 /cache
 /*.stat
+/*.pfx
+/AppxManifest.xml
+/AppxManifest.template.xml
+/ProjectDuGet

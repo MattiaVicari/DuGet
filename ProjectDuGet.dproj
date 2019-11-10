@@ -5,7 +5,7 @@
         <FrameworkType>VCL</FrameworkType>
         <MainSource>ProjectDuGet.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">MSStore</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -37,6 +37,19 @@
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
         <Cfg_2_Win32>true</Cfg_2_Win32>
         <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='MSStore' or '$(Cfg_3)'!=''">
+        <Cfg_3>true</Cfg_3>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_3)'=='true') or '$(Cfg_3_Win32)'!=''">
+        <Cfg_3_Win32>true</Cfg_3_Win32>
+        <CfgParent>Cfg_3</CfgParent>
+        <Cfg_3>true</Cfg_3>
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
@@ -82,6 +95,7 @@
         <DCC_ExeOutput>.\</DCC_ExeOutput>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
+        <PF_KeyStore>3dcrypter-duget.pfx</PF_KeyStore>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -94,6 +108,16 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
+        <PF_KeyStore>3dcrypter-duget.pfx</PF_KeyStore>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_3_Win32)'!=''">
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <PF_KeyStoreSubject>CN=Mattia Vicari</PF_KeyStoreSubject>
+        <PF_KeyStorePass>850047CB5FC4070ACF69E520A4687BE9E46B0855A007979E97FF0FD68E643CD0DB48A3D6E35F1C31C1B0572FFA95C375BABB3651043C2288165745F0E5F4228DC949F31ED506FADDBFCAAF0D071E1D0F92013E44C3487208</PF_KeyStorePass>
+        <PF_UWPDistributionType>AdHoc</PF_UWPDistributionType>
+        <BT_BuildType>AppStore</BT_BuildType>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -144,16 +168,20 @@
         <DCCReference Include="DuGet.Translator.pas"/>
         <DCCReference Include="Cryptography\CNGCrypt.pas"/>
         <DCCReference Include="Cryptography\WinApi.CNG.pas"/>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
         </BuildConfiguration>
-        <BuildConfiguration Include="Base">
-            <Key>Base</Key>
-        </BuildConfiguration>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_1</Key>
             <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="MSStore">
+            <Key>Cfg_3</Key>
+            <CfgParent>Cfg_2</CfgParent>
         </BuildConfiguration>
     </ItemGroup>
     <ProjectExtensions>
@@ -170,6 +198,57 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
+                <DeployFile LocalName="ProjectDuGet.exe" Configuration="MSStore" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>ProjectDuGet.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="AppxManifest.xml" Configuration="MSStore" Class="ProjectUWPManifest">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ProjectDuGet.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>ProjectDuGet.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\Logo_black_300x300alpha.png" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo_black_300x300alpha.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Licenses\license_it_IT.txt" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Licenses\</RemoteDir>
+                        <RemoteName>license_it_IT.txt</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="PrivacyPolicy\privacypolicy_it_IT.rtf" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>PrivacyPolicy\</RemoteDir>
+                        <RemoteName>privacypolicy_it_IT.rtf</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\Logo_100x100.png" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo_100x100.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\Logo_150x150.png" Configuration="MSStore" Class="UWP_DelphiLogo150">
+                    <Platform Name="Win32">
+                        <RemoteName>Logo150x150.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Assets\Logo_150x150.png" Configuration="Debug" Class="UWP_DelphiLogo150">
                     <Platform Name="Win32">
                         <RemoteDir>Assets\</RemoteDir>
@@ -177,9 +256,51 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ProjectDuGet.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Licenses\license_en_US.txt" Configuration="MSStore" Class="File">
                     <Platform Name="Win32">
-                        <RemoteName>ProjectDuGet.exe</RemoteName>
+                        <RemoteDir>Licenses\</RemoteDir>
+                        <RemoteName>license_en_US.txt</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\SplashScreen.png" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>SplashScreen.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="locale\it\LC_MESSAGES\default.mo" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>locale\it\LC_MESSAGES\</RemoteDir>
+                        <RemoteName>default.mo</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="locale\it_IT\LC_MESSAGES\default.mo" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>locale\it_IT\LC_MESSAGES\</RemoteDir>
+                        <RemoteName>default.mo</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\Logo_300x300alpha.png" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo_300x300alpha.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\Logo_44x44.png" Configuration="MSStore" Class="UWP_DelphiLogo44">
+                    <Platform Name="Win32">
+                        <RemoteName>Logo44x44.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="PrivacyPolicy\privacypolicy_en_US.rtf" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>PrivacyPolicy\</RemoteDir>
+                        <RemoteName>privacypolicy_en_US.rtf</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
