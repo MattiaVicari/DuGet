@@ -42,6 +42,7 @@ type
     procedure LoadList;
   protected
     procedure OnChangeTheme(Sender: TObject; Theme: TUTheme); override;
+    procedure OnAppear(Sender: TObject); override;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
@@ -111,8 +112,6 @@ begin
   FDefaultLogoGraphic.SetSize(LogoSize, LogoSize);
 
   FCacheLogoList := TObjectDictionary<string, TGraphic>.Create([doOwnsValues]);
-
-  LoadList;
 end;
 
 destructor TfrmPackagesList.Destroy;
@@ -263,6 +262,12 @@ end;
 procedure TfrmPackagesList.LoadTerminated(Sender: TObject);
 begin
   IsBusy := False;
+end;
+
+procedure TfrmPackagesList.OnAppear(Sender: TObject);
+begin
+  inherited;
+  LoadList;
 end;
 
 procedure TfrmPackagesList.OnChangeTheme(Sender: TObject; Theme: TUTheme);
