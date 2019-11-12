@@ -8,10 +8,8 @@ uses
   Vcl.Graphics, System.IOUtils, System.SysUtils, System.Classes, System.StrUtils,
   System.JSON, WinApi.Windows,
 {$IFDEF GNUGETTEXT}
-  Vcl.ActnList, Vcl.Controls,
-  Vcl.ExtCtrls, Vcl.DBCtrls, Data.DB, Datasnap.DBClient,
-  IBX.IBDatabase, IBX.IBSQL,
-  Data.Win.ADODB, SHDocVw,
+  // Additional units for GNUGetText configuration (see SetupTranslation)
+  Vcl.Controls, Vcl.DBCtrls, Data.DB, Datasnap.DBClient,
 {$ENDIF}
   UCL.TUThemeManager;
 
@@ -19,7 +17,7 @@ type
   TUtils = class
   public
     { Translations }
-    class procedure SetupTranslation();
+    class procedure SetupTranslation;
     class procedure DoTranslation(Sender: TComponent);
     { Theme }
     class procedure SetupThemeManager(ThemeManager: TUThemeManager);
@@ -184,9 +182,11 @@ class procedure TUtils.SetupTranslation();
 begin
 {$IFDEF GNUGETTEXT}
   // Ignore settings for GNUGetText
-  TP_GlobalIgnoreClassProperty(TAction,'Category');
+  // Uncomment and/or add the lines that you need
+
+  //TP_GlobalIgnoreClassProperty(TAction,'Category');
   TP_GlobalIgnoreClassProperty(TControl,'HelpKeyword');
-  TP_GlobalIgnoreClassProperty(TNotebook,'Pages');
+  //TP_GlobalIgnoreClassProperty(TNotebook,'Pages');
   TP_GlobalIgnoreClassProperty(TControl,'ImeName');
   TP_GlobalIgnoreClass(TFont);
   TP_GlobalIgnoreClassProperty(TField,'DefaultExpression');
@@ -218,31 +218,31 @@ begin
   TP_GlobalIgnoreClassProperty(TDBRadioGroup,'DataField');
   TP_GlobalIgnoreClassProperty(TDBRichEdit,'DataField');
   TP_GlobalIgnoreClassProperty(TDBText,'DataField');
-  TP_GlobalIgnoreClass(TIBDatabase);
-  TP_GlobalIgnoreClass(TIBTransaction);
-  TP_GlobalIgnoreClassProperty(TIBSQL,'UniqueRelationName');
-  TP_GlobalIgnoreClass(TADOConnection);
-  TP_GlobalIgnoreClassProperty(TADOQuery,'CommandText');
-  TP_GlobalIgnoreClassProperty(TADOQuery,'ConnectionString');
-  TP_GlobalIgnoreClassProperty(TADOQuery,'DatasetField');
-  TP_GlobalIgnoreClassProperty(TADOQuery,'Filter');
-  TP_GlobalIgnoreClassProperty(TADOQuery,'IndexFieldNames');
-  TP_GlobalIgnoreClassProperty(TADOQuery,'IndexName');
-  TP_GlobalIgnoreClassProperty(TADOQuery,'MasterFields');
-  TP_GlobalIgnoreClassProperty(TADOTable,'IndexFieldNames');
-  TP_GlobalIgnoreClassProperty(TADOTable,'IndexName');
-  TP_GlobalIgnoreClassProperty(TADOTable,'MasterFields');
-  TP_GlobalIgnoreClassProperty(TADOTable,'TableName');
-  TP_GlobalIgnoreClassProperty(TADODataset,'CommandText');
-  TP_GlobalIgnoreClassProperty(TADODataset,'ConnectionString');
-  TP_GlobalIgnoreClassProperty(TADODataset,'DatasetField');
-  TP_GlobalIgnoreClassProperty(TADODataset,'Filter');
-  TP_GlobalIgnoreClassProperty(TADODataset,'IndexFieldNames');
-  TP_GlobalIgnoreClassProperty(TADODataset,'IndexName');
-  TP_GlobalIgnoreClassProperty(TADODataset,'MasterFields');
-  TP_GlobalIgnoreClass(TWebBrowser);
+  //TP_GlobalIgnoreClass(TIBDatabase);
+  //TP_GlobalIgnoreClass(TIBTransaction);
+  //TP_GlobalIgnoreClassProperty(TIBSQL,'UniqueRelationName');
+  //TP_GlobalIgnoreClass(TADOConnection);
+  //TP_GlobalIgnoreClassProperty(TADOQuery,'CommandText');
+  //TP_GlobalIgnoreClassProperty(TADOQuery,'ConnectionString');
+  //TP_GlobalIgnoreClassProperty(TADOQuery,'DatasetField');
+  //TP_GlobalIgnoreClassProperty(TADOQuery,'Filter');
+  //TP_GlobalIgnoreClassProperty(TADOQuery,'IndexFieldNames');
+  //TP_GlobalIgnoreClassProperty(TADOQuery,'IndexName');
+  //TP_GlobalIgnoreClassProperty(TADOQuery,'MasterFields');
+  //TP_GlobalIgnoreClassProperty(TADOTable,'IndexFieldNames');
+  //TP_GlobalIgnoreClassProperty(TADOTable,'IndexName');
+  //TP_GlobalIgnoreClassProperty(TADOTable,'MasterFields');
+  //TP_GlobalIgnoreClassProperty(TADOTable,'TableName');
+  //TP_GlobalIgnoreClassProperty(TADODataset,'CommandText');
+  //TP_GlobalIgnoreClassProperty(TADODataset,'ConnectionString');
+  //TP_GlobalIgnoreClassProperty(TADODataset,'DatasetField');
+  //TP_GlobalIgnoreClassProperty(TADODataset,'Filter');
+  //TP_GlobalIgnoreClassProperty(TADODataset,'IndexFieldNames');
+  //TP_GlobalIgnoreClassProperty(TADODataset,'IndexName');
+  //TP_GlobalIgnoreClassProperty(TADODataset,'MasterFields');
+  //TP_GlobalIgnoreClass(TWebBrowser);
 {$ELSE}
-  // Your code for translations
+  // Your code for translations settings
 {$ENDIF}
 end;
 
