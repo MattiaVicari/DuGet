@@ -93,7 +93,7 @@ begin
     else
     begin
       PostMessage(Screen.Forms[0].Handle, WM_OWN_SHOW_MENU, 1, 0);
-      if NavigationManager.HistorySize > 1 then
+      if NavigationManager.HistorySize >= 1 then
         PostMessage(Screen.Forms[0].Handle, WM_OWN_ENABLE_BACKBUTTON, 1, 0);
     end;
   end;
