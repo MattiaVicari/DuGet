@@ -214,7 +214,5 @@ inherited frmSettings: TfrmSettings
   inherited ActivityIndicator: TActivityIndicator
     Top = 126
     ExplicitTop = 126
-    ExplicitWidth = 64
-    ExplicitHeight = 64
   end
 end

@@ -9,7 +9,7 @@ inherited frmPackageDetail: TfrmPackageDetail
     ExplicitWidth = 665
     ExplicitHeight = 502
     inherited txtTitle: TUText
-      Width = 177
+      Width = 665
       Caption = 'Package detail'
       ExplicitWidth = 177
     end
@@ -5224,7 +5224,7 @@ inherited frmPackageDetail: TfrmPackageDetail
         Cursor = crHandPoint
         Caption = '...'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = 4552068
+        Font.Color = 14120960
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
@@ -5259,7 +5259,7 @@ inherited frmPackageDetail: TfrmPackageDetail
         Cursor = crHandPoint
         Caption = '...'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = 4552068
+        Font.Color = 14120960
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []

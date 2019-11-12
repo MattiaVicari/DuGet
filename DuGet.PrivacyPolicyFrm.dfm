@@ -136,7 +136,5 @@ inherited frmPrivacyPolicy: TfrmPrivacyPolicy
     Top = 122
     ExplicitLeft = 296
     ExplicitTop = 122
-    ExplicitWidth = 64
-    ExplicitHeight = 64
   end
 end

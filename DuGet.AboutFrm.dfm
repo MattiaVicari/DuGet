@@ -1,11 +1,8 @@
 inherited frmAbout: TfrmAbout
   inherited boxMain: TUPanel
     inherited txtTitle: TUText
-      Width = 597
-      Height = 76
       Caption = 'About DuGet'
-      ExplicitWidth = 83
-      ExplicitHeight = 76
+      ExplicitWidth = 162
     end
     object boxAbout: TUPanel
       Left = 40
@@ -264,7 +261,5 @@ inherited frmAbout: TfrmAbout
     Top = 120
     ExplicitLeft = 392
     ExplicitTop = 120
-    ExplicitWidth = 64
-    ExplicitHeight = 64
   end
 end
