@@ -1,4 +1,4 @@
-unit WinApi.CNG;
+unit CNGCrypt.WinAPI;
 
 interface
 

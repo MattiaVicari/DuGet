@@ -5,7 +5,7 @@
         <FrameworkType>VCL</FrameworkType>
         <MainSource>ProjectDuGet.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">MSStore</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -190,8 +190,8 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="DuGet.Translator.pas"/>
-        <DCCReference Include="Cryptography\CNGCrypt.pas"/>
-        <DCCReference Include="Cryptography\WinApi.CNG.pas"/>
+        <DCCReference Include="Cryptography\CNGCrypt.Core.pas"/>
+        <DCCReference Include="Cryptography\CNGCrypt.WinAPI.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -21,8 +21,8 @@ uses
   DuGet.AboutFrm in 'DuGet.AboutFrm.pas' {frmAbout: TFrame},
   DuGet.PrivacyPolicyFrm in 'DuGet.PrivacyPolicyFrm.pas' {frmPrivacyPolicy: TFrame},
   DuGet.Translator in 'DuGet.Translator.pas',
-  CNGCrypt in 'Cryptography\CNGCrypt.pas',
-  WinApi.CNG in 'Cryptography\WinApi.CNG.pas';
+  CNGCrypt.Core in 'Cryptography\CNGCrypt.Core.pas',
+  CNGCrypt.WinAPI in 'Cryptography\CNGCrypt.WinAPI.pas';
 
 {$R *.res}
 

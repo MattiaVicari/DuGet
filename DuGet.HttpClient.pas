@@ -4,8 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Variants, System.Classes,
-  System.Net.HTTPClient,
-  IdIOHandlerSocket, IdIOHandlerStack, IdSSL, IdSSLOpenSSL;
+  System.Net.HTTPClient;
 
 type
   TDuGetHttpClient = class

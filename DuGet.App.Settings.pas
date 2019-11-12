@@ -45,13 +45,24 @@ uses
 {$ELSE}
   DuGet.Translator,
 {$ENDIF}
+  Math,
   DuGet.Utils,
-  CNGCrypt,
+  CNGCrypt.Core,
   System.JSON;
 
 const
   SettingsFileName = 'duget.settings';
   Key = 'akfoior$=?sfdklfmsk23SDLSki3034idmkmaAÁDKSk340ifsklfsd';
+
+// For AES the IV size is equal to the block size that is 128 bits (16 bytes)
+function GenerateIV(BlockLen: Integer = 16): TBytes;
+var
+  I: Integer;
+begin
+  SetLength(Result, BlockLen);
+  for I := Low(Result) to High(Result) do
+    Result[I] := RandomRange(0, 255);
+end;
 
 { TAppSettings }
 
@@ -105,6 +116,7 @@ begin
   Crypt := TCNGCrypt.Create;
   try
     Crypt.Key := TEncoding.UTF8.GetBytes(Key);
+    //Crypt.IV := GenerateIV;
     try
       SettingsJSON := TJSONObject.Create;
       try
@@ -158,6 +170,7 @@ begin
       Crypt := TCNGCrypt.Create;
       try
         Crypt.Key := TEncoding.UTF8.GetBytes(Key);
+        Crypt.IV := GenerateIV;
         PlainTextData := TStringStream.Create(SettingsJSON.ToJSON);
         try
           CipherData := TFileStream.Create(FSettingsFilePath, fmCreate);
