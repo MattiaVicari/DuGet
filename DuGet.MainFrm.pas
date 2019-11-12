@@ -165,6 +165,7 @@ end;
 procedure TfrmMain.MessageHandlerEnableBackButton(var Msg: TMessage);
 begin
   btnBack.Visible := (Msg.WParam = 1);
+  UpdateCaptionBar;
 end;
 
 procedure TfrmMain.MessageHandlerShowMenu(var Msg: TMessage);
@@ -203,8 +204,13 @@ begin
 end;
 
 procedure TfrmMain.UpdateCaptionBar;
+const
+  Spaces = #32#32#32#32#32;
 begin
-  AppCaptionBar.Caption := #9 + Trim(AppCaptionBar.Caption);
+  if btnBack.Visible then
+    AppCaptionBar.Caption := #9 + Trim(AppCaptionBar.Caption)
+  else
+    AppCaptionBar.Caption := Spaces + Trim(AppCaptionBar.Caption);
   btnSwitchTheme.Visible := not ThemeManager.UseSystemTheme;
 end;
 

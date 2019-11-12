@@ -132,8 +132,8 @@ object frmMain: TfrmMain
       Height = 32
       ThemeManager = AppThemeManager
       ButtonStyle = qbsHighlight
-      LightColor = 4552068
-      DarkColor = 4552068
+      LightColor = 14120960
+      DarkColor = 14120960
       Align = alLeft
       BevelOuter = bvNone
       Caption = #57510
