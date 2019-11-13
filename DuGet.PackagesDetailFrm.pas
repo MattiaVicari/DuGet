@@ -29,7 +29,7 @@ uses
   UCL.TUHyperLink, UCL.Classes, DuGet.Proxy, DuGet.Modules.Package,
   Data.Bind.EngExt, Vcl.Bind.DBEngExt, System.Rtti, System.Bindings.Outputs,
   Vcl.Bind.Editors, Data.Bind.Components, Data.Bind.DBScope,
-  Vcl.Imaging.pngimage;
+  Vcl.Imaging.pngimage, UCL.TUEdit;
 
 type
   TfrmPackageDetail = class(TfrmBase)
@@ -48,21 +48,19 @@ type
     txtLblUpdatedAt: TUText;
     txtUpdatedAt: TUText;
     txtLblUrl: TUText;
-    linkUrl: TUHyperLink;
     txtLblCloneUrl: TUText;
-    linkCloneUrl: TUHyperLink;
     BindSource: TBindSourceDB;
     BindingsList: TBindingsList;
-    LinkPropertyToFieldCaption: TLinkPropertyToField;
     LinkPropertyToFieldCaption4: TLinkPropertyToField;
     LinkPropertyToFieldCaption2: TLinkPropertyToField;
     LinkControlToField1: TLinkControlToField;
     LinkPropertyToFieldCaption5: TLinkPropertyToField;
     LinkPropertyToFieldCaption6: TLinkPropertyToField;
     LinkPropertyToFieldCaption7: TLinkPropertyToField;
-    LinkPropertyToFieldCaption3: TLinkPropertyToField;
-    LinkPropertyToFieldURL: TLinkPropertyToField;
-    LinkPropertyToFieldURL2: TLinkPropertyToField;
+    edtUrl: TUEdit;
+    edtCloneUrl: TUEdit;
+    LinkPropertyToFieldEditText: TLinkPropertyToField;
+    LinkPropertyToFieldEditText2: TLinkPropertyToField;
   protected
     procedure OnChangeTheme(Sender: TObject; Theme: TUTheme); override;
     procedure OnAppear(Sender: TObject); override;

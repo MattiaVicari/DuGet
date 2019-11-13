@@ -29,19 +29,11 @@ Coordinates=310,10,60,51
 [txtLblCloneUrl]
 Coordinates=700,530,85,51
 
-[linkCloneUrl]
-Coordinates=190,10,74,69
-ExplicitSubNodes=URL
-
 [txtName]
 Coordinates=370,460,54,51
 
 [txtLblUpdatedAt]
 Coordinates=700,460,94,51
-
-[linkUrl]
-Coordinates=219,560,46,69
-ExplicitSubNodes=URL
 
 [txtLblCreatedAt]
 Coordinates=580,80,91,51
@@ -73,11 +65,22 @@ Coordinates=10,10,147,33
 Visible=False
 
 []
-Coordinates=537,265,91,36
+Coordinates=350,250,102,58
+ExplicitSubNodes=URL
+Visible=True
 
 [BindSource]
-Coordinates=10,10,140,501
+Coordinates=10,10,140,465
 
 [BindingsList]
 Coordinates=196,87,76,33
+
+[edtUrl]
+Coordinates=310,150,46,69
+ExplicitSubNodes=Edit.Text
+
+[edtCloneUrl]
+Coordinates=310,230,72,69
+Visible=True
+ExplicitSubNodes=Edit.Text
 

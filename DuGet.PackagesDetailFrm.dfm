@@ -5204,7 +5204,7 @@ inherited frmPackageDetail: TfrmPackageDetail
       end
       object txtLblUrl: TUText
         Left = 16
-        Top = 323
+        Top = 334
         Width = 20
         Height = 17
         Caption = 'Url:'
@@ -5216,30 +5216,9 @@ inherited frmPackageDetail: TfrmPackageDetail
         ParentFont = False
         ThemeManager = AppThemeManager
       end
-      object linkUrl: TUHyperLink
-        Left = 128
-        Top = 323
-        Width = 9
-        Height = 17
-        Cursor = crHandPoint
-        Caption = '...'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = 14120960
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        ThemeManager = AppThemeManager
-        CustomTextColors.None = 14120960
-        CustomTextColors.Hover = clGray
-        CustomTextColors.Press = clMedGray
-        CustomTextColors.Disabled = clMedGray
-        CustomTextColors.Focused = 14120960
-        URL = 'https://embarcadero.com/'
-      end
       object txtLblCloneUrl: TUText
         Left = 16
-        Top = 346
+        Top = 370
         Width = 55
         Height = 17
         Caption = 'Clone url:'
@@ -5250,27 +5229,6 @@ inherited frmPackageDetail: TfrmPackageDetail
         Font.Style = []
         ParentFont = False
         ThemeManager = AppThemeManager
-      end
-      object linkCloneUrl: TUHyperLink
-        Left = 128
-        Top = 346
-        Width = 9
-        Height = 17
-        Cursor = crHandPoint
-        Caption = '...'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = 14120960
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        ThemeManager = AppThemeManager
-        CustomTextColors.None = 14120960
-        CustomTextColors.Hover = clGray
-        CustomTextColors.Press = clMedGray
-        CustomTextColors.Disabled = clMedGray
-        CustomTextColors.Focused = 14120960
-        URL = 'https://embarcadero.com/'
       end
       object memDescription: TMemo
         Left = 240
@@ -5285,7 +5243,87 @@ inherited frmPackageDetail: TfrmPackageDetail
         ScrollBars = ssVertical
         TabOrder = 0
       end
+      object edtUrl: TUEdit
+        Left = 128
+        Top = 328
+        Width = 527
+        Height = 30
+        ThemeManager = AppThemeManager
+        Edit.Left = 4
+        Edit.Top = 4
+        Edit.Width = 520
+        Edit.Height = 23
+        Edit.Align = alClient
+        Edit.BevelInner = bvNone
+        Edit.BevelOuter = bvNone
+        Edit.BorderStyle = bsNone
+        Edit.Color = 2039583
+        Edit.Ctl3D = False
+        Edit.Font.Charset = DEFAULT_CHARSET
+        Edit.Font.Color = clWhite
+        Edit.Font.Height = -13
+        Edit.Font.Name = 'Segoe UI'
+        Edit.Font.Style = []
+        Edit.ParentCtl3D = False
+        Edit.ParentFont = False
+        Edit.ReadOnly = True
+        Edit.TabOrder = 0
+        Edit.ExplicitLeft = 5
+        Edit.ExplicitTop = 5
+        Edit.ExplicitWidth = 175
+        Transparent = True
+        Anchors = [akLeft, akTop, akRight]
+        BevelOuter = bvNone
+        Padding.Left = 4
+        Padding.Top = 4
+        Padding.Right = 3
+        Padding.Bottom = 3
+        ParentFont = False
+        TabOrder = 1
+      end
+      object edtCloneUrl: TUEdit
+        Left = 128
+        Top = 364
+        Width = 527
+        Height = 30
+        ThemeManager = AppThemeManager
+        Edit.Left = 4
+        Edit.Top = 4
+        Edit.Width = 520
+        Edit.Height = 23
+        Edit.Align = alClient
+        Edit.BevelInner = bvNone
+        Edit.BevelOuter = bvNone
+        Edit.BorderStyle = bsNone
+        Edit.Color = 2039583
+        Edit.Ctl3D = False
+        Edit.Font.Charset = DEFAULT_CHARSET
+        Edit.Font.Color = clWhite
+        Edit.Font.Height = -13
+        Edit.Font.Name = 'Segoe UI'
+        Edit.Font.Style = []
+        Edit.ParentCtl3D = False
+        Edit.ParentFont = False
+        Edit.ReadOnly = True
+        Edit.TabOrder = 0
+        Edit.ExplicitLeft = 5
+        Edit.ExplicitTop = 5
+        Edit.ExplicitWidth = 175
+        Transparent = True
+        Anchors = [akLeft, akTop, akRight]
+        BevelOuter = bvNone
+        Padding.Left = 4
+        Padding.Top = 4
+        Padding.Right = 3
+        Padding.Bottom = 3
+        ParentFont = False
+        TabOrder = 2
+      end
     end
+  end
+  inherited ActivityIndicator: TActivityIndicator
+    ExplicitWidth = 64
+    ExplicitHeight = 64
   end
   object BindSource: TBindSourceDB
     DataSet = modPackage.fdmPackages
@@ -5298,13 +5336,6 @@ inherited frmPackageDetail: TfrmPackageDetail
     OutputConverters = <>
     Left = 388
     Top = 237
-    object LinkPropertyToFieldCaption: TLinkPropertyToField
-      Category = 'Quick Bindings'
-      DataSource = BindSource
-      FieldName = 'CLONE_URL'
-      Component = linkCloneUrl
-      ComponentProperty = 'Caption'
-    end
     object LinkPropertyToFieldCaption4: TLinkPropertyToField
       Category = 'Quick Bindings'
       DataSource = BindSource
@@ -5347,26 +5378,19 @@ inherited frmPackageDetail: TfrmPackageDetail
       Component = txtName
       ComponentProperty = 'Caption'
     end
-    object LinkPropertyToFieldCaption3: TLinkPropertyToField
+    object LinkPropertyToFieldEditText: TLinkPropertyToField
       Category = 'Quick Bindings'
       DataSource = BindSource
-      FieldName = 'HTML_URL'
-      Component = linkUrl
-      ComponentProperty = 'Caption'
+      FieldName = 'URL'
+      Component = edtUrl
+      ComponentProperty = 'Edit.Text'
     end
-    object LinkPropertyToFieldURL: TLinkPropertyToField
-      Category = 'Quick Bindings'
-      DataSource = BindSource
-      FieldName = 'HTML_URL'
-      Component = linkUrl
-      ComponentProperty = 'URL'
-    end
-    object LinkPropertyToFieldURL2: TLinkPropertyToField
+    object LinkPropertyToFieldEditText2: TLinkPropertyToField
       Category = 'Quick Bindings'
       DataSource = BindSource
       FieldName = 'CLONE_URL'
-      Component = linkCloneUrl
-      ComponentProperty = 'URL'
+      Component = edtCloneUrl
+      ComponentProperty = 'Edit.Text'
     end
   end
 end
