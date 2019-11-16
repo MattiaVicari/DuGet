@@ -5,15 +5,6 @@
     </ProjectExtensions>
     <PropertyGroup/>
     <ItemGroup Condition="'$(Platform)'=='Win32'">
-        <DeployFile Include="AppxManifest.xml" Condition="'$(Config)'=='MSStore'">
-            <RemoteDir>ProjectDuGet\</RemoteDir>
-            <RemoteName>AppxManifest.xml</RemoteName>
-            <DeployClass>ProjectUWPManifest</DeployClass>
-            <Operation>1</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="Assets\Logo_44x44.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
             <RemoteName>Logo44x44.png</RemoteName>
@@ -42,9 +33,36 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Assets\Logo_black_300x300alpha.png" Condition="'$(Config)'=='MSStore'">
+        <DeployFile Include="AppxManifest.xml" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>ProjectDuGet\</RemoteDir>
+            <RemoteName>AppxManifest.xml</RemoteName>
+            <DeployClass>ProjectUWPManifest</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="AppxManifest.xml" Condition="'$(Config)'=='Release'">
+            <RemoteDir>ProjectDuGet\</RemoteDir>
+            <RemoteName>AppxManifest.xml</RemoteName>
+            <DeployClass>ProjectUWPManifest</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\Logo_100x100.png" Condition="'$(Config)'=='MSStoreDebug'">
             <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
-            <RemoteName>Logo_black_300x300alpha.png</RemoteName>
+            <RemoteName>Logo_100x100.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\Logo_300x300alpha.png" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>Logo_300x300alpha.png</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
@@ -54,6 +72,187 @@
         <DeployFile Include="Licenses\license_it_IT.txt" Condition="'$(Config)'=='MSStoreAdHoc'">
             <RemoteDir>ProjectDuGet\Licenses\</RemoteDir>
             <RemoteName>license_it_IT.txt</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\SplashScreen.png" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>SplashScreen.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\SplashScreen.png" Condition="'$(Config)'=='MSStore'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>SplashScreen.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="locale\it\LC_MESSAGES\default.mo" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\locale\it\LC_MESSAGES\</RemoteDir>
+            <RemoteName>default.mo</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Licenses\license_en_US.txt" Condition="'$(Config)'=='MSStoreAdHoc'">
+            <RemoteDir>ProjectDuGet\Licenses\</RemoteDir>
+            <RemoteName>license_en_US.txt</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\Logo_100x100.png" Condition="'$(Config)'=='MSStoreAdHoc'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>Logo_100x100.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="PrivacyPolicy\privacypolicy_it_IT.rtf" Condition="'$(Config)'=='MSStore'">
+            <RemoteDir>ProjectDuGet\PrivacyPolicy\</RemoteDir>
+            <RemoteName>privacypolicy_it_IT.rtf</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="AppxManifest.xml" Condition="'$(Config)'=='MSStoreAdHoc'">
+            <RemoteDir>ProjectDuGet\</RemoteDir>
+            <RemoteName>AppxManifest.xml</RemoteName>
+            <DeployClass>ProjectUWPManifest</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="locale\it_IT\LC_MESSAGES\default.mo" Condition="'$(Config)'=='MSStoreAdHoc'">
+            <RemoteDir>ProjectDuGet\locale\it_IT\LC_MESSAGES\</RemoteDir>
+            <RemoteName>default.mo</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\Logo_150x150.png" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>Logo150x150.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo150</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="PrivacyPolicy\privacypolicy_it_IT.rtf" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\PrivacyPolicy\</RemoteDir>
+            <RemoteName>privacypolicy_it_IT.rtf</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="ProjectDuGet.exe" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\</RemoteDir>
+            <RemoteName>ProjectDuGet.exe</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
+        </DeployFile>
+        <DeployFile Include="Assets\Logo_150x150.png" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>Logo150x150.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo150</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\Logo_300x300alpha.png" Condition="'$(Config)'=='MSStore'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>Logo_300x300alpha.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="PrivacyPolicy\privacypolicy_en_US.rtf" Condition="'$(Config)'=='MSStoreAdHoc'">
+            <RemoteDir>ProjectDuGet\PrivacyPolicy\</RemoteDir>
+            <RemoteName>privacypolicy_en_US.rtf</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="AppxManifest.xml" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\</RemoteDir>
+            <RemoteName>AppxManifest.xml</RemoteName>
+            <DeployClass>ProjectUWPManifest</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="AppxManifest.xml" Condition="'$(Config)'=='MSStore'">
+            <RemoteDir>ProjectDuGet\</RemoteDir>
+            <RemoteName>AppxManifest.xml</RemoteName>
+            <DeployClass>ProjectUWPManifest</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\Logo_44x44.png" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>Logo44x44.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo44</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="ProjectDuGet.map" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\</RemoteDir>
+            <RemoteName>ProjectDuGet.map</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="PrivacyPolicy\privacypolicy_en_US.rtf" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\PrivacyPolicy\</RemoteDir>
+            <RemoteName>privacypolicy_en_US.rtf</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\Logo_black_300x300alpha.png" Condition="'$(Config)'=='MSStore'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>Logo_black_300x300alpha.png</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
@@ -72,15 +271,6 @@
         <DeployFile Include="locale\it\LC_MESSAGES\default.mo" Condition="'$(Config)'=='MSStore'">
             <RemoteDir>ProjectDuGet\locale\it\LC_MESSAGES\</RemoteDir>
             <RemoteName>default.mo</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="Assets\SplashScreen.png" Condition="'$(Config)'=='MSStore'">
-            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
-            <RemoteName>SplashScreen.png</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
@@ -142,25 +332,25 @@
             <Overwrite>True</Overwrite>
             <Required>True</Required>
         </DeployFile>
-        <DeployFile Include="Licenses\license_en_US.txt" Condition="'$(Config)'=='MSStoreAdHoc'">
-            <RemoteDir>ProjectDuGet\Licenses\</RemoteDir>
-            <RemoteName>license_en_US.txt</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="Assets\Logo_100x100.png" Condition="'$(Config)'=='MSStoreAdHoc'">
+        <DeployFile Include="Assets\Logo_44x44.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
-            <RemoteName>Logo_100x100.png</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
+            <RemoteName>Logo44x44.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo44</DeployClass>
+            <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
         <DeployFile Include="Licenses\license_it_IT.txt" Condition="'$(Config)'=='MSStore'">
+            <RemoteDir>ProjectDuGet\Licenses\</RemoteDir>
+            <RemoteName>license_it_IT.txt</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Licenses\license_it_IT.txt" Condition="'$(Config)'=='MSStoreDebug'">
             <RemoteDir>ProjectDuGet\Licenses\</RemoteDir>
             <RemoteName>license_it_IT.txt</RemoteName>
             <DeployClass>File</DeployClass>
@@ -178,9 +368,18 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="PrivacyPolicy\privacypolicy_it_IT.rtf" Condition="'$(Config)'=='MSStore'">
-            <RemoteDir>ProjectDuGet\PrivacyPolicy\</RemoteDir>
-            <RemoteName>privacypolicy_it_IT.rtf</RemoteName>
+        <DeployFile Include="Assets\Logo_black_300x300alpha.png" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>Logo_black_300x300alpha.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="locale\it_IT\LC_MESSAGES\default.mo" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\locale\it_IT\LC_MESSAGES\</RemoteDir>
+            <RemoteName>default.mo</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
@@ -196,24 +395,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="AppxManifest.xml" Condition="'$(Config)'=='MSStoreAdHoc'">
-            <RemoteDir>ProjectDuGet\</RemoteDir>
-            <RemoteName>AppxManifest.xml</RemoteName>
-            <DeployClass>ProjectUWPManifest</DeployClass>
-            <Operation>1</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="locale\it_IT\LC_MESSAGES\default.mo" Condition="'$(Config)'=='MSStoreAdHoc'">
-            <RemoteDir>ProjectDuGet\locale\it_IT\LC_MESSAGES\</RemoteDir>
-            <RemoteName>default.mo</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="Assets\Logo_150x150.png" Condition="'$(Config)'=='MSStore'">
             <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
             <RemoteName>Logo150x150.png</RemoteName>
@@ -223,11 +404,11 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Assets\Logo_150x150.png" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
-            <RemoteName>Logo150x150.png</RemoteName>
-            <DeployClass>UWP_DelphiLogo150</DeployClass>
-            <Operation>1</Operation>
+        <DeployFile Include="Licenses\license_en_US.txt" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\Licenses\</RemoteDir>
+            <RemoteName>license_en_US.txt</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -241,11 +422,11 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Assets\Logo_300x300alpha.png" Condition="'$(Config)'=='MSStore'">
+        <DeployFile Include="Assets\Logo_150x150.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
-            <RemoteName>Logo_300x300alpha.png</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
+            <RemoteName>Logo150x150.png</RemoteName>
+            <DeployClass>UWP_DelphiLogo150</DeployClass>
+            <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -259,14 +440,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="PrivacyPolicy\privacypolicy_en_US.rtf" Condition="'$(Config)'=='MSStoreAdHoc'">
-            <RemoteDir>ProjectDuGet\PrivacyPolicy\</RemoteDir>
-            <RemoteName>privacypolicy_en_US.rtf</RemoteName>
-            <DeployClass>File</DeployClass>
+        <DeployFile Include="ProjectDuGet.exe" Condition="'$(Config)'=='Release'">
+            <RemoteDir>ProjectDuGet\</RemoteDir>
+            <RemoteName>ProjectDuGet.exe</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
+            <Required>True</Required>
         </DeployFile>
         <DeployFile Include="ProjectDuGet.exe" Condition="'$(Config)'=='MSStoreAdHoc'">
             <RemoteDir>ProjectDuGet\</RemoteDir>

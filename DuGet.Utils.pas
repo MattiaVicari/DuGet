@@ -61,6 +61,7 @@ uses
 {$ELSE}
   DuGet.Translator,
 {$ENDIF}
+  DuGet.Constants,
   PNGImage,
   JPeg;
 
@@ -128,8 +129,12 @@ begin
 end;
 
 class function TUtils.GetCacheFolder: string;
+var
+  AppDataFolder: string;
 begin
-  Result := TPath.Combine(ExtractFileDir(ParamStr(0)), 'cache');
+  AppDataFolder := GetEnvironmentVariable('APPDATA');
+  Result := TPath.Combine(AppDataFolder, DuGetAppDataFolder);
+  Result := TPath.Combine(Result, 'cache');
   ForceDirectories(Result);
 end;
 

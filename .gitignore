@@ -11,3 +11,7 @@
 /AppxManifest.template.xml
 /ProjectDuGet
 
+/*.rsm
+/*.drc
+/*.map
+/*.appx

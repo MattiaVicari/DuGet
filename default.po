@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-11-05 00:06\n"
-"PO-Revision-Date: 2019-11-05 00:06\n"
+"POT-Creation-Date: 2019-11-16 15:11\n"
+"PO-Revision-Date: 2019-11-16 15:11\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,24 +16,24 @@ msgstr ""
 "X-Generator: dxgettext 2.6.1\n"
 
 #. frmAbout..boxMain..txtTitle..Caption
-#: DuGet.AboutFrm.dfm:8
+#: DuGet.AboutFrm.dfm:4
 msgid "About DuGet"
 msgstr ""
 
 #. frmAbout..boxMain..boxAbout..Font.Name
-#: DuGet.AboutFrm.dfm:24
+#: DuGet.AboutFrm.dfm:19
 #. frmAbout..boxMain..boxAbout..txtName..Font.Name
-#: DuGet.AboutFrm.dfm:197
+#: DuGet.AboutFrm.dfm:192
 #. frmAbout..boxMain..boxAbout..txtDescription..Font.Name
-#: DuGet.AboutFrm.dfm:212
+#: DuGet.AboutFrm.dfm:207
 #. frmAbout..boxMain..boxAbout..txtVersion..Font.Name
-#: DuGet.AboutFrm.dfm:227
+#: DuGet.AboutFrm.dfm:222
 #. frmAbout..boxMain..boxAbout..txtLicense..Font.Name
-#: DuGet.AboutFrm.dfm:241
+#: DuGet.AboutFrm.dfm:236
 #. frmBase..boxMain..Font.Name
 #: DuGet.BaseFrm.dfm:24
 #. frmBase..boxMain..txtTitle..Font.Name
-#: DuGet.BaseFrm.dfm:44
+#: DuGet.BaseFrm.dfm:42
 #. frmMain..AppCaptionBar..Font.Name
 #: DuGet.MainFrm.dfm:33
 #. frmMain..boxHamburgerMenu..Font.Name
@@ -43,21 +43,21 @@ msgstr ""
 #. frmMain..boxHamburgerMenu..btnMenu..DetailFont.Name
 #: DuGet.MainFrm.dfm:191
 #. frmMain..boxHamburgerMenu..btnSettings..TextFont.Name
-#: DuGet.MainFrm.dfm:219
+#: DuGet.MainFrm.dfm:218
 #. frmMain..boxHamburgerMenu..btnSettings..DetailFont.Name
-#: DuGet.MainFrm.dfm:224
+#: DuGet.MainFrm.dfm:223
 #. frmMain..boxHamburgerMenu..btnAbout..TextFont.Name
-#: DuGet.MainFrm.dfm:250
+#: DuGet.MainFrm.dfm:249
 #. frmMain..boxHamburgerMenu..btnAbout..DetailFont.Name
-#: DuGet.MainFrm.dfm:255
+#: DuGet.MainFrm.dfm:254
 #. frmMain..boxHamburgerMenu..btnPackagesList..TextFont.Name
-#: DuGet.MainFrm.dfm:281
+#: DuGet.MainFrm.dfm:280
 #. frmMain..boxHamburgerMenu..btnPackagesList..DetailFont.Name
-#: DuGet.MainFrm.dfm:286
+#: DuGet.MainFrm.dfm:285
 #. frmMain..boxHamburgerMenu..btnPrivacyPolicy..TextFont.Name
-#: DuGet.MainFrm.dfm:312
+#: DuGet.MainFrm.dfm:311
 #. frmMain..boxHamburgerMenu..btnPrivacyPolicy..DetailFont.Name
-#: DuGet.MainFrm.dfm:317
+#: DuGet.MainFrm.dfm:316
 #. frmPackageDetail..boxMain..boxContent..Font.Name
 #: DuGet.PackagesDetailFrm.dfm:29
 #. frmPackageDetail..boxMain..boxContent..txtLblName..Font.Name
@@ -84,12 +84,12 @@ msgstr ""
 #: DuGet.PackagesDetailFrm.dfm:5200
 #. frmPackageDetail..boxMain..boxContent..txtLblUrl..Font.Name
 #: DuGet.PackagesDetailFrm.dfm:5214
-#. frmPackageDetail..boxMain..boxContent..linkUrl..Font.Name
-#: DuGet.PackagesDetailFrm.dfm:5229
 #. frmPackageDetail..boxMain..boxContent..txtLblCloneUrl..Font.Name
-#: DuGet.PackagesDetailFrm.dfm:5249
-#. frmPackageDetail..boxMain..boxContent..linkCloneUrl..Font.Name
-#: DuGet.PackagesDetailFrm.dfm:5264
+#: DuGet.PackagesDetailFrm.dfm:5228
+#. frmPackageDetail..boxMain..boxContent..edtUrl..Edit.Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5265
+#. frmPackageDetail..boxMain..boxContent..edtCloneUrl..Edit.Font.Name
+#: DuGet.PackagesDetailFrm.dfm:5303
 #. frmPackagesList..boxMain..boxContent..Font.Name
 #: DuGet.PackagesListFrm.dfm:29
 #. frmPackagesList..boxMain..boxContent..listPackages..Font.Name
@@ -103,13 +103,15 @@ msgstr ""
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..searchBox..Font.Name
 #: DuGet.PackagesListFrm.dfm:144
 #. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..Font.Name
-#: DuGet.PrivacyPolicyFrm.dfm:25
+#: DuGet.PrivacyPolicyFrm.dfm:24
 #. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..Font.Name
-#: DuGet.PrivacyPolicyFrm.dfm:59
+#: DuGet.PrivacyPolicyFrm.dfm:45
 #. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..btnAgree..Font.Name
-#: DuGet.PrivacyPolicyFrm.dfm:86
+#: DuGet.PrivacyPolicyFrm.dfm:72
 #. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..btnNotAgree..Font.Name
-#: DuGet.PrivacyPolicyFrm.dfm:114
+#: DuGet.PrivacyPolicyFrm.dfm:100
+#. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..memPrivacyPolicy..Font.Name
+#: DuGet.PrivacyPolicyFrm.dfm:121
 #. frmSettings..boxMain..txtMessage..Font.Name
 #: DuGet.SettingsFrm.dfm:31
 #. frmSettings..boxMain..boxToken..Font.Name
@@ -130,17 +132,17 @@ msgid "Segoe UI"
 msgstr ""
 
 #. frmAbout..boxMain..boxAbout..txtName..Caption
-#: DuGet.AboutFrm.dfm:193
+#: DuGet.AboutFrm.dfm:188
 msgid "DuGet"
 msgstr ""
 
 #. frmAbout..boxMain..boxAbout..txtDescription..Caption
-#: DuGet.AboutFrm.dfm:208
+#: DuGet.AboutFrm.dfm:203
 msgid "Package manager for Delphi"
 msgstr ""
 
 #. frmAbout..boxMain..boxAbout..txtVersion..Caption
-#: DuGet.AboutFrm.dfm:223
+#: DuGet.AboutFrm.dfm:218
 #. frmPackageDetail..boxMain..boxContent..txtName..Caption
 #: DuGet.PackagesDetailFrm.dfm:5070
 #. frmPackageDetail..boxMain..boxContent..txtAuthor..Caption
@@ -151,20 +153,16 @@ msgstr ""
 #: DuGet.PackagesDetailFrm.dfm:5168
 #. frmPackageDetail..boxMain..boxContent..txtUpdatedAt..Caption
 #: DuGet.PackagesDetailFrm.dfm:5196
-#. frmPackageDetail..boxMain..boxContent..linkUrl..Caption
-#: DuGet.PackagesDetailFrm.dfm:5225
-#. frmPackageDetail..boxMain..boxContent..linkCloneUrl..Caption
-#: DuGet.PackagesDetailFrm.dfm:5260
 msgid "..."
 msgstr ""
 
 #. frmAbout..boxMain..boxAbout..txtLicense..Caption
-#: DuGet.AboutFrm.dfm:237
+#: DuGet.AboutFrm.dfm:232
 msgid "License"
 msgstr ""
 
 #. frmBase..boxMain..txtTitle..Caption
-#: DuGet.BaseFrm.dfm:39
+#: DuGet.BaseFrm.dfm:37
 msgid "Page title"
 msgstr ""
 
@@ -201,13 +199,13 @@ msgstr ""
 #. frmMain..boxHamburgerMenu..btnMenu..SymbolFont.Name
 #: DuGet.MainFrm.dfm:181
 #. frmMain..boxHamburgerMenu..btnSettings..SymbolFont.Name
-#: DuGet.MainFrm.dfm:214
+#: DuGet.MainFrm.dfm:213
 #. frmMain..boxHamburgerMenu..btnAbout..SymbolFont.Name
-#: DuGet.MainFrm.dfm:245
+#: DuGet.MainFrm.dfm:244
 #. frmMain..boxHamburgerMenu..btnPackagesList..SymbolFont.Name
-#: DuGet.MainFrm.dfm:276
+#: DuGet.MainFrm.dfm:275
 #. frmMain..boxHamburgerMenu..btnPrivacyPolicy..SymbolFont.Name
-#: DuGet.MainFrm.dfm:307
+#: DuGet.MainFrm.dfm:306
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..SymbolFont.Name
 #: DuGet.PackagesListFrm.dfm:103
 #. frmSettings..boxMain..boxToken..radioDefaultTheme..IconFont.Name
@@ -227,41 +225,41 @@ msgstr ""
 #. frmMain..boxHamburgerMenu..btnMenu..Detail
 #: DuGet.MainFrm.dfm:196
 #. frmMain..boxHamburgerMenu..btnSettings..Detail
-#: DuGet.MainFrm.dfm:229
+#: DuGet.MainFrm.dfm:228
 #. frmMain..boxHamburgerMenu..btnAbout..Detail
-#: DuGet.MainFrm.dfm:260
+#: DuGet.MainFrm.dfm:259
 #. frmMain..boxHamburgerMenu..btnPackagesList..Detail
-#: DuGet.MainFrm.dfm:291
+#: DuGet.MainFrm.dfm:290
 #. frmMain..boxHamburgerMenu..btnPrivacyPolicy..Detail
-#: DuGet.MainFrm.dfm:322
+#: DuGet.MainFrm.dfm:321
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..Detail
 #: DuGet.PackagesListFrm.dfm:119
 msgid "Detail"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnSettings..Text
-#: DuGet.MainFrm.dfm:227
+#: DuGet.MainFrm.dfm:226
 #. frmSettings..boxMain..txtTitle..Caption
 #: DuGet.SettingsFrm.dfm:16
 msgid "Settings"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnAbout..Text
-#: DuGet.MainFrm.dfm:258
+#: DuGet.MainFrm.dfm:257
 msgid "About"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnPackagesList..Text
-#: DuGet.MainFrm.dfm:289
+#: DuGet.MainFrm.dfm:288
 #. frmPackagesList..boxMain..txtTitle..Caption
 #: DuGet.PackagesListFrm.dfm:13
 msgid "Packages list"
 msgstr ""
 
 #. frmMain..boxHamburgerMenu..btnPrivacyPolicy..Text
-#: DuGet.MainFrm.dfm:320
+#: DuGet.MainFrm.dfm:319
 #. frmPrivacyPolicy..boxMain..txtTitle..Caption
-#: DuGet.PrivacyPolicyFrm.dfm:10
+#: DuGet.PrivacyPolicyFrm.dfm:9
 msgid "Privacy policy"
 msgstr ""
 
@@ -287,26 +285,20 @@ msgstr ""
 
 #. modPackage..fdmPackages..fdmPackagesHTML_URL..FieldName
 #: DuGet.Modules.Package.dfm:32
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption3..FieldName
-#: DuGet.PackagesDetailFrm.dfm:5353
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL..FieldName
-#: DuGet.PackagesDetailFrm.dfm:5360
 msgid "HTML_URL"
 msgstr ""
 
 #. modPackage..fdmPackages..fdmPackagesDESCRIPTION..FieldName
 #: DuGet.Modules.Package.dfm:36
 #. frmPackageDetail..BindingsList..LinkControlToField1..FieldName
-#: DuGet.PackagesDetailFrm.dfm:5325
+#: DuGet.PackagesDetailFrm.dfm:5356
 msgid "DESCRIPTION"
 msgstr ""
 
 #. modPackage..fdmPackages..fdmPackagesURL..FieldName
 #: DuGet.Modules.Package.dfm:40
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5362
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL2..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5369
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5384
 msgid "URL"
 msgstr ""
 
@@ -318,23 +310,21 @@ msgstr ""
 #. modPackage..fdmPackages..fdmPackagesCREATED_AT..FieldName
 #: DuGet.Modules.Package.dfm:48
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption6..FieldName
-#: DuGet.PackagesDetailFrm.dfm:5339
+#: DuGet.PackagesDetailFrm.dfm:5370
 msgid "CREATED_AT"
 msgstr ""
 
 #. modPackage..fdmPackages..fdmPackagesUPDATED_AT..FieldName
 #: DuGet.Modules.Package.dfm:51
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption5..FieldName
-#: DuGet.PackagesDetailFrm.dfm:5332
+#: DuGet.PackagesDetailFrm.dfm:5363
 msgid "UPDATED_AT"
 msgstr ""
 
 #. modPackage..fdmPackages..fdmPackagesCLONE_URL..FieldName
 #: DuGet.Modules.Package.dfm:54
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption..FieldName
-#: DuGet.PackagesDetailFrm.dfm:5304
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL2..FieldName
-#: DuGet.PackagesDetailFrm.dfm:5367
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText2..FieldName
+#: DuGet.PackagesDetailFrm.dfm:5391
 msgid "CLONE_URL"
 msgstr ""
 
@@ -366,7 +356,7 @@ msgstr ""
 #. modPackage..fdmPackages..fdmPackagesLICENSES_TYPE..FieldName
 #: DuGet.Modules.Package.dfm:78
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption2..FieldName
-#: DuGet.PackagesDetailFrm.dfm:5318
+#: DuGet.PackagesDetailFrm.dfm:5349
 msgid "LICENSES_TYPE"
 msgstr ""
 
@@ -378,7 +368,7 @@ msgstr ""
 #. modPackage..fdmPackages..fdmPackagesOWNER_LOGIN..FieldName
 #: DuGet.Modules.Package.dfm:85
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption4..FieldName
-#: DuGet.PackagesDetailFrm.dfm:5311
+#: DuGet.PackagesDetailFrm.dfm:5342
 msgid "OWNER_LOGIN"
 msgstr ""
 
@@ -395,7 +385,7 @@ msgstr ""
 #. modPackage..fdmPackages..fdmPackagesPACKAGE_NAME..FieldName
 #: DuGet.Modules.Package.dfm:98
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption7..FieldName
-#: DuGet.PackagesDetailFrm.dfm:5346
+#: DuGet.PackagesDetailFrm.dfm:5377
 msgid "PACKAGE_NAME"
 msgstr ""
 
@@ -439,56 +429,48 @@ msgstr ""
 msgid "Url:"
 msgstr ""
 
-#. frmPackageDetail..boxMain..boxContent..linkUrl..URL
-#: DuGet.PackagesDetailFrm.dfm:5238
-#. frmPackageDetail..boxMain..boxContent..linkCloneUrl..URL
-#: DuGet.PackagesDetailFrm.dfm:5273
-msgid "https://embarcadero.com/"
-msgstr ""
-
 #. frmPackageDetail..boxMain..boxContent..txtLblCloneUrl..Caption
-#: DuGet.PackagesDetailFrm.dfm:5245
+#: DuGet.PackagesDetailFrm.dfm:5224
 msgid "Clone url:"
 msgstr ""
 
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption..Category
-#: DuGet.PackagesDetailFrm.dfm:5302
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption4..Category
-#: DuGet.PackagesDetailFrm.dfm:5309
+#: DuGet.PackagesDetailFrm.dfm:5340
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption2..Category
-#: DuGet.PackagesDetailFrm.dfm:5316
+#: DuGet.PackagesDetailFrm.dfm:5347
 #. frmPackageDetail..BindingsList..LinkControlToField1..Category
-#: DuGet.PackagesDetailFrm.dfm:5323
+#: DuGet.PackagesDetailFrm.dfm:5354
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption5..Category
-#: DuGet.PackagesDetailFrm.dfm:5330
+#: DuGet.PackagesDetailFrm.dfm:5361
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption6..Category
-#: DuGet.PackagesDetailFrm.dfm:5337
+#: DuGet.PackagesDetailFrm.dfm:5368
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption7..Category
-#: DuGet.PackagesDetailFrm.dfm:5344
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption3..Category
-#: DuGet.PackagesDetailFrm.dfm:5351
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL..Category
-#: DuGet.PackagesDetailFrm.dfm:5358
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldURL2..Category
-#: DuGet.PackagesDetailFrm.dfm:5365
+#: DuGet.PackagesDetailFrm.dfm:5375
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText..Category
+#: DuGet.PackagesDetailFrm.dfm:5382
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText2..Category
+#: DuGet.PackagesDetailFrm.dfm:5389
 msgid "Quick Bindings"
 msgstr ""
 
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5306
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption4..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5313
+#: DuGet.PackagesDetailFrm.dfm:5344
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption2..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5320
+#: DuGet.PackagesDetailFrm.dfm:5351
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption5..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5334
+#: DuGet.PackagesDetailFrm.dfm:5365
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption6..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5341
+#: DuGet.PackagesDetailFrm.dfm:5372
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption7..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5348
-#. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption3..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5355
+#: DuGet.PackagesDetailFrm.dfm:5379
 msgid "Caption"
+msgstr ""
+
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5386
+#. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText2..ComponentProperty
+#: DuGet.PackagesDetailFrm.dfm:5393
+msgid "Edit.Text"
 msgstr ""
 
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..btnRefresh..Text
@@ -497,13 +479,18 @@ msgid "Refresh"
 msgstr ""
 
 #. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..btnAgree..Text
-#: DuGet.PrivacyPolicyFrm.dfm:82
+#: DuGet.PrivacyPolicyFrm.dfm:68
 msgid "Agree"
 msgstr ""
 
 #. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..btnNotAgree..Text
-#: DuGet.PrivacyPolicyFrm.dfm:110
+#: DuGet.PrivacyPolicyFrm.dfm:96
 msgid "Not agree"
+msgstr ""
+
+#. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..memPrivacyPolicy....Lines.Strings
+#: DuGet.PrivacyPolicyFrm.dfm:124
+msgid "memPrivacyPolicy"
 msgstr ""
 
 #. frmSettings..boxMain..txtMessage..Caption
@@ -560,75 +547,74 @@ msgstr ""
 msgid "Dark"
 msgstr ""
 
-#: DuGet.AboutFrm.pas:73
+#: DuGet.AboutFrm.pas:90
 msgid "Unable to load the license information. Error: "
 "%s"
 msgstr ""
 
-#: DuGet.AboutFrm.pas:103
+#: DuGet.AboutFrm.pas:120
 msgid "Unable to retrieve the version information"
 msgstr ""
 
-#: DuGet.App.Settings.pas:105
+#: DuGet.App.Settings.pas:156
 msgid "Settings are invalid"
 msgstr ""
 
-#: DuGet.App.Settings.pas:121
+#: DuGet.App.Settings.pas:166
 msgid "Unable to load the application settings. Error: "
 "%s"
 msgstr ""
 
-#. No BOM
-#: DuGet.App.Settings.pas:141
+#: DuGet.App.Settings.pas:210
 msgid "Unable to update the application settings. Error: "
 "%s"
 msgstr ""
 
-#: DuGet.PackagesDetailFrm.pas:77
+#: DuGet.PackagesDetailFrm.pas:92
 msgid "Invalid context for the page"
 msgstr ""
 
 #. Author
-#: DuGet.PackagesListFrm.pas:208
+#: DuGet.PackagesListFrm.pas:224
 msgid "Author: %s"
 msgstr ""
 
 #. Licenses
-#: DuGet.PackagesListFrm.pas:226
+#: DuGet.PackagesListFrm.pas:242
 msgid "Licenses: %s"
 msgstr ""
 
-#: DuGet.PrivacyPolicyFrm.pas:67
+#: DuGet.PrivacyPolicyFrm.pas:87
 msgid "The application will be closed.\n"
 "If you don't agree with the privacy policy, you have to uninstall "
 "this software from your device."
 msgstr ""
 
-#: DuGet.PrivacyPolicyFrm.pas:80
+#: DuGet.PrivacyPolicyFrm.pas:114
 msgid "Unable to load the privacy policy information. Error: "
 "%s"
 msgstr ""
 
-#: DuGet.Proxy.GitHub.pas:150
+#: DuGet.Proxy.GitHub.pas:167
 msgid "You have to provide your personal access token for GitHub API.\n"
 "See here %s"
 msgstr ""
 
-#: DuGet.Proxy.GitHub.pas:199
+#: DuGet.Proxy.GitHub.pas:216
 msgid "Unable to get the list of packages.\n"
 "Error: %s"
 msgstr ""
 
-#: DuGet.SettingsFrm.pas:54
+#: DuGet.SettingsFrm.pas:71
 msgid "You have to type your personal access "
 "token"
 msgstr ""
 
-#: DuGet.SettingsFrm.pas:60
+#: DuGet.SettingsFrm.pas:77
 msgid "Settings are saved"
 msgstr ""
 
-#: DuGet.SettingsFrm.pas:79
+#: DuGet.SettingsFrm.pas:96
 msgid "You have to type your personal access token in order to get the list "
 "of packages"
 msgstr ""

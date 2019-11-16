@@ -31,6 +31,7 @@ type
   class var
     FAppSettings: TAppSettings;
   private
+    FLocalDataFolder: string;
     FSettingsFilePath: string;
     FToken: string;
     FTheme: TDuGetTheme;
@@ -62,6 +63,7 @@ uses
 {$ELSE}
   DuGet.Translator,
 {$ENDIF}
+  DuGet.Constants,
   Math,
   DuGet.Utils,
   CNGCrypt.Core,
@@ -85,7 +87,11 @@ end;
 
 constructor TAppSettings.Create;
 begin
-  FSettingsFilePath := TPath.Combine(ExtractFileDir(ParamStr(0)), SettingsFileName);
+  FLocalDataFolder := GetEnvironmentVariable('APPDATA');
+  FSettingsFilePath := TPath.Combine(FLocalDataFolder, DuGetAppDataFolder);
+  ForceDirectories(FSettingsFilePath);
+
+  FSettingsFilePath := TPath.Combine(FSettingsFilePath, SettingsFileName);
   FToken := '';
   FPrivacyPolicyAgree := False;
   FTheme := dgtSystem;

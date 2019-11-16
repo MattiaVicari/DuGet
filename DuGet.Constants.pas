@@ -24,6 +24,7 @@ uses
 
 const
   UserAgentDuGet = 'DuGet, v1.0';
+  DuGetAppDataFolder = 'DuGet';
 
   { Messages }
   WM_OWN_ENABLE_BACKBUTTON  = WM_USER + 1;

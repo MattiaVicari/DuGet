@@ -87,5 +87,5 @@
     <File Path="DuGet.PrivacyPolicyFrm.dfm"/>
     <File Path="DuGet.Translator.pas"/>
   </ProjectSortOrder>
-	<BT_BuildType>Debug</BT_BuildType>
+	<BT_BuildType>AppStore</BT_BuildType>
 </BorlandProject>
