@@ -5,7 +5,7 @@
         <FrameworkType>VCL</FrameworkType>
         <MainSource>ProjectDuGet.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">MSStore</Config>
+        <Config Condition="'$(Config)'==''">MSStoreAdHoc</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -130,7 +130,6 @@
         <PF_KeyStoreSubject>CN=Mattia Vicari</PF_KeyStoreSubject>
         <PF_KeyStorePass>850047CB5FC4070ACF69E520D171E33F81850535A05F97C997AA0FF88E783C8ADB56A385E3111C2FC1E2577DFAC4C363BA95367E043722D3163A459DE5E4229DC938F341D558FA9BBFF8AF11721985D1F7F6330AC3487208</PF_KeyStorePass>
         <PF_UWPDistributionType>AdHoc</PF_UWPDistributionType>
-        <BT_BuildType>AppStore</BT_BuildType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_4_Win32)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
@@ -229,20 +228,27 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="ProjectDuGet.exe" Configuration="MSStore" Class="ProjectOutput">
+                <DeployFile LocalName="AppxManifest.xml" Configuration="MSStore" Class="ProjectUWPManifest">
                     <Platform Name="Win32">
-                        <RemoteName>ProjectDuGet.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="AppxManifest.xml" Configuration="MSStore" Class="ProjectUWPManifest">
+                <DeployFile LocalName="Assets\Logo_44x44.png" Configuration="MSStoreAdHoc" Class="UWP_DelphiLogo44">
                     <Platform Name="Win32">
+                        <RemoteName>Logo44x44.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="ProjectDuGet.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>ProjectDuGet.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\Logo_black_300x300alpha.png" Configuration="MSStoreAdHoc" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo_black_300x300alpha.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -253,10 +259,99 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="Licenses\license_it_IT.txt" Configuration="MSStoreAdHoc" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Licenses\</RemoteDir>
+                        <RemoteName>license_it_IT.txt</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="PrivacyPolicy\privacypolicy_it_IT.rtf" Configuration="MSStoreAdHoc" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>PrivacyPolicy\</RemoteDir>
+                        <RemoteName>privacypolicy_it_IT.rtf</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="locale\it\LC_MESSAGES\default.mo" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>locale\it\LC_MESSAGES\</RemoteDir>
+                        <RemoteName>default.mo</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\SplashScreen.png" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>SplashScreen.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\Logo_150x150.png" Configuration="MSStoreAdHoc" Class="UWP_DelphiLogo150">
+                    <Platform Name="Win32">
+                        <RemoteName>Logo150x150.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="locale\it_IT\LC_MESSAGES\default.mo" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>locale\it_IT\LC_MESSAGES\</RemoteDir>
+                        <RemoteName>default.mo</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\Logo_300x300alpha.png" Configuration="MSStoreAdHoc" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo_300x300alpha.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="locale\it\LC_MESSAGES\default.mo" Configuration="MSStoreAdHoc" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>locale\it\LC_MESSAGES\</RemoteDir>
+                        <RemoteName>default.mo</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="PrivacyPolicy\privacypolicy_en_US.rtf" Configuration="MSStore" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>PrivacyPolicy\</RemoteDir>
+                        <RemoteName>privacypolicy_en_US.rtf</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ProjectDuGet.exe" Configuration="MSStore" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>ProjectDuGet.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Licenses\license_en_US.txt" Configuration="MSStoreAdHoc" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Licenses\</RemoteDir>
+                        <RemoteName>license_en_US.txt</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\Logo_100x100.png" Configuration="MSStoreAdHoc" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo_100x100.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Licenses\license_it_IT.txt" Configuration="MSStore" Class="File">
                     <Platform Name="Win32">
                         <RemoteDir>Licenses\</RemoteDir>
                         <RemoteName>license_it_IT.txt</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Assets\SplashScreen.png" Configuration="MSStoreAdHoc" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>SplashScreen.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -271,6 +366,18 @@
                     <Platform Name="Win32">
                         <RemoteDir>Assets\</RemoteDir>
                         <RemoteName>Logo_100x100.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="AppxManifest.xml" Configuration="MSStoreAdHoc" Class="ProjectUWPManifest">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="locale\it_IT\LC_MESSAGES\default.mo" Configuration="MSStoreAdHoc" Class="File">
+                    <Platform Name="Win32">
+                        <RemoteDir>locale\it_IT\LC_MESSAGES\</RemoteDir>
+                        <RemoteName>default.mo</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -294,27 +401,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Assets\SplashScreen.png" Configuration="MSStore" Class="File">
-                    <Platform Name="Win32">
-                        <RemoteDir>Assets\</RemoteDir>
-                        <RemoteName>SplashScreen.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="locale\it\LC_MESSAGES\default.mo" Configuration="MSStore" Class="File">
-                    <Platform Name="Win32">
-                        <RemoteDir>locale\it\LC_MESSAGES\</RemoteDir>
-                        <RemoteName>default.mo</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="locale\it_IT\LC_MESSAGES\default.mo" Configuration="MSStore" Class="File">
-                    <Platform Name="Win32">
-                        <RemoteDir>locale\it_IT\LC_MESSAGES\</RemoteDir>
-                        <RemoteName>default.mo</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="Assets\Logo_300x300alpha.png" Configuration="MSStore" Class="File">
                     <Platform Name="Win32">
                         <RemoteDir>Assets\</RemoteDir>
@@ -328,10 +414,16 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="PrivacyPolicy\privacypolicy_en_US.rtf" Configuration="MSStore" Class="File">
+                <DeployFile LocalName="PrivacyPolicy\privacypolicy_en_US.rtf" Configuration="MSStoreAdHoc" Class="File">
                     <Platform Name="Win32">
                         <RemoteDir>PrivacyPolicy\</RemoteDir>
                         <RemoteName>privacypolicy_en_US.rtf</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ProjectDuGet.exe" Configuration="MSStoreAdHoc" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>ProjectDuGet.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -351,7 +443,6 @@
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Win32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>0</Operation>
                     </Platform>
                 </DeployClass>
@@ -529,6 +620,11 @@
                         <Operation>1</Operation>
                         <Extensions>.framework</Extensions>
                     </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.framework</Extensions>
+                    </Platform>
                     <Platform Name="Win32">
                         <Operation>0</Operation>
                     </Platform>
@@ -547,6 +643,11 @@
                         <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX64">
                         <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
@@ -574,6 +675,11 @@
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
                     </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
                     <Platform Name="Win32">
                         <Operation>0</Operation>
                         <Extensions>.bpl</Extensions>
@@ -593,6 +699,10 @@
                         <Operation>0</Operation>
                     </Platform>
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources\StartUp\</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX64">
                         <RemoteDir>Contents\Resources\StartUp\</RemoteDir>
                         <Operation>0</Operation>
                     </Platform>
@@ -974,15 +1084,27 @@
                         <RemoteDir>..\</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>..\</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXInfoPList">
                     <Platform Name="OSX32">
                         <RemoteDir>Contents</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX64">
                         <RemoteDir>Contents\Resources</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
@@ -1005,6 +1127,10 @@
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX64">
                         <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
