@@ -1,6 +1,6 @@
 program ProjectDuGet;
 
-{$R 'duget_version.res' 'duget_version.rc'}
+
 
 uses
   Vcl.Forms,

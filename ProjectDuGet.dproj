@@ -105,6 +105,7 @@
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>Assets\Logo_44x44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>Assets\Logo_150x150.png</UWP_DelphiLogo150>
+        <PF_KeyStore>3dcrypter-duget.pfx</PF_KeyStore>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -121,7 +122,6 @@
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
         <DCC_MapFile>3</DCC_MapFile>
-        <PF_KeyStore>3dcrypter-duget.pfx</PF_KeyStore>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_6_Win32)'!=''">
         <PF_UWPPublisher>CN=Appx Test Root Agency Ex</PF_UWPPublisher>
@@ -135,7 +135,6 @@
         <VerInfo_Release>2</VerInfo_Release>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.2.0;InternalName=;LegalCopyright=3DCrypter (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
         <BT_BuildType>AppStore</BT_BuildType>
-        <PF_UWPDistributionType>Store</PF_UWPDistributionType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -148,13 +147,15 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
-        <PF_KeyStore>3dcrypter-duget.pfx</PF_KeyStore>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_3_Win32)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
-        <PF_KeyStorePass>54E50DFE644355A9A301713BD13FE36081DA0549A057979297EE0FB48E3E3CD9DB5DA38CE3371C4DC1B0577DFADEC37ABAF93641045722CE16654589E5A6228C18EDB937EEDAA841D3CA3B02721985D1F7F6330AC3487208</PF_KeyStorePass>
+        <PF_KeyStorePass>85000DA36405559EA3757169D17BE32C819C055DA057979397B50FF08E723CD8DB05A38FE3431C4DC1CC572EFA9CC37ABAF83612047422E0166545C2E5F1228CC90AB937EEDAA841D3CA3B02721985D1F7F6330AC3487208</PF_KeyStorePass>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Release>2</VerInfo_Release>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.2.0;InternalName=;LegalCopyright=3DCrypter (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_4_Win32)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
@@ -168,15 +169,11 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Release>2</VerInfo_Release>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.2.0;InternalName=;LegalCopyright=3DCrypter (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
-        <PF_UWPDistributionType>Store</PF_UWPDistributionType>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <RcCompile Include="duget_version.rc">
-            <Form>duget_version.res</Form>
-        </RcCompile>
         <DCCReference Include="DuGet.MainFrm.pas">
             <Form>frmMain</Form>
         </DCCReference>
@@ -257,9 +254,8 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Assets\Logo_44x44.png" Configuration="Debug" Class="UWP_DelphiLogo44">
+                <DeployFile LocalName="Assets\Logo_44x44.png" Configuration="MSStoreAdHoc" Class="UWP_DelphiLogo44">
                     <Platform Name="Win32">
-                        <RemoteDir>Assets\</RemoteDir>
                         <RemoteName>Logo44x44.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -301,13 +297,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Licenses\license_it_IT.txt" Configuration="MSStoreAdHoc" Class="File">
-                    <Platform Name="Win32">
-                        <RemoteDir>Licenses\</RemoteDir>
-                        <RemoteName>license_it_IT.txt</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="Assets\SplashScreen.png" Configuration="MSStoreDebug" Class="File">
                     <Platform Name="Win32">
                         <RemoteDir>Assets\</RemoteDir>
@@ -315,9 +304,10 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ProjectDuGet.rsm" Configuration="MSStoreDebug" Class="DebugSymbols">
+                <DeployFile LocalName="Licenses\license_it_IT.txt" Configuration="MSStoreAdHoc" Class="File">
                     <Platform Name="Win32">
-                        <RemoteName>ProjectDuGet.rsm</RemoteName>
+                        <RemoteDir>Licenses\</RemoteDir>
+                        <RemoteName>license_it_IT.txt</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -590,8 +580,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Assets\Logo_44x44.png" Configuration="MSStoreAdHoc" Class="UWP_DelphiLogo44">
+                <DeployFile LocalName="Assets\Logo_44x44.png" Configuration="Debug" Class="UWP_DelphiLogo44">
                     <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
                         <RemoteName>Logo44x44.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
