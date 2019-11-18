@@ -61,6 +61,7 @@ uses
   DuGet.Translator,
 {$ENDIF}
   Math,
+  DuGet.Utils,
   DuGet.NavigationManager,
   DuGet.Constants;
 
@@ -74,7 +75,7 @@ begin
   TAppSettings.Instance.Theme := GetAppThemeOption;
   TAppSettings.Instance.Save;
 
-  MessageDlg(_('Settings are saved'), mtInformation, [mbOK], 0);
+  TUtils.ShowFluentMessageDialog(_('Settings are saved'), [mbOK], AppThemeManager.Theme);
   if NavigationManager.IsModal then
     NavigationManager.PopAsModal;
 end;

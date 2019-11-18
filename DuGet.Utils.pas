@@ -22,13 +22,13 @@ unit DuGet.Utils;
 interface
 
 uses
-  Vcl.Graphics, System.IOUtils, System.SysUtils, System.Classes, System.StrUtils,
+  Vcl.Graphics, Vcl.Dialogs, Vcl.Forms, System.IOUtils, System.SysUtils, System.Classes, System.StrUtils,
   System.JSON, WinApi.Windows,
 {$IFDEF GNUGETTEXT}
   // Additional units for GNUGetText configuration (see SetupTranslation)
   Vcl.Controls, Vcl.DBCtrls, Data.DB, Datasnap.DBClient,
 {$ENDIF}
-  UCL.TUThemeManager;
+  UCL.TUThemeManager, UCL.Classes;
 
 type
   TUtils = class
@@ -50,6 +50,7 @@ type
     class function GetSystemLanguage: string;
     class procedure SetupAppLanguage;
     class procedure CreateGraphic(const ImageType: string; out Graphic: TGraphic);
+    class function ShowFluentMessageDialog(const Msg: string; Buttons: TMsgDlgButtons; Theme: TUTheme): Integer;
   end;
 
 implementation
@@ -266,6 +267,31 @@ begin
 {$ELSE}
   // Your code for translations settings
 {$ENDIF}
+end;
+
+class function TUtils.ShowFluentMessageDialog(const Msg: string;
+  Buttons: TMsgDlgButtons; Theme: TUTheme): Integer;
+var
+  DlgForm: TForm;
+begin
+  DlgForm := CreateMessageDialog(Msg, mtCustom, Buttons);
+  Dlgform.BorderStyle := bsSingle;
+  Dlgform.BorderIcons := [biSystemMenu];
+  if Theme = utDark then
+  begin
+    DlgForm.Color := clBlack;
+    DlgForm.Font.Color := clWhite;
+  end
+  else
+  begin
+    DlgForm.Color := clWhite;
+    DlgForm.Font.Color := clBlack;
+  end;
+  DlgForm.Font.Name := 'Segoe UI';
+  DlgForm.Font.Size := 9;
+  DlgForm.Caption := 'DuGet';
+  DlgForm.Position := poScreenCenter;
+  Result := DlgForm.ShowModal;
 end;
 
 end.
