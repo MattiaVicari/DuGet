@@ -96,7 +96,7 @@ begin
     and (TFile.Exists(DataModule.fdmPackagesLOGO_CACHED_FILEPATH.AsString)) then
     imgLogo.Picture.LoadFromFile(DataModule.fdmPackagesLOGO_CACHED_FILEPATH.AsString)
   else
-    imgLogo.Picture.LoadFromFile(TUtils.GetAsset('Logo_150x150.png'));
+    imgLogo.Picture.LoadFromFile(TUtils.GetAsset('LogoDefault.png'));
 end;
 
 procedure TfrmPackageDetail.OnChangeTheme(Sender: TObject; Theme: TUTheme);

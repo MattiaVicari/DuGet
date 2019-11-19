@@ -132,6 +132,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="Assets\LogoDefault.png" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>LogoDefault.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="AppxManifest.xml" Condition="'$(Config)'=='MSStoreAdHoc'">
             <RemoteDir>ProjectDuGet\</RemoteDir>
             <RemoteName>AppxManifest.xml</RemoteName>
@@ -178,6 +187,15 @@
             <Overwrite>True</Overwrite>
             <Required>True</Required>
         </DeployFile>
+        <DeployFile Include="Assets\LogoDefault.png" Condition="'$(Config)'=='MSStore'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>LogoDefault.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="Assets\Logo_150x150.png" Condition="'$(Config)'=='MSStoreDebug'">
             <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
             <RemoteName>Logo150x150.png</RemoteName>
@@ -210,6 +228,15 @@
             <RemoteName>AppxManifest.xml</RemoteName>
             <DeployClass>ProjectUWPManifest</DeployClass>
             <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\LogoDefault.png" Condition="'$(Config)'=='Release'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>LogoDefault.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>

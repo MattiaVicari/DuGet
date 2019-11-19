@@ -5268,9 +5268,6 @@ inherited frmPackageDetail: TfrmPackageDetail
         Edit.ParentFont = False
         Edit.ReadOnly = True
         Edit.TabOrder = 0
-        Edit.ExplicitLeft = 5
-        Edit.ExplicitTop = 5
-        Edit.ExplicitWidth = 175
         Transparent = True
         Anchors = [akLeft, akTop, akRight]
         BevelOuter = bvNone
@@ -5306,9 +5303,6 @@ inherited frmPackageDetail: TfrmPackageDetail
         Edit.ParentFont = False
         Edit.ReadOnly = True
         Edit.TabOrder = 0
-        Edit.ExplicitLeft = 5
-        Edit.ExplicitTop = 5
-        Edit.ExplicitWidth = 175
         Transparent = True
         Anchors = [akLeft, akTop, akRight]
         BevelOuter = bvNone
