@@ -28,7 +28,7 @@ uses
   UCL.TUQuickButton, UCL.TUPanel, UCL.TUSymbolButton,
   UCL.IntAnimation, UCL.IntAnimation.Helpers, UCL.TUText,
 
-  DuGet.Constants, DuGet.App.Settings;
+  DuGet.Constants, DuGet.App.Settings, Vcl.WinXCtrls;
 
 type
   TfrmMain = class(TUForm)
@@ -46,8 +46,12 @@ type
     btnBack: TUQuickButton;
     cardContentPage: TCardPanel;
     cardWelcome: TCard;
-    imgDuGetLogo: TImage;
     btnPrivacyPolicy: TUSymbolButton;
+    boxWelcome: TRelativePanel;
+    imgDuGetLogo: TImage;
+    boxWelcomeMsg: TStackPanel;
+    txtWelcomeTitle: TUText;
+    txtWelcomeHeader: TUText;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnSwitchThemeClick(Sender: TObject);

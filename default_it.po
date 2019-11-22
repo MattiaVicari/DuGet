@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-11-16 15:11\n"
-"PO-Revision-Date: 2019-11-16 15:13+0100\n"
+"POT-Creation-Date: 2019-11-22 23:22\n"
+"PO-Revision-Date: 2019-11-22 23:23+0100\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -41,6 +41,8 @@ msgstr "Informazioni su DuGet"
 #. frmMain..boxHamburgerMenu..btnPackagesList..DetailFont.Name
 #. frmMain..boxHamburgerMenu..btnPrivacyPolicy..TextFont.Name
 #. frmMain..boxHamburgerMenu..btnPrivacyPolicy..DetailFont.Name
+#. frmMain..cardContentPage..cardWelcome..boxWelcome..boxWelcomeMsg..txtWelcomeTitle..Font.Name
+#. frmMain..cardContentPage..cardWelcome..boxWelcome..boxWelcomeMsg..txtWelcomeHeader..Font.Name
 #. frmPackageDetail..boxMain..boxContent..Font.Name
 #. frmPackageDetail..boxMain..boxContent..txtLblName..Font.Name
 #. frmPackageDetail..boxMain..boxContent..txtName..Font.Name
@@ -82,24 +84,24 @@ msgstr "Informazioni su DuGet"
 #: DuGet.MainFrm.dfm:186 DuGet.MainFrm.dfm:191 DuGet.MainFrm.dfm:218
 #: DuGet.MainFrm.dfm:223 DuGet.MainFrm.dfm:249 DuGet.MainFrm.dfm:254
 #: DuGet.MainFrm.dfm:280 DuGet.MainFrm.dfm:285 DuGet.MainFrm.dfm:311
-#: DuGet.MainFrm.dfm:316 DuGet.PackagesDetailFrm.dfm:29
-#: DuGet.PackagesDetailFrm.dfm:5060 DuGet.PackagesDetailFrm.dfm:5074
-#: DuGet.PackagesDetailFrm.dfm:5088 DuGet.PackagesDetailFrm.dfm:5102
-#: DuGet.PackagesDetailFrm.dfm:5116 DuGet.PackagesDetailFrm.dfm:5130
-#: DuGet.PackagesDetailFrm.dfm:5144 DuGet.PackagesDetailFrm.dfm:5158
-#: DuGet.PackagesDetailFrm.dfm:5172 DuGet.PackagesDetailFrm.dfm:5186
-#: DuGet.PackagesDetailFrm.dfm:5200 DuGet.PackagesDetailFrm.dfm:5214
-#: DuGet.PackagesDetailFrm.dfm:5228 DuGet.PackagesDetailFrm.dfm:5265
-#: DuGet.PackagesDetailFrm.dfm:5303 DuGet.PackagesListFrm.dfm:29
-#: DuGet.PackagesListFrm.dfm:58 DuGet.PackagesListFrm.dfm:86
-#: DuGet.PackagesListFrm.dfm:108 DuGet.PackagesListFrm.dfm:113
-#: DuGet.PackagesListFrm.dfm:144 DuGet.PrivacyPolicyFrm.dfm:24
-#: DuGet.PrivacyPolicyFrm.dfm:45 DuGet.PrivacyPolicyFrm.dfm:72
-#: DuGet.PrivacyPolicyFrm.dfm:100 DuGet.PrivacyPolicyFrm.dfm:121
-#: DuGet.SettingsFrm.dfm:31 DuGet.SettingsFrm.dfm:50 DuGet.SettingsFrm.dfm:82
-#: DuGet.SettingsFrm.dfm:105 DuGet.SettingsFrm.dfm:139
-#: DuGet.SettingsFrm.dfm:163 DuGet.SettingsFrm.dfm:185
-#: DuGet.SettingsFrm.dfm:207
+#: DuGet.MainFrm.dfm:316 DuGet.MainFrm.dfm:607 DuGet.MainFrm.dfm:622
+#: DuGet.PackagesDetailFrm.dfm:29 DuGet.PackagesDetailFrm.dfm:5060
+#: DuGet.PackagesDetailFrm.dfm:5074 DuGet.PackagesDetailFrm.dfm:5088
+#: DuGet.PackagesDetailFrm.dfm:5102 DuGet.PackagesDetailFrm.dfm:5116
+#: DuGet.PackagesDetailFrm.dfm:5130 DuGet.PackagesDetailFrm.dfm:5144
+#: DuGet.PackagesDetailFrm.dfm:5158 DuGet.PackagesDetailFrm.dfm:5172
+#: DuGet.PackagesDetailFrm.dfm:5186 DuGet.PackagesDetailFrm.dfm:5200
+#: DuGet.PackagesDetailFrm.dfm:5214 DuGet.PackagesDetailFrm.dfm:5228
+#: DuGet.PackagesDetailFrm.dfm:5265 DuGet.PackagesDetailFrm.dfm:5300
+#: DuGet.PackagesListFrm.dfm:29 DuGet.PackagesListFrm.dfm:58
+#: DuGet.PackagesListFrm.dfm:86 DuGet.PackagesListFrm.dfm:108
+#: DuGet.PackagesListFrm.dfm:113 DuGet.PackagesListFrm.dfm:144
+#: DuGet.PrivacyPolicyFrm.dfm:24 DuGet.PrivacyPolicyFrm.dfm:45
+#: DuGet.PrivacyPolicyFrm.dfm:72 DuGet.PrivacyPolicyFrm.dfm:100
+#: DuGet.PrivacyPolicyFrm.dfm:121 DuGet.SettingsFrm.dfm:31
+#: DuGet.SettingsFrm.dfm:50 DuGet.SettingsFrm.dfm:82 DuGet.SettingsFrm.dfm:105
+#: DuGet.SettingsFrm.dfm:139 DuGet.SettingsFrm.dfm:163
+#: DuGet.SettingsFrm.dfm:185 DuGet.SettingsFrm.dfm:207
 msgid "Segoe UI"
 msgstr "Segoe UI"
 
@@ -109,7 +111,8 @@ msgid "DuGet"
 msgstr "DuGet"
 
 #. frmAbout..boxMain..boxAbout..txtDescription..Caption
-#: DuGet.AboutFrm.dfm:203
+#. frmMain..cardContentPage..cardWelcome..boxWelcome..boxWelcomeMsg..txtWelcomeHeader..Caption
+#: DuGet.AboutFrm.dfm:203 DuGet.MainFrm.dfm:618
 msgid "Package manager for Delphi"
 msgstr "Package manager per Delphi"
 
@@ -217,6 +220,11 @@ msgstr "Lista dei pacchetti"
 msgid "Privacy policy"
 msgstr "Informativa sulla privacy"
 
+#. frmMain..cardContentPage..cardWelcome..boxWelcome..boxWelcomeMsg..txtWelcomeTitle..Caption
+#: DuGet.MainFrm.dfm:603
+msgid "Welcome to DuGet"
+msgstr "Benvenuto in DuGet"
+
 #. modPackage..fdmPackages..fdmPackagesID..FieldName
 #: DuGet.Modules.Package.dfm:17
 msgid "ID"
@@ -244,13 +252,13 @@ msgstr "HTML_URL"
 
 #. modPackage..fdmPackages..fdmPackagesDESCRIPTION..FieldName
 #. frmPackageDetail..BindingsList..LinkControlToField1..FieldName
-#: DuGet.Modules.Package.dfm:36 DuGet.PackagesDetailFrm.dfm:5356
+#: DuGet.Modules.Package.dfm:36 DuGet.PackagesDetailFrm.dfm:5350
 msgid "DESCRIPTION"
 msgstr "DESCRIPTION"
 
 #. modPackage..fdmPackages..fdmPackagesURL..FieldName
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText..FieldName
-#: DuGet.Modules.Package.dfm:40 DuGet.PackagesDetailFrm.dfm:5384
+#: DuGet.Modules.Package.dfm:40 DuGet.PackagesDetailFrm.dfm:5378
 msgid "URL"
 msgstr "URL"
 
@@ -261,19 +269,19 @@ msgstr "DOWNLOADS_URL"
 
 #. modPackage..fdmPackages..fdmPackagesCREATED_AT..FieldName
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption6..FieldName
-#: DuGet.Modules.Package.dfm:48 DuGet.PackagesDetailFrm.dfm:5370
+#: DuGet.Modules.Package.dfm:48 DuGet.PackagesDetailFrm.dfm:5364
 msgid "CREATED_AT"
 msgstr "CREATED_AT"
 
 #. modPackage..fdmPackages..fdmPackagesUPDATED_AT..FieldName
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption5..FieldName
-#: DuGet.Modules.Package.dfm:51 DuGet.PackagesDetailFrm.dfm:5363
+#: DuGet.Modules.Package.dfm:51 DuGet.PackagesDetailFrm.dfm:5357
 msgid "UPDATED_AT"
 msgstr "UPDATED_AT"
 
 #. modPackage..fdmPackages..fdmPackagesCLONE_URL..FieldName
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText2..FieldName
-#: DuGet.Modules.Package.dfm:54 DuGet.PackagesDetailFrm.dfm:5391
+#: DuGet.Modules.Package.dfm:54 DuGet.PackagesDetailFrm.dfm:5385
 msgid "CLONE_URL"
 msgstr "CLONE_URL"
 
@@ -304,7 +312,7 @@ msgstr "LOGO_CACHED_FILEPATH"
 
 #. modPackage..fdmPackages..fdmPackagesLICENSES_TYPE..FieldName
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption2..FieldName
-#: DuGet.Modules.Package.dfm:78 DuGet.PackagesDetailFrm.dfm:5349
+#: DuGet.Modules.Package.dfm:78 DuGet.PackagesDetailFrm.dfm:5343
 msgid "LICENSES_TYPE"
 msgstr "LICENSES_TYPE"
 
@@ -315,7 +323,7 @@ msgstr "OWNER_ID"
 
 #. modPackage..fdmPackages..fdmPackagesOWNER_LOGIN..FieldName
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption4..FieldName
-#: DuGet.Modules.Package.dfm:85 DuGet.PackagesDetailFrm.dfm:5342
+#: DuGet.Modules.Package.dfm:85 DuGet.PackagesDetailFrm.dfm:5336
 msgid "OWNER_LOGIN"
 msgstr "OWNER_LOGIN"
 
@@ -331,7 +339,7 @@ msgstr "OWNER_AVATAR_URL"
 
 #. modPackage..fdmPackages..fdmPackagesPACKAGE_NAME..FieldName
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption7..FieldName
-#: DuGet.Modules.Package.dfm:98 DuGet.PackagesDetailFrm.dfm:5377
+#: DuGet.Modules.Package.dfm:98 DuGet.PackagesDetailFrm.dfm:5371
 msgid "PACKAGE_NAME"
 msgstr "PACKAGE_NAME"
 
@@ -388,10 +396,10 @@ msgstr "Url per clonare:"
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption7..Category
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText..Category
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText2..Category
-#: DuGet.PackagesDetailFrm.dfm:5340 DuGet.PackagesDetailFrm.dfm:5347
-#: DuGet.PackagesDetailFrm.dfm:5354 DuGet.PackagesDetailFrm.dfm:5361
-#: DuGet.PackagesDetailFrm.dfm:5368 DuGet.PackagesDetailFrm.dfm:5375
-#: DuGet.PackagesDetailFrm.dfm:5382 DuGet.PackagesDetailFrm.dfm:5389
+#: DuGet.PackagesDetailFrm.dfm:5334 DuGet.PackagesDetailFrm.dfm:5341
+#: DuGet.PackagesDetailFrm.dfm:5348 DuGet.PackagesDetailFrm.dfm:5355
+#: DuGet.PackagesDetailFrm.dfm:5362 DuGet.PackagesDetailFrm.dfm:5369
+#: DuGet.PackagesDetailFrm.dfm:5376 DuGet.PackagesDetailFrm.dfm:5383
 msgid "Quick Bindings"
 msgstr "Quick Bindings"
 
@@ -400,15 +408,15 @@ msgstr "Quick Bindings"
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption5..ComponentProperty
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption6..ComponentProperty
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldCaption7..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5344 DuGet.PackagesDetailFrm.dfm:5351
-#: DuGet.PackagesDetailFrm.dfm:5365 DuGet.PackagesDetailFrm.dfm:5372
-#: DuGet.PackagesDetailFrm.dfm:5379
+#: DuGet.PackagesDetailFrm.dfm:5338 DuGet.PackagesDetailFrm.dfm:5345
+#: DuGet.PackagesDetailFrm.dfm:5359 DuGet.PackagesDetailFrm.dfm:5366
+#: DuGet.PackagesDetailFrm.dfm:5373
 msgid "Caption"
 msgstr "Caption"
 
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText..ComponentProperty
 #. frmPackageDetail..BindingsList..LinkPropertyToFieldEditText2..ComponentProperty
-#: DuGet.PackagesDetailFrm.dfm:5386 DuGet.PackagesDetailFrm.dfm:5393
+#: DuGet.PackagesDetailFrm.dfm:5380 DuGet.PackagesDetailFrm.dfm:5387
 msgid "Edit.Text"
 msgstr "Edit.Text"
 
@@ -493,15 +501,15 @@ msgstr "Impossibile caricare le informazioni sulla licenza. Errore: %s"
 msgid "Unable to retrieve the version information"
 msgstr "Impossibile ottenere le informazioni sulla versione"
 
-#: DuGet.App.Settings.pas:156
+#: DuGet.App.Settings.pas:162
 msgid "Settings are invalid"
 msgstr "Le impostazioni non sono valide"
 
-#: DuGet.App.Settings.pas:166
+#: DuGet.App.Settings.pas:172
 msgid "Unable to load the application settings. Error: %s"
 msgstr "Impossibile caricare le impostazioni dell'applicazione. Errore: %s"
 
-#: DuGet.App.Settings.pas:210
+#: DuGet.App.Settings.pas:216
 msgid "Unable to update the application settings. Error: %s"
 msgstr "Impossibile aggiornare le impostazioni dell'applicazione. Errore: %s"
 
@@ -551,15 +559,15 @@ msgstr ""
 "Impossibile ottenere la lista dei pacchetti.\n"
 "Errore: %s"
 
-#: DuGet.SettingsFrm.pas:71
+#: DuGet.SettingsFrm.pas:72
 msgid "You have to type your personal access token"
 msgstr "Devi inserire il tuo token di accesso personale"
 
-#: DuGet.SettingsFrm.pas:77
+#: DuGet.SettingsFrm.pas:78
 msgid "Settings are saved"
 msgstr "Le impostazioni sono state salvate"
 
-#: DuGet.SettingsFrm.pas:96
+#: DuGet.SettingsFrm.pas:97
 msgid ""
 "You have to type your personal access token in order to get the list of "
 "packages"
@@ -567,60 +575,38 @@ msgstr ""
 "Devi inserire il tuo token di accesso personale per poter ottenere la lista "
 "dei pacchetti"
 
-#. Programmer's name: BLOCK
-#: duget_version.rc:29
-msgid "StringFileInfo"
-msgstr "StringFileInfo"
+#~ msgid "StringFileInfo"
+#~ msgstr "StringFileInfo"
 
-#. Programmer's name: BLOCK
-#: duget_version.rc:31
-msgid "040904E4"
-msgstr "040904E4"
+#~ msgid "040904E4"
+#~ msgstr "040904E4"
 
-#. Programmer's name: VALUE
-#: duget_version.rc:33
-msgid "CompanyName"
-msgstr "CompanyName"
+#~ msgid "CompanyName"
+#~ msgstr "CompanyName"
 
-#. Programmer's name: VALUE
-#: duget_version.rc:34
-msgid "FileDescription"
-msgstr "FileDescription"
+#~ msgid "FileDescription"
+#~ msgstr "FileDescription"
 
-#. Programmer's name: VALUE
-#: duget_version.rc:35
-msgid "FileVersion"
-msgstr "FileVersion"
+#~ msgid "FileVersion"
+#~ msgstr "FileVersion"
 
-#. Programmer's name: VALUE
-#: duget_version.rc:36
-msgid "InternalName"
-msgstr "InternalName"
+#~ msgid "InternalName"
+#~ msgstr "InternalName"
 
-#. Programmer's name: VALUE
-#: duget_version.rc:37
-msgid "LegalCopyright"
-msgstr "LegalCopyright"
+#~ msgid "LegalCopyright"
+#~ msgstr "LegalCopyright"
 
-#. Programmer's name: VALUE
-#: duget_version.rc:38
-msgid "ProductName"
-msgstr "ProductName"
+#~ msgid "ProductName"
+#~ msgstr "ProductName"
 
-#. Programmer's name: VALUE
-#: duget_version.rc:39
-msgid "ProductVersion"
-msgstr "ProductVersion"
+#~ msgid "ProductVersion"
+#~ msgstr "ProductVersion"
 
-#. Programmer's name: BLOCK
-#: duget_version.rc:42
-msgid "VarFileInfo"
-msgstr "VarFileInfo"
+#~ msgid "VarFileInfo"
+#~ msgstr "VarFileInfo"
 
-#. Programmer's name: VALUE
-#: duget_version.rc:44
-msgid "Translation"
-msgstr "Translation"
+#~ msgid "Translation"
+#~ msgstr "Translation"
 
 #~ msgid "https://embarcadero.com/"
 #~ msgstr "https://embarcadero.com/"
