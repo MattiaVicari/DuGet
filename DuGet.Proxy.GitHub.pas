@@ -52,9 +52,10 @@ uses
   DuGet.Utils, DuGet.HttpClient;
 
 const
+  GitHubItemsForPage = 100;
   GitHubTokenHelpUrl = 'https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line';
   // I use the Delphinus system to find the packages (Delphinus-Support)
-  GitHubSearchUrl = 'https://api.github.com/search/repositories?q="Delphinus-Support"+in:readme&per_page=100';
+  GitHubSearchUrl = 'https://api.github.com/search/repositories?q="Delphinus-Support"+in:readme&per_page=%d&page=%d';
   GitHubContentUrl = 'https://api.github.com/repos/%s/%s/contents/%s?ref=%s';
 
 { TDuGetProxyGitHub }
@@ -161,6 +162,7 @@ var
   JsonResponse: TJSONObject;
   Items: TJSONArray;
   Item: TJSONValue;
+  Page, NumberOfPages, PackagesCount: Integer;
 begin
   if FAccessToken = '' then
     raise Exception.Create(Format(_('You have to provide your personal access token for GitHub API.' + sLineBreak +
@@ -180,27 +182,43 @@ begin
 
       JsonResponse := TJSONObject.Create;
       try
-        Response := HttpClient.Get(GitHubSearchUrl);
 
-        JsonResponse.Parse(TEncoding.UTF8.GetBytes(Response), 0);
-        Items := TJSONArray(JsonResponse.GetValue('items'));
-        for Item in Items do
-        begin
-          Info := TPackageInfo.ParseJSON(TJSONObject(Item));
+        Page := 0;
+        NumberOfPages := 0;
+        repeat
+          Inc(Page);
+          Response := HttpClient.Get(Format(GitHubSearchUrl, [GitHubItemsForPage, Page]));
 
-          try
-            LoadMetadata(Info); // Extra info from metadata file
-            FPackagesList.Add(Info);
-            UpdateCache(Info);
-          except
-            on E: Exception do
-            begin
-              Info.Free;
-              raise;
-            end;
+          JsonResponse.Parse(TEncoding.UTF8.GetBytes(Response), 0);
+
+          if Page = 1 then
+          begin
+            PackagesCount := JsonResponse.GetValue<Integer>('total_count');
+            NumberOfPages := PackagesCount div GitHubItemsForPage;
+            if NumberOfPages = 0 then
+              NumberOfPages := 1;
+            if NumberOfPages * GitHubItemsForPage < PackagesCount then
+              Inc(NumberOfPages);
           end;
 
-        end;
+          Items := TJSONArray(JsonResponse.GetValue('items'));
+          for Item in Items do
+          begin
+            Info := TPackageInfo.ParseJSON(TJSONObject(Item));
+            try
+              LoadMetadata(Info); // Extra info from metadata file
+              FPackagesList.Add(Info);
+              UpdateCache(Info);
+            except
+              on E: Exception do
+              begin
+                Info.Free;
+                raise;
+              end;
+            end;
+          end;
+        until Page >= NumberOfPages;
+
       finally
         JsonResponse.Free;
       end;
