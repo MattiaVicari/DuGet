@@ -370,9 +370,9 @@ procedure TLoadDataThread.Execute;
     Result := True;
     if FFilter <> '' then
     begin
-      Result := AInfo.Name.Contains(FFilter);
-      Result := Result or AInfo.FullName.Contains(FFilter);
-      Result := Result or AInfo.AlternativeName.Contains(FFilter);
+      Result := AInfo.Name.ToUpper.Contains(FFilter.ToUpper);
+      Result := Result or AInfo.FullName.ToUpper.Contains(FFilter.ToUpper);
+      Result := Result or AInfo.AlternativeName.ToUpper.Contains(FFilter.ToUpper);
     end;
   end;
 var

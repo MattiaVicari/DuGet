@@ -87,6 +87,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="ProjectDuGet.rsm" Condition="'$(Config)'=='MSStoreDebug'">
+            <RemoteDir>ProjectDuGet\</RemoteDir>
+            <RemoteName>ProjectDuGet.rsm</RemoteName>
+            <DeployClass>DebugSymbols</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="Assets\SplashScreen.png" Condition="'$(Config)'=='MSStore'">
             <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
             <RemoteName>SplashScreen.png</RemoteName>
@@ -196,6 +205,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="Assets\LogoDefault.png" Condition="'$(Config)'=='MSStoreAdHoc'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>LogoDefault.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="Assets\Logo_150x150.png" Condition="'$(Config)'=='MSStoreDebug'">
             <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
             <RemoteName>Logo150x150.png</RemoteName>
@@ -233,6 +251,15 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
         <DeployFile Include="Assets\LogoDefault.png" Condition="'$(Config)'=='Release'">
+            <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
+            <RemoteName>LogoDefault.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\LogoDefault.png" Condition="'$(Config)'=='MSStoreDebug'">
             <RemoteDir>ProjectDuGet\Assets\</RemoteDir>
             <RemoteName>LogoDefault.png</RemoteName>
             <DeployClass>File</DeployClass>

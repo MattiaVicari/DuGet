@@ -5,7 +5,7 @@
         <FrameworkType>VCL</FrameworkType>
         <MainSource>ProjectDuGet.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">MSStore</Config>
+        <Config Condition="'$(Config)'==''">MSStoreDebug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -123,8 +123,8 @@
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
         <DCC_MapFile>3</DCC_MapFile>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Release>2</VerInfo_Release>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.2.0;InternalName=;LegalCopyright=3DCrypter (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
+        <VerInfo_Release>3</VerInfo_Release>
+        <VerInfo_Keys>CompanyName=3DCrypter;FileDescription=$(MSBuildProjectName);FileVersion=1.0.3.0;InternalName=;LegalCopyright=Mattia Vicari and contributors (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_6_Win32)'!=''">
         <PF_UWPPublisher>CN=Appx Test Root Agency Ex</PF_UWPPublisher>
@@ -135,8 +135,8 @@
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
-        <VerInfo_Release>2</VerInfo_Release>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.2.0;InternalName=;LegalCopyright=3DCrypter (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
+        <VerInfo_Release>3</VerInfo_Release>
+        <VerInfo_Keys>CompanyName=3DCrypter;FileDescription=$(MSBuildProjectName);FileVersion=1.0.3.0;InternalName=;LegalCopyright=Mattia Vicari and contributors (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
         <BT_BuildType>AppStore</BT_BuildType>
         <PF_UWPDistributionType>Store</PF_UWPDistributionType>
     </PropertyGroup>
@@ -151,18 +151,19 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Release>3</VerInfo_Release>
+        <VerInfo_Keys>CompanyName=3DCrypter;FileDescription=$(MSBuildProjectName);FileVersion=1.0.3.0;InternalName=;LegalCopyright=Mattia Vicari and contributors (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_3_Win32)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>DuGet_icon.ico</Icon_MainIcon>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
-        <PF_KeyStorePass>850047CB5FC4070ACF69E520A4687BE9E46B0855A007979E97FF0FD68E643CD0DB48A3D6E35F1C31C1B0572FFA95C375BABB3651043C2288165745F0E5F4228DC949F31ED506FADDBFCAAF0D071E1D0F92013E44C3487208</PF_KeyStorePass>
+        <PF_KeyStorePass>850047CB5FC4070ACF69E520A4687BE9819E0544A01C97EF97BC0FF08E723CD8DB42A384E34B1C30C1EA5730FA9DC338BAE2360A044B22FC162B45DFE5E522CFC948F34CD576FAD0BFE4AF4607021D58F7F6330AC3487208</PF_KeyStorePass>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Release>2</VerInfo_Release>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.2.0;InternalName=;LegalCopyright=3DCrypter (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
+        <VerInfo_Release>3</VerInfo_Release>
+        <VerInfo_Keys>CompanyName=3DCrypter;FileDescription=$(MSBuildProjectName);FileVersion=1.0.3.0;InternalName=;LegalCopyright=Mattia Vicari and contributors (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
         <BT_BuildType>AppStore</BT_BuildType>
-        <PF_KeyStoreSubject>CN=Mattia Vicari</PF_KeyStoreSubject>
-        <PF_UWPDistributionType>AdHoc</PF_UWPDistributionType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_4_Win32)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
@@ -174,9 +175,8 @@
         <PF_UWPPublisherDisplayName>3DCrypter</PF_UWPPublisherDisplayName>
         <BT_BuildType>AppStore</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Release>2</VerInfo_Release>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.2.0;InternalName=;LegalCopyright=3DCrypter (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
-        <PF_UWPDistributionType>Store</PF_UWPDistributionType>
+        <VerInfo_Release>3</VerInfo_Release>
+        <VerInfo_Keys>CompanyName=3DCrypter;FileDescription=$(MSBuildProjectName);FileVersion=1.0.3.0;InternalName=;LegalCopyright=Mattia Vicari and contributors (C), 2019;LegalTrademarks=;OriginalFilename=;ProgramID=com.the3dcrypter.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.2.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
