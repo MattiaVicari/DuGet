@@ -15,3 +15,6 @@ For the translations I have used the JvGnugettext unit distributed by JEDI inste
 
 If you don't want to use gnugettext for translations, you can comment the definition of GNUGETTEXT in duget.inc.
 If GNUGETTEXT is not defined, the unit DuGet.Translator will be used. In this unit you have to implement your system for translations. 
+
+## UniversalCL
+The version used for DuGet come from the commit 131227da7ad7766e990b83cc1b331f3bdaa7cc78 pushed on 16th Oct 2019.
