@@ -162,7 +162,7 @@ var
   JsonResponse: TJSONObject;
   Items: TJSONArray;
   Item: TJSONValue;
-  Page, NumberOfPages, PackagesCount: Integer;
+  Page, NumberOfPages, PackagesCount, CurrentItem: Integer;
 begin
   if FAccessToken = '' then
     raise Exception.Create(Format(_('You have to provide your personal access token for GitHub API.' + sLineBreak +
@@ -185,6 +185,8 @@ begin
 
         Page := 0;
         NumberOfPages := 0;
+        CurrentItem := 1;
+        PackagesCount := 0;
         repeat
           Inc(Page);
           Response := HttpClient.Get(Format(GitHubSearchUrl, [GitHubItemsForPage, Page]));
@@ -204,6 +206,8 @@ begin
           Items := TJSONArray(JsonResponse.GetValue('items'));
           for Item in Items do
           begin
+            OnUpdateProgress(PackagesCount, CurrentItem);
+
             Info := TPackageInfo.ParseJSON(TJSONObject(Item));
             try
               LoadMetadata(Info); // Extra info from metadata file
@@ -216,6 +220,8 @@ begin
                 raise;
               end;
             end;
+
+            Inc(CurrentItem);
           end;
         until Page >= NumberOfPages;
 

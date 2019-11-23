@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-11-22 23:22\n"
-"PO-Revision-Date: 2019-11-22 23:22\n"
+"POT-Creation-Date: 2019-11-23 11:29\n"
+"PO-Revision-Date: 2019-11-23 11:29\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,6 +106,10 @@ msgstr ""
 #: DuGet.PackagesListFrm.dfm:113
 #. frmPackagesList..boxMain..boxContent..boxPackageFilter..searchBox..Font.Name
 #: DuGet.PackagesListFrm.dfm:144
+#. frmPackagesList..boxLoadingMsg..txtPackagesFound..Font.Name
+#: DuGet.PackagesListFrm.dfm:179
+#. frmPackagesList..boxLoadingMsg..txtPackagesProgress..Font.Name
+#: DuGet.PackagesListFrm.dfm:194
 #. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..Font.Name
 #: DuGet.PrivacyPolicyFrm.dfm:24
 #. frmPrivacyPolicy..boxMain..boxPrivacyPolicy..boxButtons..Font.Name
@@ -159,6 +163,10 @@ msgstr ""
 #: DuGet.PackagesDetailFrm.dfm:5168
 #. frmPackageDetail..boxMain..boxContent..txtUpdatedAt..Caption
 #: DuGet.PackagesDetailFrm.dfm:5196
+#. frmPackagesList..boxLoadingMsg..txtPackagesFound..Caption
+#: DuGet.PackagesListFrm.dfm:175
+#. frmPackagesList..boxLoadingMsg..txtPackagesProgress..Caption
+#: DuGet.PackagesListFrm.dfm:190
 msgid "..."
 msgstr ""
 
@@ -586,13 +594,21 @@ msgid "Invalid context for the page"
 msgstr ""
 
 #. Author
-#: DuGet.PackagesListFrm.pas:224
+#: DuGet.PackagesListFrm.pas:256
 msgid "Author: %s"
 msgstr ""
 
 #. Licenses
-#: DuGet.PackagesListFrm.pas:242
+#: DuGet.PackagesListFrm.pas:274
 msgid "Licenses: %s"
+msgstr ""
+
+#: DuGet.PackagesListFrm.pas:354
+msgid "%d packages found"
+msgstr ""
+
+#: DuGet.PackagesListFrm.pas:355
+msgid "Loading %d of %d..."
 msgstr ""
 
 #: DuGet.PrivacyPolicyFrm.pas:87
@@ -606,12 +622,12 @@ msgid "Unable to load the privacy policy information. Error: "
 "%s"
 msgstr ""
 
-#: DuGet.Proxy.GitHub.pas:167
+#: DuGet.Proxy.GitHub.pas:169
 msgid "You have to provide your personal access token for GitHub API.\n"
 "See here %s"
 msgstr ""
 
-#: DuGet.Proxy.GitHub.pas:216
+#: DuGet.Proxy.GitHub.pas:240
 msgid "Unable to get the list of packages.\n"
 "Error: %s"
 msgstr ""

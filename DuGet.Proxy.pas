@@ -101,6 +101,7 @@ type
   end;
 
   TProxyType = class of TDuGetProxyBase;
+  TUpdateProgressFunc = procedure(Sender: TObject; NumberOfItems, CurrentItem: Integer) of object;
 
   { Interface of the proxy for get the packages info }
   IDuGetProxy = interface(IInterface)
@@ -111,6 +112,7 @@ type
     function GetAccessToken: string;
     procedure SetAccessToken(const Token: string);
     procedure SetCacheContainer(CDS: TFDMemTable);
+    procedure SetOnUpdateProgress(Func: TUpdateProgressFunc);
     function GetCacheContainer: TFDMemTable;
   end;
 
@@ -121,9 +123,11 @@ type
     FCDSCache: TFDMemTable;
     FCacheFilePath: string;
     FPackagesList: TObjectList<TPackageInfo>;
+    FOnUpdateProgress: TUpdateProgressFunc;
     function LookupCache: Boolean;
     procedure UpdateCache(Info: TPackageInfo);
     procedure SaveCache;
+    procedure OnUpdateProgress(NumberOfPackages, CurrentItem: Integer);
   public
     property CacheFilePath: string read FCacheFilePath;
 
@@ -132,6 +136,7 @@ type
     function GetAccessToken: string;
     procedure SetAccessToken(const Token: string);
     procedure SetCacheContainer(CDS: TFDMemTable);
+    procedure SetOnUpdateProgress(Func: TUpdateProgressFunc);
     function GetCacheContainer: TFDMemTable;
     procedure ClearData;
 
@@ -394,6 +399,13 @@ begin
 
 end;
 
+procedure TDuGetProxyBase.OnUpdateProgress(NumberOfPackages,
+  CurrentItem: Integer);
+begin
+  if Assigned(FOnUpdateProgress) then
+    FOnUpdateProgress(Self, NumberOfPackages, CurrentItem);
+end;
+
 procedure TDuGetProxyBase.SaveCache;
 begin
   if not Assigned(FCDSCache) then
@@ -412,6 +424,11 @@ end;
 procedure TDuGetProxyBase.SetCacheContainer(CDS: TFDMemTable);
 begin
   FCDSCache := CDS;
+end;
+
+procedure TDuGetProxyBase.SetOnUpdateProgress(Func: TUpdateProgressFunc);
+begin
+  FOnUpdateProgress := Func;
 end;
 
 procedure TDuGetProxyBase.UpdateCache(Info: TPackageInfo);

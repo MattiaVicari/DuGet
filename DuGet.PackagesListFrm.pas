@@ -32,7 +32,8 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, UCL.TUSymbolButton,
-  DuGet.BaseFrm, DuGet.Proxy, DuGet.Modules.Package, Vcl.Imaging.pngimage;
+  DuGet.BaseFrm, DuGet.Proxy, DuGet.Modules.Package, Vcl.Imaging.pngimage,
+  Vcl.WinXPanels;
 
 type
   TfrmPackagesList = class(TfrmBase)
@@ -40,6 +41,9 @@ type
     boxPackageFilter: TUPanel;
     btnRefresh: TUSymbolButton;
     searchBox: TSearchBox;
+    txtPackagesFound: TUText;
+    txtPackagesProgress: TUText;
+    boxLoadingMsg: TStackPanel;
     procedure listPackagesCustomDrawItem(Sender: TCustomListView;
       Item: TListItem; State: TCustomDrawState; var DefaultDraw: Boolean);
     procedure listPackagesSelectItem(Sender: TObject; Item: TListItem;
@@ -48,6 +52,7 @@ type
     procedure searchBoxInvokeSearch(Sender: TObject);
     procedure listPackagesMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
+    procedure FrameResize(Sender: TObject);
   private
     FItemSelected, FItemOver: Integer;
     FFilter: string;
@@ -56,6 +61,8 @@ type
     FDefaultLogoGraphic: TGraphic;
     FCacheLogoList: TObjectDictionary<string, TGraphic>;
     procedure LoadTerminated(Sender: TObject);
+    procedure UpdateProgress(Sender: TObject; NumberOfItems, CurrentItem: Integer);
+    procedure AddPackage(Sender: TObject; PackageInfo: TPackageInfo);
     procedure LoadList;
   protected
     procedure OnChangeTheme(Sender: TObject; Theme: TUTheme); override;
@@ -65,19 +72,24 @@ type
     destructor Destroy; override;
   end;
 
+  TAddPackage = procedure(Sender: TObject; PackageInfo: TPackageInfo) of object;
+
   TLoadDataThread = class(TThread)
   private
     FProxy: IDuGetProxy;
-    FDataList: TListView;
     FCacheCDS: TFDMemTable;
     FFilter: string;
+    FUpdateProgress: TUpdateProgressFunc;
+    FAddPackage: TAddPackage;
+    procedure UpdateProgress(Sender: TObject; NumberOfItems, CurrentItem: Integer);
   protected
     procedure Execute; override;
   public
     property Proxy: IDuGetProxy read FProxy write FProxy;
     property Filter: string read FFilter write FFilter;
-    property DataList: TListView read FDataList write FDataList;
     property CacheCDS: TFDMemTable read FCacheCDS write FCacheCDS;
+    property OnUpdateProgress: TUpdateProgressFunc read FUpdateProgress write FUpdateProgress;
+    property OnAddPackage: TAddPackage read FAddPackage write FAddPackage;
   end;
 
 implementation
@@ -99,6 +111,19 @@ const
   LogoSize = 100;
 
 { TfrmPackagesList }
+
+procedure TfrmPackagesList.AddPackage(Sender: TObject; PackageInfo: TPackageInfo);
+begin
+  listPackages.Items.BeginUpdate;
+  try
+    with listPackages.Items.Add do
+    begin
+      Data := PackageInfo;
+    end;
+  finally
+    listPackages.Items.EndUpdate;
+  end;
+end;
 
 procedure TfrmPackagesList.btnRefreshClick(Sender: TObject);
 begin
@@ -137,6 +162,13 @@ begin
   FDefaultLogoGraphic.Free;
   FCacheLogoList.Free;
   inherited;
+end;
+
+procedure TfrmPackagesList.FrameResize(Sender: TObject);
+begin
+  inherited;
+  boxLoadingMsg.Top := ActivityIndicator.Top + ActivityIndicator.Height + 10;
+  boxLoadingMsg.Left := (ClientWidth - boxLoadingMsg.Width) div 2;
 end;
 
 procedure TfrmPackagesList.listPackagesCustomDrawItem(Sender: TCustomListView;
@@ -262,23 +294,36 @@ begin
 end;
 
 procedure TfrmPackagesList.LoadList;
+  procedure ClearPackagesList;
+  begin
+    listPackages.Items.BeginUpdate;
+    try
+      listPackages.Items.Clear;
+    finally
+      listPackages.Items.EndUpdate;
+    end;
+  end;
 var
   LoadThread: TLoadDataThread;
 begin
   IsBusy := True;
+  ClearPackagesList;
+
   LoadThread := TLoadDataThread.Create(True);
   LoadThread.FreeOnTerminate := True;
   LoadThread.Proxy := FProxy;
   LoadThread.Filter := FFilter;
   LoadThread.CacheCDS := FModulePackage.Data;
-  LoadThread.DataList := listPackages;
   LoadThread.OnTerminate := LoadTerminated;
+  LoadThread.OnUpdateProgress := UpdateProgress;
+  LoadThread.OnAddPackage := AddPackage;
   LoadThread.Start;
 end;
 
 procedure TfrmPackagesList.LoadTerminated(Sender: TObject);
 begin
   IsBusy := False;
+  boxLoadingMsg.Visible := False;
 end;
 
 procedure TfrmPackagesList.OnAppear(Sender: TObject);
@@ -300,6 +345,14 @@ begin
     listPackages.Color := clBlack;
     listPackages.Font.Color := clWhite;
   end;
+end;
+
+procedure TfrmPackagesList.UpdateProgress(Sender: TObject; NumberOfItems,
+  CurrentItem: Integer);
+begin
+  boxLoadingMsg.Visible := True;
+  txtPackagesFound.Caption := Format(_('%d packages found'), [NumberOfItems]);
+  txtPackagesProgress.Caption := Format(_('Loading %d of %d...'), [CurrentItem, NumberOfItems]);
 end;
 
 procedure TfrmPackagesList.searchBoxInvokeSearch(Sender: TObject);
@@ -327,35 +380,32 @@ var
 begin
   inherited;
 
-  Synchronize(procedure
-  begin
-    FDataList.Items.BeginUpdate;
-    try
-      FDataList.Items.Clear;
-    finally
-      FDataList.Items.EndUpdate;
-    end;
-  end);
-
   FProxy.SetAccessToken(TAppSettings.Instance.Token);
   FProxy.SetCacheContainer(FCacheCDS);
+  FProxy.SetOnUpdateProgress(UpdateProgress);
+
   for Info in FProxy.GetPackagesList do
   begin
     if CheckFilter(Info) then
     begin
       Synchronize(procedure
         begin
-          FDataList.Items.BeginUpdate;
-          try
-            with FDataList.Items.Add do
-            begin
-              Data := Info;
-            end;
-          finally
-            FDataList.Items.EndUpdate;
-          end;
+          if Assigned(FAddPackage) then
+            FAddPackage(Self, Info);
         end);
-      end;
+    end;
+  end;
+end;
+
+procedure TLoadDataThread.UpdateProgress(Sender: TObject; NumberOfItems,
+  CurrentItem: Integer);
+begin
+  if Assigned(FUpdateProgress) then
+  begin
+    Synchronize(procedure
+      begin
+        FUpdateProgress(Sender, NumberOfItems, CurrentItem);
+      end);
   end;
 end;
 

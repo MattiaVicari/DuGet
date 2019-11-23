@@ -151,4 +151,51 @@ inherited frmPackagesList: TfrmPackagesList
       end
     end
   end
+  object boxLoadingMsg: TStackPanel [2]
+    Left = 128
+    Top = 248
+    Width = 329
+    Height = 73
+    BevelOuter = bvNone
+    ControlCollection = <
+      item
+        Control = txtPackagesFound
+      end
+      item
+        Control = txtPackagesProgress
+      end>
+    HorizontalPositioning = sphpCenter
+    TabOrder = 2
+    Visible = False
+    object txtPackagesFound: TUText
+      Left = 158
+      Top = 0
+      Width = 12
+      Height = 28
+      Caption = '...'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      ThemeManager = AppThemeManager
+      TextKind = tkHeading
+    end
+    object txtPackagesProgress: TUText
+      Left = 160
+      Top = 30
+      Width = 9
+      Height = 15
+      Caption = '...'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6710886
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      ThemeManager = AppThemeManager
+      TextKind = tkDescription
+    end
+  end
 end
